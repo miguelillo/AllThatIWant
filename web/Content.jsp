@@ -1,7 +1,12 @@
+<%@page import="org.mig.java.Entities.Usuarios"%>
 <!-- HOME -->
 <section id="home" class="padbot0">
 
     <!-- TOP SLIDER -->
+    <%
+        Usuarios sesion = (Usuarios) request.getSession().getAttribute("clienteSesion");
+        if (sesion == null) {
+    %>    
     <div class="flexslider top_slider">
         <ul class="slides">
             <li class="slide1">
@@ -56,6 +61,15 @@
             </li>
         </ul>
     </div><!-- //TOP SLIDER -->
+
+
+    <%} else {%>
+    <style>
+        .container{
+            marging-top:50px;
+        }
+    </style>
+    <%}%>
 </section><!-- //HOME -->
 
 
@@ -63,7 +77,7 @@
 <section class="tovar_section">
 
     <!-- CONTAINER -->
-    <div class="container">
+    <div class="container containerFix">
         <h2>Featured products</h2>
 
         <!-- ROW -->

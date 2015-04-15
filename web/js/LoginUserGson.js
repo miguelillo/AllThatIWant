@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $(".form-signin").submit(function () {
-        $(".help-block-Login").html('<img src="img/loading.gif"/>');
+        $(".help-block-Login").html('<img src="images/loading.gif"/>');
         $.ajax({
             url: 'LoginUsuario',
             type: 'POST',
