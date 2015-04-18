@@ -8,6 +8,10 @@
         <servlet-name>LoginUsuarioGson</servlet-name>
         <servlet-class>org.mig.java.GsonServlets.LoginUsuarioGson</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MostrarProductos</servlet-name>
+        <servlet-class>org.mig.java.Commands.MostrarProductos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/Controller</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>LoginUsuarioGson</servlet-name>
         <url-pattern>/LoginUsuarioGson</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MostrarProductos</servlet-name>
+        <url-pattern>/MostrarProductos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -59,6 +59,7 @@ public class DAOProductos implements IProductos {
     private static final String CANTIDAD_WISH_LIST = "SELECT COUNT( * ) FROM usuario_wishList WHERE usuario =  ?";
     private static final String WISH_LIST = "SELECT * FROM usuario_wishList INNER JOIN productos ON usuario_wishList.Producto = productos.Referencia WHERE usuario_wishList.Usuario =  ? LIMIT 0 , 30";
     private static final String INSERT_WISH_LIST = "INSERT INTO `usuario_wishList`(`Usuario`, `Producto`) VALUES (?,?)";
+    private static final String MOSTRAR_PRODUCTOS = "SELECT * FROM `productos` ORDER BY `Fecha_Catalogo` LIMIT 1,5";
 
     @Override
     public void insertarProducto(Productos producto, Tiendas tienda) {
@@ -162,6 +163,29 @@ public class DAOProductos implements IProductos {
         return listaProductos;
     }
 
+    @Override
+    public void InsertarWishList(Productos producto, Usuarios usuario) {
+        Object[] wishListValues = {
+            producto.getReferencia(),
+            usuario.getMail()
+        };
+
+        try {
+            Connection connection = daoFactory.getConnection();
+
+            PreparedStatement preparedStatement = prepareStatement(connection, INSERT_WISH_LIST, wishListValues);
+
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new Exception("Error al añadir el producto a la Wish List.");
+            }
+
+        } catch (Exception ex) {
+
+        }
+    }
+
     private Productos obtenerFilaProducto(ResultSet rs) throws SQLException {
 
         Productos filaProducto = new Productos();
@@ -179,6 +203,35 @@ public class DAOProductos implements IProductos {
 
         return filaProducto;
 
+    }
+
+    @Override
+    public List<Productos> mostrarProductos() {
+        Productos producto;
+        ArrayList<Productos> listaProductos = new ArrayList<>();
+        try {
+            Connection connection = daoFactory.getConnection();
+
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_PRODUCTOS);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                producto = obtenerFilaProducto(rs);
+                listaProductos.add(producto);
+
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listaProductos;
+    }
+
+    @Override
+    public List<Productos> mostrarProductosUsuario(Usuarios usuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

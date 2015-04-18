@@ -16,6 +16,10 @@ import org.mig.java.Entities.Usuarios;
  */
 public interface IProductos {
 
+    public List<Productos> mostrarProductos();
+    
+    public List<Productos> mostrarProductosUsuario(Usuarios usuario);
+
     public void insertarProducto(Productos producto, Tiendas tienda);
 
     public void borrarProducto(Productos producto, Tiendas tienda);
@@ -27,5 +31,7 @@ public interface IProductos {
     public Integer cantidadProductosWishList(Usuarios usuario);
 
     public List<Productos> mostrarWishList(Usuarios usuario);
+
+    public void InsertarWishList(Productos producto, Usuarios usuario);
 
 }

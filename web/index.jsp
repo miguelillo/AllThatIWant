@@ -68,6 +68,7 @@
 
                                     if (sesion == null) {
                                 %>
+                                
                                 <li><a data-toggle="modal" data-target=".bs-example-modal-sm" >Login</a></li>
                                 <li><a href="my-account.html" >Registro</a></li>
                                     <%} else {

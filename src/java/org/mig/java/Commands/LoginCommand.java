@@ -8,14 +8,13 @@ package org.mig.java.Commands;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
-import org.mig.java.BLL.UsuarioBLL;
 import org.mig.java.Entities.Usuarios;
 
 /**
  * @author miguelangel
  */
 public class LoginCommand extends ICommand {
-    
+
     @Override
     public void initPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ProductosBLL productosBll = new ProductosBLL();
@@ -24,16 +23,15 @@ public class LoginCommand extends ICommand {
 
         request.getSession().setAttribute("cantidadWishItems", cantidadWishItems);
     }
-    
+
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        UsuarioBLL usuarioBll = new UsuarioBLL();
-        
+
         Usuarios sesion = (Usuarios) request.getSession().getAttribute("usuarioValido");
-        
+
         request.getSession().setAttribute("clienteSesion", sesion);
-        
+
         return "Content.jsp";
     }
-    
+
 }

@@ -42,4 +42,20 @@ public class ProductosBLL {
 
         return daoProductos.mostrarWishList(usuario);
     }
+
+    public void InsertarWishList(Productos producto) {
+        DAOFactory daoFactory = DAOFactory.getInstance();
+
+        IProductos daoProductos = daoFactory.getProductosDAO();
+
+    }
+
+    public List<Productos> MostrarProductos() {
+        DAOFactory daoFactory = DAOFactory.getInstance();
+
+        IProductos daoProductos = daoFactory.getProductosDAO();
+
+        return daoProductos.mostrarProductos();
+
+    }
 }
