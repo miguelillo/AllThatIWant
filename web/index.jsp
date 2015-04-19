@@ -68,7 +68,7 @@
 
                                     if (sesion == null) {
                                 %>
-                                
+
                                 <li><a data-toggle="modal" data-target=".bs-example-modal-sm" >Login</a></li>
                                 <li><a href="my-account.html" >Registro</a></li>
                                     <%} else {
@@ -107,8 +107,8 @@
                                 <a class="top_search_btn" href="javascript:void(0);" ><i class="fa fa-search"></i></a>
                                 <form method="get" action="#">
                                     <input type="text" name="search" value="Search" onFocus="if (this.value == 'Search')
-                                            this.value = '';" onBlur="if (this.value == '')
-                                                        this.value = 'Search';" />
+                                                this.value = '';" onBlur="if (this.value == '')
+                                                            this.value = 'Search';" />
                                 </form>
                             </div><!-- SEARCH FORM -->
 
@@ -214,34 +214,17 @@
                     </div><!-- //CONTAINER -->
                 </header><!-- //HEADER -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <%String pagina = (String) request.getSession().getAttribute("pagina");
 
-                    if (pagina != null) {%>
+                    if (pagina != null) {
+
+                %>
+
+
                 <jsp:include page="<%=pagina%>"></jsp:include>
-                <%} else {%><jsp:include page="Content.jsp"></jsp:include>
+                <%} else {%>
+                <jsp:include page="Content.jsp"></jsp:include>
                 <%}%>
-
-
-
-
-
-
-
-
-
 
 
                 <!-- SCRIPTS -->
