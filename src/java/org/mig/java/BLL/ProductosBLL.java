@@ -17,6 +17,14 @@ import org.mig.java.Interfaces.IProductos;
  */
 public class ProductosBLL {
 
+    public Productos mostrarProducto(Productos producto) {
+        DAOFactory dAOFactory = DAOFactory.getInstance();
+
+        IProductos daoProductos = dAOFactory.getProductosDAO();
+
+        return daoProductos.mostrarProducto(producto);
+    }
+
     public void insertarProducto(Productos producto, Tiendas tienda) {
         DAOFactory daoFactory = DAOFactory.getInstance();
 
