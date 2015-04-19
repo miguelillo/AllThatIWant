@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.mig.java.Commands;
+package org.mig.java.Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,7 +19,7 @@ import org.mig.java.Entities.Productos;
  *
  * @author miguelangel
  */
-public class MostrarProductos extends HttpServlet {
+public class IndexServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,8 +32,11 @@ public class MostrarProductos extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        ProductosBLL productosBll = new ProductosBLL();
+        List<Productos> listaProductos = productosBll.MostrarProductos();
 
-        
+        request.getSession().setAttribute("listaProductos", listaProductos);
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

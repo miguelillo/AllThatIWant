@@ -12,6 +12,10 @@
         <servlet-name>MostrarProductos</servlet-name>
         <servlet-class>org.mig.java.Commands.MostrarProductos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>org.mig.java.Servlets.IndexServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/Controller</url-pattern>
@@ -24,9 +28,16 @@
         <servlet-name>MostrarProductos</servlet-name>
         <url-pattern>/MostrarProductos</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/IndexServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>IndexServlet</welcome-file>
+    </welcome-file-list>
 </web-app>
