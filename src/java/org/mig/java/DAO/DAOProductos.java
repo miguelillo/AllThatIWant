@@ -40,6 +40,7 @@ public class DAOProductos implements IProductos {
     }
 
     //SQL's
+    String MOSTRAR_PRODUCTO = "SELECT *  FROM productos WHERE referencia =  ?";
     String INSERTAR_PRODUCTOS = "INSERT INTO proyectofinaldaw.productos ("
             + "`Referencia`, "
             + "`Precio`, "
@@ -110,6 +111,34 @@ public class DAOProductos implements IProductos {
     @Override
     public void modificarProducto(Productos producto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Productos mostrarProducto(Productos producto) {
+
+        try {
+            Object[] values = {
+                producto.getReferencia()
+            };
+
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_PRODUCTO, values);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                producto = obtenerFilaProducto(rs);
+            } else {
+                throw new Exception("El Producto no existe");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return producto;
     }
 
     @Override

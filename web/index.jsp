@@ -98,11 +98,11 @@
 
                             <!-- LOGO -->
                             <div class="logo">
-                                <a href="index.html" ><img src="images/logo.png" alt="" /></a>
+                                <a href="Controller?opID=RedirectContent" ><img src="images/logo.png" alt="" /></a>
                             </div><!-- //LOGO -->
 
 
-                            <!-- SEARCH FORM -->
+                    <!-- SEARCH FORM -->
                             <div class="top_search_form">
                                 <a class="top_search_btn" href="javascript:void(0);" ><i class="fa fa-search"></i></a>
                                 <form method="get" action="#">
@@ -111,7 +111,6 @@
                                                             this.value = 'Search';" />
                                 </form>
                             </div><!-- SEARCH FORM -->
-
 
                             <!-- SHOPPING BAG -->
                             <div class="shopping_bag">

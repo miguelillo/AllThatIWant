@@ -9,10 +9,6 @@
         <servlet-class>org.mig.java.GsonServlets.LoginUsuarioGson</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>MostrarProductos</servlet-name>
-        <servlet-class>org.mig.java.Commands.MostrarProductos</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>IndexServlet</servlet-name>
         <servlet-class>org.mig.java.Servlets.IndexServlet</servlet-class>
     </servlet>
@@ -23,10 +19,6 @@
     <servlet-mapping>
         <servlet-name>LoginUsuarioGson</servlet-name>
         <url-pattern>/LoginUsuarioGson</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MostrarProductos</servlet-name>
-        <url-pattern>/MostrarProductos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
