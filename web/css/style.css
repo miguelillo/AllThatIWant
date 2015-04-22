@@ -2580,7 +2580,7 @@ ul.comments li ul li{
     background-repeat:no-repeat;
     cursor: w-resize;
     transition: none !important;
-    -webkit-transition: !important;
+    -webkit-transition:none !important;
 }
 #price-range .ui-slider-horizontal .ui-slider-range {
     position: absolute;

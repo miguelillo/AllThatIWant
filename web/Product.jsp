@@ -51,6 +51,7 @@
                 String precio = String.valueOf(producto.getPrecio());
                 String marca = producto.getColor();
                 String talla = producto.getTalla();
+                
 
 
             %>
