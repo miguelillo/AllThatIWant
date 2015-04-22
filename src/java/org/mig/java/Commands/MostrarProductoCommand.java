@@ -25,7 +25,7 @@ public class MostrarProductoCommand extends ICommand {
         
         Productos producto = productosBll.mostrarProducto(productoRecibido);
 
-        request.getSession().setAttribute("Producto", producto);
+        request.setAttribute("MostrarProducto", producto);
 
         return "Product.jsp";
     }

@@ -48,14 +48,14 @@ public class Controller extends HttpServlet {
 
             pagina = command.executePage(request, response);
 
-            request.getSession().setAttribute("pagina", pagina);
+            request.setAttribute("pagina", pagina);
             request.getRequestDispatcher("index.jsp").forward(request, response);
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
-            request.getSession().setAttribute("error", ex.getMessage());
-            request.getSession().setAttribute("pagina", pagina);
+            request.setAttribute("error", ex.getMessage());
+            request.setAttribute("pagina", pagina);
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }

@@ -1,4 +1,7 @@
 <%@page import="org.mig.java.Entities.Productos"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%    request.setCharacterEncoding("UTF8");   %>
 <!-- BREADCRUMBS -->
 <section class="breadcrumb parallax margbot30"></section>
 <!-- //BREADCRUMBS -->
@@ -41,7 +44,8 @@
                 </ul>
             </div><!-- //SIDEBAR TOVAR DETAILS -->
             <%
-                Productos producto = (Productos) request.getSession().getAttribute("Producto");
+
+                Productos producto = (Productos) request.getAttribute("MostrarProducto");
                 String referencia = producto.getReferencia();
                 String nombre = producto.getNombre();
                 String precio = String.valueOf(producto.getPrecio());
@@ -54,12 +58,7 @@
             <div class="col-lg-9 col-md-9 tovar_details_wrapper clearfix">
                 <div class="tovar_details_header clearfix margbot35">
                     <h3 class="pull-left"><b>Sweaters</b></h3>
-
-                    <div class="tovar_details_pagination pull-right">
-                        <a class="fa fa-angle-left" href="javascript:void(0);" ></a>
-                        <span>2 of 34</span>
-                        <a class="fa fa-angle-right" href="javascript:void(0);" ></a>
-                    </div>
+                  
                 </div>
 
                 <!-- CLEARFIX -->
@@ -84,11 +83,11 @@
                     </div>
 
                     <div class="tovar_view_description">
-                        <div class="tovar_view_title">Popover Sweatshirt in Floral Jacquard</div>
-                        <div class="tovar_article">88-305-676</div>
+                        <div class="tovar_view_title"><%=nombre%></div>
+                        <div class="tovar_article"><%=referencia%></div>
                         <div class="clearfix tovar_brend_price">
-                            <div class="pull-left tovar_brend">Calvin Klein</div>
-                            <div class="pull-right tovar_view_price">$98.00</div>
+                            <div class="pull-left tovar_brend"><%=marca%></div>
+                            <div class="pull-right tovar_view_price">€<%=precio%></div>
                         </div>
                         <div class="tovar_color_select">
                             <p>Select color</p>

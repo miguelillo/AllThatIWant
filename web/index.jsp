@@ -213,7 +213,7 @@
                     </div><!-- //CONTAINER -->
                 </header><!-- //HEADER -->
 
-                <%String pagina = (String) request.getSession().getAttribute("pagina");
+                <%String pagina = (String) request.getAttribute("pagina");
 
                     if (pagina != null) {
 
