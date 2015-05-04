@@ -243,7 +243,7 @@
                     <%        List<Productos> listaProductos = (List) request.getSession().getAttribute("listaProductos");
 
                         for (int i = 0; i < listaProductos.size(); i++) {
-
+                            String referencia = listaProductos.get(i).getReferencia();
                             String nombre = listaProductos.get(i).getNombre();
                             String precio = String.valueOf(listaProductos.get(i).getPrecio());
 
@@ -263,7 +263,7 @@
                                 </div>
                             </div>
                             <div class="tovar_description clearfix">
-                                <a class="tovar_title" href="product-page.html" ><%=nombre%></a>
+                                <a class="tovar_title" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " ><%=nombre%></a>
                                 <span class="tovar_price">$<%=precio%></span>
                             </div>
                         </div>

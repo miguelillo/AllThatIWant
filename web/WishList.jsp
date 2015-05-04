@@ -53,7 +53,7 @@
                         <tr class="cart_item">
                             <td class="product-thumbnail"><a href="product-page.html" ><img src="images/tovar/women/1.jpg" width="100px" alt="" /></a></td>
                             <td class="product-name">
-                                <a href="product-page.html"><%=prodNombre%></a>
+                                <a href="Controller?opID=MostrarProducto&Referencia=<%=prodRef%> " ><%=prodNombre%></a>
                                 <ul class="variation">
                                     <li class="variation-Color">Ref:  <span><%=prodRef%></span></li>
                                     <li class="variation-Size">Descrip:  <span><%=prodDescrip%></span></li>
