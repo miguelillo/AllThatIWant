@@ -195,8 +195,8 @@ public class DAOProductos implements IProductos {
     @Override
     public void InsertarWishList(Productos producto, Usuarios usuario) {
         Object[] wishListValues = {
-            producto.getReferencia(),
-            usuario.getMail()
+            usuario.getMail(),
+            producto.getReferencia()
         };
 
         try {

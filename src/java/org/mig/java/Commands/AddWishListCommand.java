@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
 import org.mig.java.Entities.Productos;
+import org.mig.java.Entities.Usuarios;
 
 /**
  *
@@ -18,17 +19,16 @@ public class AddWishListCommand extends ICommand {
 
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        Productos producto =  new Productos();
+        Productos producto = new Productos();
         ProductosBLL productosBll = new ProductosBLL();
-        
+        Usuarios usuario = (Usuarios) request.getSession().getAttribute("clienteSesion");
+
         String referencia = request.getParameter("Referencia");
-        
+
         producto.setReferencia(referencia);
-        
-        
-        //productosBll.InsertarWishList(Productos);
-        
-        
+
+        productosBll.InsertarWishList(producto, usuario);
+
         return "Content.jsp";
     }
 

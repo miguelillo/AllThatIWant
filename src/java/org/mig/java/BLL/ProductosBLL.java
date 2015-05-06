@@ -51,10 +51,12 @@ public class ProductosBLL {
         return daoProductos.mostrarWishList(usuario);
     }
 
-    public void InsertarWishList(Productos producto) {
+    public void InsertarWishList(Productos producto, Usuarios usuario) {
         DAOFactory daoFactory = DAOFactory.getInstance();
 
         IProductos daoProductos = daoFactory.getProductosDAO();
+
+        daoProductos.InsertarWishList(producto, usuario);
 
     }
 

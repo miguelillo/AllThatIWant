@@ -1,3 +1,4 @@
+<%@page import="org.mig.java.BLL.ProductosBLL"%>
 <%@page import="java.util.List"%>
 <%@page import="org.mig.java.Entities.Productos"%>
 <%@page import="org.mig.java.Entities.Productos"%>
@@ -9,15 +10,8 @@
     <%
         Usuarios sesion = (Usuarios) request.getSession().getAttribute("clienteSesion");
         if (sesion == null) {
-
-//cargar un servelet automaticamente cuando llega a este paso
+            //cargar un servelet automaticamente cuando llega a este paso
     %>    
-
-
-
-
-
-
     <div class="flexslider top_slider">
         <ul class="slides">
             <li class="slide1">
@@ -101,9 +95,9 @@
                                     <img class="img_h" src="images/tovar/women/1_2.jpg" alt="" />
                                 </div>
                                 <div class="tovar_item_btns">
-                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a></div>
+                                    <div class="open-project-link"><a class="open-project tovar_view" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " >quick view</a></div>
                                     <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="add_lovelist" href="Controller?opID=AddWishList&Referencia=REF01" ><i class="fa fa-heart"></i></a>
+
                                 </div>
                             </div>
                             <div class="tovar_description clearfix">
@@ -226,6 +220,18 @@
     </section><!-- //TOVAR SECTION -->
 
     <%} else {%>
+    <!-- cargo el wishlist en el counter de wish list para mostrarlo en el counter cada vez que cargan
+    el ontent.jsp-->
+
+    <%
+        ProductosBLL productosBll = new ProductosBLL();
+        Integer cantidadWishItems = productosBll.cantidadWishItems(sesion);
+    %>
+
+    <script>
+        $("#loveListCounter").text(<%=cantidadWishItems%>);
+    </script>
+
     <!-- BREADCRUMBS -->
     <section class="breadcrumb parallax margbot30"></section>
     <!-- //BREADCRUMBS -->
@@ -240,13 +246,13 @@
 
                 <!-- TOVAR WRAPPER -->
                 <div class="tovar_wrapper" data-appear-top-offset='-100' data-animated='fadeInUp'>
-                    <%        List<Productos> listaProductos = (List) request.getSession().getAttribute("listaProductos");
+                    <%
+                        List<Productos> listaProductos = (List) request.getSession().getAttribute("listaProductos");
 
                         for (int i = 0; i < listaProductos.size(); i++) {
                             String referencia = listaProductos.get(i).getReferencia();
                             String nombre = listaProductos.get(i).getNombre();
                             String precio = String.valueOf(listaProductos.get(i).getPrecio());
-
                     %>
                     <!-- TOVAR1 -->
                     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 col-ss-12 padbot40">
@@ -259,7 +265,7 @@
                                 <div class="tovar_item_btns">
                                     <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a></div>
                                     <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="add_lovelist" href="Controller?opID=AddWishList&Referencia=REF01" ><i class="fa fa-heart"></i></a>
+                                    <a class="add_lovelist" href="Controller?opID=AddWishList&Referencia=<%=referencia%>" ><i class="fa fa-heart"></i></a>
                                 </div>
                             </div>
                             <div class="tovar_description clearfix">

@@ -26,8 +26,6 @@
         <script src="js/LoginUserGson.js"></script>
     </head>
     <body>
-
-
         <!-- PRELOADER -->
         <div id="preloader"><img src="images/loading.gif" alt="" /></div>
         <!-- //PRELOADER -->
@@ -70,26 +68,16 @@
                                 %>
 
                                 <li><a data-toggle="modal" data-target=".bs-example-modal-sm" >Login</a></li>
-                                <li><a href="my-account.html" >Registro</a></li>
+                                <li><a href="Controller?opID=RedirectRegister" >Registro</a></li>
                                     <%} else {
                                         String userName = sesion.getNombre();
-
-
                                     %>
-                                <li><a href="my-account.html" ><%=userName%></a></li>
+                                <li><a href="Controller?opID=RedirectRegister" ><%=userName%></a></li>
                                 <li><a href="Controller?opID=LogOut">Salir</li>
-
-                                <%}%>
-
+                                    <%}%>
                             </ul>
-
-
                         </div><!-- //CONTAINER -->
                     </div><!-- TOP INFO -->
-
-
-
-
                     <!-- MENU BLOCK -->
                     <div class="menu_block">
 
@@ -98,20 +86,19 @@
 
                             <!-- LOGO -->
                             <div class="logo">
-                                <a href="Controller?opID=RedirectContent" ><img src="images/logo.png" alt="" /></a>
+                                <a href="Controller?opID=RedirectContent" ><h1 style="width: 220px;">All That I Want</h1></a>
                             </div><!-- //LOGO -->
 
 
-                    <!-- SEARCH FORM -->
+                            <!-- SEARCH FORM -->
                             <div class="top_search_form">
                                 <a class="top_search_btn" href="javascript:void(0);" ><i class="fa fa-search"></i></a>
                                 <form method="get" action="#">
-                                    <input type="text" name="search" value="Search" onFocus="if (this.value == 'Search')
-                                                this.value = '';" onBlur="if (this.value == '')
+                                    <input type="text" name="search" value="Search" onFocus="if (this.value === 'Search')
+                                                this.value = '';" onBlur="if (this.value === '')
                                                             this.value = 'Search';" />
                                 </form>
                             </div><!-- SEARCH FORM -->
-
                             <!-- SHOPPING BAG -->
                             <div class="shopping_bag">
                                 <a class="shopping_bag_btn" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i><p>shopping bag</p><span>2</span></a>
@@ -121,12 +108,7 @@
                                             <img class="cart_item_product" src="images/tovar/women/1.jpg" alt="" />
                                             <a href="product-page.html" class="cart_item_title">popover sweatshirt in floral jacquard</a>
                                             <span class="cart_item_price">1 × $98.00</span>
-                                        </li>
-                                        <li class="clearfix">
-                                            <img class="cart_item_product" src="images/tovar/women/3.jpg" alt="" />
-                                            <a href="product-page.html" class="cart_item_title">japanese indigo denim jacket</a>
-                                            <span class="cart_item_price">2 × $158.00</span>
-                                        </li>
+                                        </li> 
                                     </ul>
                                     <div class="cart_total">
                                         <div class="clearfix"><span class="cart_subtotal">bag subtotal: <b>$414</b></span></div>
@@ -143,7 +125,7 @@
                                     Integer cantidadWishItems = (Integer) request.getSession().getAttribute("cantidadWishItems");
                                     if (sesion != null) {
                                 %>
-                                <a class="love_list_btn" href="Controller?opID=WishList" ><i class="fa fa-heart-o"></i><p>Love list</p><span><%=cantidadWishItems%></span></a>
+                                <a class="love_list_btn" href="Controller?opID=WishList" ><i class="fa fa-heart-o"></i><p>Love list</p><span id="loveListCounter"><%=cantidadWishItems%></span></a>
                                         <%}%>
                             </div><!-- //LOVE LIST -->
 
@@ -214,9 +196,7 @@
                 </header><!-- //HEADER -->
 
                 <%String pagina = (String) request.getAttribute("pagina");
-
                     if (pagina != null) {
-
                 %>
 
 

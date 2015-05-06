@@ -12,7 +12,6 @@
     <!-- CONTAINER -->
     <div class="container">
         <h3 class="pull-left"><b>Love list</b></h3>
-
         <div class="pull-right">
             <a href="shopping-bag.html" >Back to shopping bag<i class="fa fa-angle-right"></i></a>
         </div>
@@ -66,11 +65,7 @@
 
                             <td class="product-remove"><a href="javascript:void(0);" ><span>Delete</span> <i>X</i></a></td>
                         </tr>
-
                         <%}%></div><!--/row-->
-
-
-
                     </tbody>
                 </table>
             </div><!-- //CART TABLE -->
