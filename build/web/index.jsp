@@ -205,7 +205,7 @@
                 <jsp:include page="Content.jsp"></jsp:include>
                 <%}%>
 
-
+                <jsp:include page="Footer.jsp"></jsp:include>
                 <!-- SCRIPTS -->
                 <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
                 <!--[if IE]><html class="ie" lang="en"> <![endif]-->

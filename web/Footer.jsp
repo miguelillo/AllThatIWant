@@ -1,3 +1,4 @@
+
 <!-- FOOTER -->
 <footer>
 
@@ -41,8 +42,8 @@
                 <h4>Newsletter</h4>
                 <form class="newsletter_form clearfix" action="javascript:void(0);" method="get">
                     <input type="text" name="newsletter" value="Enter E-mail & Get 10% off" onFocus="if (this.value == 'Enter E-mail & Get 10% off')
-                                this.value = '';" onBlur="if (this.value == '')
-                                            this.value = 'Enter E-mail & Get 10% off';" />
+                                                this.value = '';" onBlur="if (this.value == '')
+                                                            this.value = 'Enter E-mail & Get 10% off';" />
                     <input class="btn newsletter_btn" type="submit" value="SIGN UP">
                 </form>
 
@@ -74,11 +75,3 @@
         </div><!-- //CONTAINER -->
     </div><!-- //COPYRIGHT -->
 </footer><!-- //FOOTER -->
-</div><!-- //PAGE -->
-</div>
-
-<!-- TOVAR MODAL CONTENT -->
-<div id="modal-body" class="clearfix">
-    <div id="tovar_content"></div>
-    <div class="close_block"></div>
-</div><!-- TOVAR MODAL CONTENT -->
