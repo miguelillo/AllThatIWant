@@ -50,7 +50,7 @@
 
                         %>
                         <tr class="cart_item">
-                            <td class="product-thumbnail"><a href="product-page.html" ><img src="images/tovar/women/1.jpg" width="100px" alt="" /></a></td>
+                            <td class="product-thumbnail"><a href="product-page.html" ><img src="images2/tovar/women/1.jpg" width="100px" alt="" /></a></td>
                             <td class="product-name">
                                 <a href="Controller?opID=MostrarProducto&Referencia=<%=prodRef%> " ><%=prodNombre%></a>
                                 <ul class="variation">

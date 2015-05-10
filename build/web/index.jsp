@@ -21,10 +21,13 @@
         <link href="css/bootstrap-formhelpers.min.css" rel="stylesheet" type="text/css"/>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="js/BootrapFormHelper/bootstrap-formhelpers.min.js"></script>
+        <!--Scripts personalaes-->
+        <script src="js/LoginUserGson.js"></script>
         <!-- FONTS -->
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <script src="js/LoginUserGson.js"></script>
+
     </head>
     <body>
         <!-- PRELOADER -->
@@ -47,7 +50,7 @@
                                     <input  type="checkbox" value="remember-me"> Recuerdame  
                                 </label>
                             </div>
-                            <button class="btn btn-lg btn-primary btn-block" id="formButton" type="submit">Iniciar</button>
+                            <button type="submit" class="btn-next btn btn-lg btn-primary btn-block" id="formButton">Siguiente</button>
                             <span class="help-block-Login"></span>  
                         </form>
                     </div>
@@ -102,7 +105,7 @@
                             </div><!-- SEARCH FORM -->
                             <!-- SHOPPING BAG -->
                             <div class="shopping_bag">
-                                <a class="shopping_bag_btn" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i><p>shopping bag</p><span>2</span></a>
+                                <a class="shopping_bag_btn" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i><p>Carrito</p><span>2</span></a>
                                 <div class="cart">
                                     <ul class="cart-items">
                                         <li class="clearfix">
@@ -133,17 +136,8 @@
 
                             <!-- MENU -->
                             <ul class="navmenu center">
-                                <li class="sub-menu first active"><a href="javascript:void(0);" >Home</a>
-                                    <!-- MEGA MENU -->
-                                    <ul class="mega_menu megamenu_col1 clearfix">
-                                        <li class="col">
-                                            <ol>
-                                                <li class="active"><a href="index.html" >Home slider</a></li>
-                                                <li><a href="index2.html" >Home men promo</a></li>
-                                                <li><a href="index3.html" >Home kids</a></li>
-                                            </ol>
-                                        </li>
-                                    </ul><!-- //MEGA MENU -->
+                                <li class="sub-menu first active"><a href="javascript:void(0);" >Inicio</a>
+                                   
                                 </li>
 
                                 <li class="sub-menu"><a href="javascript:void(0);" >Pages</a>
@@ -151,46 +145,20 @@
                                     <ul class="mega_menu megamenu_col3 clearfix">
                                         <li class="col">
                                             <ol>
-                                                <li><a href="about.html" >About Us</a></li>
-                                                <li><a href="product-page.html" >Product Page</a></li>
-                                                <li><a href="love-list.html" >Love List</a></li>
-                                                <li><a href="shopping-bag.html" >Shopping Bag</a></li>
-                                                <li><a href="my-account.html" >My Account</a></li>
+                                                <li><a href="about.html" >Pagina</a></li>
+                                                <li><a href="product-page.html" >Pagina</a></li>
+                                                <li><a href="love-list.html" >Pagina</a></li>
+                                                <li><a href="shopping-bag.html" >Pagina</a></li>
+                                                <li><a href="my-account.html" >Pagina</a></li>
 
                                             </ol>
                                         </li>
-                                        <li class="col">
-                                            <ol>
-                                                <li><a href="product-catalog.html" >Product Catalog</a></li>
-                                                <li><a href="brands-list.html" >Brands List</a></li>
-                                                <li><a href="update.html" >Site Update</a></li>
-                                                <li><a href="contacts.html" >Contacts</a></li>
-                                                <li><a href="shortcodes.html" >Shortcodes</a></li>
-                                            </ol>
-                                        </li>
-                                        <li class="col">
-                                            <ol>
-                                                <li><a href="404.html" >404 Page</a></li>
-                                                <li><a href="articles.html" >Articles</a></li>
-                                                <li><a href="article-single.html" >Article Single</a></li>
-                                                <li><a href="checkout.html" >Checkout</a></li>
-                                                <li><a href="faq.html" >FAQ</a></li>
-                                            </ol>
-                                        </li>
+                                   
                                     </ul><!-- //MEGA MENU -->
                                 </li>
                                 <li class="sub-menu"><a href="javascript:void(0);" >Blog</a>
-                                    <!-- MEGA MENU -->
-                                    <ul class="mega_menu megamenu_col1 clearfix">
-                                        <li class="col">
-                                            <ol>
-                                                <li><a href="blog.html" >Blog</a></li>
-                                                <li><a href="blog-post.html" >Blog Post</a></li>
-                                            </ol>
-                                        </li>
-                                    </ul><!-- //MEGA MENU -->
                                 </li>
-                                <li class="last sale_menu"><a href="sale.html" >Sale</a></li>
+                                <li class="last sale_menu"><a href="sale.html" >Personal Shopper</a></li>
                             </ul><!-- //MENU -->
                         </div><!-- //MENU BLOCK -->
                     </div><!-- //CONTAINER -->
@@ -220,11 +188,9 @@
                 <script src="js/jquery.jcarousel.js" type="text/javascript"></script>
                 <script src="js/fancySelect.js"></script>
                 <script src="js/animate.js" type="text/javascript"></script>
-                <script src="js/myscript.js" type="text/javascript"></script>
-
-                <script src="js/bootstrap-formhelpers.js"></script>
+                <script src="js/myscript.js" type="text/javascript"></script>4
                 <script>
-                                                    if (top != self)
+                                                    if (top !== self)
                                                         top.location.replace(self.location.href);
                 </script>
                 </body>

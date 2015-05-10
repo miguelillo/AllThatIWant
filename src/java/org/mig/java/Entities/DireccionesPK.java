@@ -3,7 +3,6 @@
  * Su uso esta prohibido para uso comercial.
  * Si tienes interes en usarlo, ponte en contacto conmigo, Gracias. :D
  */
-
 package org.mig.java.Entities;
 
 import java.io.Serializable;
@@ -12,6 +11,7 @@ import java.io.Serializable;
  * @author miguelangel
  */
 public class DireccionesPK implements Serializable {
+
     private String usuarioMail;
     private String direccion;
 

@@ -108,8 +108,8 @@ html[xmlns] .slides {display: block;}
 	height:21px;
 	background-repeat:no-repeat;
 }
-.flex-control-nav:before {right:-24px; background-image:url(../images/slider/pagin_bg_r.png);}
-.flex-control-nav:after {left:-24px; background-image:url(../images/slider/pagin_bg_l.png);}
+.flex-control-nav:before {right:-24px; background-image:url(../images2/slider/pagin_bg_r.png);}
+.flex-control-nav:after {left:-24px; background-image:url(../images2/slider/pagin_bg_l.png);}
 
 .flex-control-nav li {
 	display:inline-block;
@@ -147,19 +147,19 @@ html[xmlns] .slides {display: block;}
 /* Top Slider Caption */
 .flexslider.top_slider .slide1 {
 	width:100%;
-	background-image:url(../images/slider/woman_bg1.jpg);
+	background-image:url(../images2/slider/woman_bg1.jpg);
 	background-size:cover;
 }
 .flexslider.top_slider .slide2 {
 	width:100%;
 	background-color:#0b8e79;
-	background-image:url(../images/slider/woman_bg2.jpg);
+	background-image:url(../images2/slider/woman_bg2.jpg);
 	background-size:cover;
 }
 .flexslider.top_slider .slide3 {
 	width:100%;
 	background-color:#0b8e79;
-	background-image:url(../images/slider/woman_bg3.jpg);
+	background-image:url(../images2/slider/woman_bg3.jpg);
 	background-size:cover;
 }
 .flexslider.top_slider .slides li {height:700px;}
@@ -512,13 +512,13 @@ a.slide_banner:hover:before {
 /* __________ Sale Page Slider __________ */
 .flexslider.top_slider.sale_page .slide1 {
 	width:100%;
-	background-image:url(../images/slider/sale_bg1.jpg);
+	background-image:url(../images2/slider/sale_bg1.jpg);
 	background-size:cover;
 }
 .flexslider.top_slider.sale_page .slide2 {
 	width:100%;
 	background-color:#0b8e79;
-	background-image:url(../images/slider/sale_bg2.jpg);
+	background-image:url(../images2/slider/sale_bg2.jpg);
 	background-size:cover;
 }
 

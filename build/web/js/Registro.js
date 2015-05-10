@@ -4,6 +4,18 @@
  * Si tienes interes en usarlo, ponte en contacto conmigo, Gracias. :D
  */
 
-$(document).ready(function () {
+(function () {
+    "use strict";
 
-});
+
+    document.getElementById("myBtn").addEventListener("click", function () {
+        var ValidarInfoPersonal = function () {
+            var paramObj = {};
+            alert(paramObj);
+            $.each($("#personalForm").serializeArray(), function (_, kv) {
+                paramObj[kv.name] = kv.value;
+            });
+        };
+    });
+
+})();
