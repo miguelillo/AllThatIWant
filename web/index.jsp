@@ -18,6 +18,7 @@
         <link href="css/fancySelect.css" rel="stylesheet" media="screen, projection" />
         <link href="css/animate.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap-formhelpers.min.css" rel="stylesheet" type="text/css"/>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- FONTS -->
@@ -220,6 +221,8 @@
                 <script src="js/fancySelect.js"></script>
                 <script src="js/animate.js" type="text/javascript"></script>
                 <script src="js/myscript.js" type="text/javascript"></script>
+
+                <script src="js/bootstrap-formhelpers.js"></script>
                 <script>
                                                     if (top != self)
                                                         top.location.replace(self.location.href);
