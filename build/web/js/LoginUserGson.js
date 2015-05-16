@@ -17,4 +17,19 @@ $(document).ready(function () {
         });
         return false;
     });
+    /*BORRAR WISHLISTITEM EN AJAX PRUEBA*/
+    $("").click(function () {
+        $.ajax({
+            url: 'WishListServlet',
+            type: 'POST',
+            dataType: 'json',
+            data: $('.WishListItems').serialize(),
+            success: function (data) {
+                alert(data + "borrado");
+            }
+
+        });
+    });
+
+
 });

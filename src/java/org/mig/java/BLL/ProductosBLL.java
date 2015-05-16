@@ -10,6 +10,7 @@ import org.mig.java.DAO.DAOFactory;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
+import org.mig.java.Entities.WishList;
 import org.mig.java.Interfaces.IProductos;
 
 /**
@@ -68,4 +69,15 @@ public class ProductosBLL {
         return daoProductos.mostrarProductos();
 
     }
+
+    public void BorrarWishListItem(WishList wishListItem) {
+
+        DAOFactory daoFactory = DAOFactory.getInstance();
+
+        IProductos daoProductos = daoFactory.getProductosDAO();
+
+        daoProductos.BorrarWishList(wishListItem);
+
+    }
+
 }

@@ -102,7 +102,7 @@
                             </div>
                             <div class="tovar_description clearfix">
                                 <a class="tovar_title" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " ><%=nombre%></a>
-                                <span class="tovar_price">$<%=precio%></span>
+                                <span class="tovar_price">?<%=precio%></span>
                             </div>
                         </div>
                     </div><!-- //TOVAR1 -->
@@ -150,7 +150,7 @@
                             </div>
                             <div class="tovar_description clearfix">
                                 <a class="tovar_title" href="product-page.html" >Peacoat trench</a>
-                                <span class="tovar_price">$298.00</span>
+                                <span class="tovar_price">?298.00</span>
                             </div>
                         </div>
                     </div><!-- //TOVAR4 -->
@@ -171,7 +171,7 @@
                             </div>
                             <div class="tovar_description clearfix">
                                 <a class="tovar_title" href="product-page.html" >Schoolboy blazer in italian wool</a>
-                                <span class="tovar_price">$194.00</span>
+                                <span class="tovar_price">?194.00</span>
                             </div>
                         </div>
                     </div><!-- //TOVAR5 -->
@@ -192,7 +192,7 @@
                             </div>
                             <div class="tovar_description clearfix">
                                 <a class="tovar_title" href="product-page.html" >Cashmere mockneck sweater</a>
-                                <span class="tovar_price">$257.00</span>
+                                <span class="tovar_price">?257.00</span>
                             </div>
                         </div>
                     </div><!-- //TOVAR6 -->
@@ -229,7 +229,7 @@
     %>
 
     <script>
-        $("#loveListCounter").text(<%=cantidadWishItems%>);
+        ?("#loveListCounter").text(<%=cantidadWishItems%>);
     </script>
 
     <!-- BREADCRUMBS -->
@@ -270,7 +270,7 @@
                             </div>
                             <div class="tovar_description clearfix">
                                 <a class="tovar_title" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " ><%=nombre%></a>
-                                <span class="tovar_price">$<%=precio%></span>
+                                <span class="tovar_price">?<%=precio%></span>
                             </div>
                         </div>
                     </div><!-- //TOVAR1 -->
@@ -321,7 +321,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >Moonglow paisley silk tee</a>
-                                    <span class="tovar_price">$98.00</span>
+                                    <span class="tovar_price">?98.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -336,7 +336,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >PEASANT TOP IN SUCKERED STRIPE</a>
-                                    <span class="tovar_price">$78.00</span>
+                                    <span class="tovar_price">?78.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -351,7 +351,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >EMBROIDERED BIB PEASANT TOP</a>
-                                    <span class="tovar_price">$88.00</span>
+                                    <span class="tovar_price">?88.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -366,7 +366,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >SILK POCKET BLOUSE</a>
-                                    <span class="tovar_price">$98.00</span>
+                                    <span class="tovar_price">?98.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -381,7 +381,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >SWISS-DOT TUXEDO SHIRT</a>
-                                    <span class="tovar_price">$65.00</span>
+                                    <span class="tovar_price">?65.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -396,7 +396,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >STRETCH PERFECT SHIRT</a>
-                                    <span class="tovar_price">$72.00</span>
+                                    <span class="tovar_price">?72.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -411,7 +411,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >Moonglow paisley silk tee</a>
-                                    <span class="tovar_price">$98.00</span>
+                                    <span class="tovar_price">?98.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -426,7 +426,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >PEASANT TOP IN SUCKERED STRIPE</a>
-                                    <span class="tovar_price">$78.00</span>
+                                    <span class="tovar_price">?78.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -441,7 +441,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >EMBROIDERED BIB PEASANT TOP</a>
-                                    <span class="tovar_price">$88.00</span>
+                                    <span class="tovar_price">?88.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -456,7 +456,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >SILK POCKET BLOUSE</a>
-                                    <span class="tovar_price">$98.00</span>
+                                    <span class="tovar_price">?98.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -506,66 +506,12 @@
     <hr class="container">
 
 
-    <!-- SERVICES SECTION -->
-    <section class="services_section">
-
-        <!-- CONTAINER -->
-        <div class="container">
-
-            <!-- ROW -->
-            <div class="row">
-                <div class="col-lg-6 col-md-6 padbot60 services_section_description" data-appear-top-offset='-100' data-animated='fadeInLeft'>
-                    <p>We empower WordPress developers with design-driven themes and a classy experience their clients will just love</p>
-                    <span>Gluten-free quinoa selfies carles, kogi gentrify retro marfa viral. Odd future photo booth flannel ethnic pug, occupy keffiyeh synth blue bottle tofu tonx iphone. Blue bottle 90?s vice trust fund gastropub gentrify retro marfa viral</span>
-                </div>
-
-                <div class="col-lg-6 col-md-6 padbot30" data-appear-top-offset='-100' data-animated='fadeInRight'>
-
-                    <!-- ROW -->
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6 col-ss-12 padbot30">
-                            <div class="service_item">
-                                <div class="clearfix"><i class="fa fa-tablet"></i><p>Responsive Theme</p></div>
-                                <span>Thundercats squid single-origin coffee YOLO selfies disrupt, master cleanse semiotics letterpress typewriter.</span>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6 col-ss-12 padbot30">
-                            <div class="service_item">
-                                <div class="clearfix"><i class="fa fa-comments-o"></i><p>Free Support</p></div>
-                                <span>Thundercats squid single-origin coffee YOLO selfies disrupt, master cleanse semiotics letterpress typewriter.</span>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6 col-ss-12 padbot30">
-                            <div class="service_item">
-                                <div class="clearfix"><i class="fa fa-eye"></i><p>Retina Ready</p></div>
-                                <span>Thundercats squid single-origin coffee YOLO selfies disrupt, master cleanse semiotics letterpress typewriter.</span>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6 col-ss-12 padbot30">
-                            <div class="service_item">
-                                <div class="clearfix"><i class="fa fa-cogs"></i><p>Easy Customize</p></div>
-                                <span>Thundercats squid single-origin coffee YOLO selfies disrupt, master cleanse semiotics letterpress typewriter.</span>
-                            </div>
-                        </div>
-                    </div><!-- //ROW -->
-                </div>
-            </div><!-- //ROW -->
-        </div><!-- //CONTAINER -->
-    </section><!-- //SERVICES SECTION -->
-
-
-    <hr class="container">
-
-
     <!-- RECENT POSTS -->
     <section class="recent_posts padbot40">
 
         <!-- CONTAINER -->
         <div class="container">
-            <h2>New blog posts</h2>
+            <h2>Nuevas Entradas del Blog</h2>
 
             <!-- ROW -->
             <div class="row" data-appear-top-offset='-100' data-animated='fadeInUp'>
@@ -573,22 +519,22 @@
                     <div class="recent_post_item clearfix">
                         <div class="recent_post_date">15<span>oct</span></div>
                         <a class="recent_post_img" href="blog-post.html" ><img src="images/blog/recent1.jpg" alt="" /></a>
-                        <a class="recent_post_title" href="blog-post.html" >Be Unafraid, Self-Hosted WordPress Is WAY Easier Nowadays</a>
-                        <div class="recent_post_content">The beauty of self-hosted WordPress, is that you can build your site however you like, want to add forums to your website? Done. Want to add a ecommerce to your blog? Done.</div>
+                        <a class="recent_post_title" href="blog-post.html" >LOREM IPSUM</a>
+                        <div class="recent_post_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
                         <ul class="post_meta">
-                            <li><i class="fa fa-comments"></i>Commetcs <span class="sep">|</span> 15</li>
+                            <li><i class="fa fa-comments"></i>Comentarios <span class="sep">|</span> 15</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-6 padbot30">
                     <div class="recent_post_item clearfix">
-                        <div class="recent_post_date">07<span>dec</span></div>
-                        <a class="recent_post_img" href="blog-post.html" ><img src="images/blog/recent2.jpg" alt="" /></a>
-                        <a class="recent_post_title" href="blog-post.html" >True Story: I Went Two Weeks Without Social Media</a>
-                        <div class="recent_post_content">Since I began blogging 5.5 years ago, social media (and my blog) have taken hold on my life. I?ve been an early adopter for most major networks and use them extensively.  This past year I?ve been overwhelmed.</div>
+                        <div class="recent_post_date">15<span>oct</span></div>
+                        <a class="recent_post_img" href="blog-post.html" ><img src="images/blog/recent1.jpg" alt="" /></a>
+                        <a class="recent_post_title" href="blog-post.html" >LOREM IPSUM</a>
+                        <div class="recent_post_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
                         <ul class="post_meta">
-                            <li><i class="fa fa-comments"></i>Commetcs <span class="sep">|</span> 15</li>
+                            <li><i class="fa fa-comments"></i>Comentarios <span class="sep">|</span> 15</li>
                         </ul>
                     </div>
                 </div>

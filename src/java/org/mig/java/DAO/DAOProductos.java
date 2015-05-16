@@ -18,6 +18,7 @@ import org.mig.java.Entities.Tiendas;
 import org.mig.java.Interfaces.IProductos;
 import static org.mig.java.DAO.DAOUtil.prepareStatement;
 import org.mig.java.Entities.Usuarios;
+import org.mig.java.Entities.WishList;
 import org.mig.java.Exceptions.DAOException;
 
 /**
@@ -56,7 +57,7 @@ public class DAOProductos implements IProductos {
     String INSERTAR_PRODUCTOS_TIENDA = "INSERT INTO proyectofinaldaw.productos_tiendas (`Productoid`, "
             + "`TiendaCIF`)"
             + "	VALUES (?, ?);";
-
+    private static final String WISH_LIST_BORRAR_PRODUCTO = "DELETE FROM usuario_wishList WHERE Usuario = ? AND Producto = ?";
     private static final String CANTIDAD_WISH_LIST = "SELECT COUNT( * ) FROM usuario_wishList WHERE usuario =  ?";
     private static final String WISH_LIST = "SELECT * FROM usuario_wishList INNER JOIN productos ON usuario_wishList.Producto = productos.Referencia WHERE usuario_wishList.Usuario =  ? LIMIT 0 , 30";
     private static final String INSERT_WISH_LIST = "INSERT INTO `usuario_wishList`(`Usuario`, `Producto`) VALUES (?,?)";
@@ -261,6 +262,28 @@ public class DAOProductos implements IProductos {
     @Override
     public List<Productos> mostrarProductosUsuario(Usuarios usuario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void BorrarWishList(WishList wishListItem) {
+        Object[] wishListItemValue = {
+            wishListItem.getUsuario(),
+            wishListItem.getProducto()
+        };
+
+        try {
+
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, WISH_LIST_BORRAR_PRODUCTO, wishListItemValue);
+
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new Exception("Error al borrar el elemento de la wishList");
+            }
+        } catch (Exception ex) {
+        }
+
     }
 
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
+import org.mig.java.Entities.WishList;
 
 /**
  *
@@ -33,6 +34,8 @@ public interface IProductos {
     public List<Productos> mostrarWishList(Usuarios usuario);
 
     public void InsertarWishList(Productos producto, Usuarios usuario);
+    
+    public void BorrarWishList(WishList wishListItem);
 
     public Productos mostrarProducto(Productos producto);
 

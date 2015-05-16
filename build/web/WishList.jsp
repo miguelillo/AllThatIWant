@@ -39,6 +39,8 @@
                         </tr>
                     </thead>
                     <tbody>
+
+
                         <%
                             List<Productos> listaWish = (List<Productos>) request.getSession().getAttribute("listaWish");
                         %><div class="row"><%
@@ -61,9 +63,9 @@
 
                             <td class="product-price"><%=prodPrecio%></td>
 
-                            <td class="product-add-bag"><a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i><span>Add to bag</span></a></td>
+                            <td class="product-add-bag"><a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i><span>Añadir al carrito</span></a></td>
 
-                            <td class="product-remove"><a href="javascript:void(0);" ><span>Delete</span> <i>X</i></a></td>
+                            <td class="product-remove"><a href="Controller?opID=BorrarWishListItem&Referencia=<%=prodRef%>" ><span>Borrar</span> <i>X</i></a></td>
                         </tr>
                         <%}%></div><!--/row-->
                     </tbody>
@@ -71,32 +73,7 @@
             </div><!-- //CART TABLE -->
 
 
-            <!-- SIDEBAR -->
-            <div id="sidebar" class="col-lg-3 col-md-3 padbot50">
 
-                <!-- REGISTRATION FORM -->
-                <div class="sidepanel widget_register_form">
-                    <h3>Returning Customer</h3>
-                    <p>Sign in to save and share your Love List.</p>
-                    <form class="registration_form clearfix" action="javascript:void(0);" method="get">
-                        <input type="text" name="text" value="Username or email" onFocus="if (this.value === 'Username or email')
-                                    this.value = '';" onBlur="if (this.value === '')
-                                                this.value = 'Username or email';" />
-                        <input type="text" name="pass" value="Password" onFocus="if (this.value === 'Password')
-                                    this.value = '';" onBlur="if (this.value === '')
-                                                this.value = 'Password';" />
-                        <a class="forgot_pass" href="javascript:void(0);" >Forgot password?</a>
-                        <input type="submit" value="Login">
-                    </form>
-                </div><!-- //REGISTRATION FORM -->
-
-                <!-- CREATE NEW ACCOUNT -->
-                <div class="sidepanel widget_new_account">
-                    <h3>New customers</h3>
-                    <p>Don't have an account? Register with Glammy Shop to save and share your Love List.</p>
-                    <a class="create_acc" href="javascript:void(0);" >Create New Account</a>
-                </div><!-- //CREATE NEW ACCOUNT -->
-            </div><!-- //SIDEBAR -->
         </div><!-- //ROW -->
     </div><!-- //CONTAINER -->
 </section><!-- //LOVE LIST BLOCK -->
