@@ -19,51 +19,34 @@
                 <!-- CONTAINER -->
                 <div class="container">
                     <div class="flex_caption1">
-                        <p class="title1 captionDelay2 FromTop">mega sell</p>
-                        <p class="title2 captionDelay3 FromTop">last week of sales</p>
+                        <p class="title1 captionDelay2 FromTop">Ofertas!</p>
+                        <p class="title2 captionDelay3 FromTop">Ultima Semana</p>
                     </div>
-                    <a class="flex_caption2" href="javascript:void(0);" ><div class="middle">sale<span>shop</span>now</div></a>
+                    <a class="flex_caption2" href="javascript:void(0);" ><div class="middle">Venta<span>Tienda</span>Ahora</div></a>
                     <div class="flex_caption3 slide_banner_wrapper">
-                        <a class="slide_banner slide1_banner1 captionDelay4 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner1.jpg" alt="" /></a>
-                        <a class="slide_banner slide1_banner2 captionDelay5 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner2.jpg" alt="" /></a>
-                        <a class="slide_banner slide1_banner3 captionDelay6 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner3.jpg" alt="" /></a>
+                        <a class="slide_banner slide1_banner1 captionDelay4 FromBottom" href="javascript:void(0);" ><img src="images1/slider/slide1_baner1.jpg" alt="" /></a>
+                        <a class="slide_banner slide1_banner2 captionDelay5 FromBottom" href="javascript:void(0);" ><img src="images1/slider/slide1_baner2.jpg" alt="" /></a>
+                        <a class="slide_banner slide1_banner3 captionDelay6 FromBottom" href="javascript:void(0);" ><img src="images1/slider/slide1_baner3.jpg" alt="" /></a>
                     </div>
                 </div><!-- //CONTAINER -->
             </li>
-
             <li class="slide2">
 
                 <!-- CONTAINER -->
                 <div class="container">
                     <div class="flex_caption1">
-                        <p class="title1 captionDelay2 FromTop">mega sell</p>
-                        <p class="title2 captionDelay3 FromTop">last week of sales</p>
+                        <p class="title1 captionDelay2 FromTop">Ofertas!</p>
+                        <p class="title2 captionDelay3 FromTop">Ultima Semana</p>
                     </div>
-                    <a class="flex_caption2" href="javascript:void(0);" ><div class="middle">sale<span>shop</span>now</div></a>
+                    <a class="flex_caption2" href="javascript:void(0);" ><div class="middle">Venta<span>Tienda</span>Ahora</div></a>
                     <div class="flex_caption3 slide_banner_wrapper">
-                        <a class="slide_banner slide1_banner1 captionDelay4 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner1.jpg" alt="" /></a>
-                        <a class="slide_banner slide1_banner3 captionDelay5 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner3.jpg" alt="" /></a>
-                        <a class="slide_banner slide1_banner2 captionDelay6 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner2.jpg" alt="" /></a>
+                        <a class="slide_banner slide1_banner1 captionDelay4 FromBottom" href="javascript:void(0);" ><img src="images1/slider/slide1_baner1.jpg" alt="" /></a>
+                        <a class="slide_banner slide1_banner2 captionDelay5 FromBottom" href="javascript:void(0);" ><img src="images1/slider/slide1_baner2.jpg" alt="" /></a>
+                        <a class="slide_banner slide1_banner3 captionDelay6 FromBottom" href="javascript:void(0);" ><img src="images1/slider/slide1_baner3.jpg" alt="" /></a>
                     </div>
                 </div><!-- //CONTAINER -->
             </li>
 
-            <li class="slide3">
-
-                <!-- CONTAINER -->
-                <div class="container">
-                    <div class="flex_caption1">
-                        <p class="title1 captionDelay2 FromTop">mega sell</p>
-                        <p class="title2 captionDelay3 FromTop">last week of sales</p>
-                    </div>
-                    <a class="flex_caption2" href="javascript:void(0);" ><div class="middle">sale<span>shop</span>now</div></a>
-                    <div class="flex_caption3 slide_banner_wrapper">
-                        <a class="slide_banner slide1_banner3 captionDelay4 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner3.jpg" alt="" /></a>
-                        <a class="slide_banner slide1_banner1 captionDelay5 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner1.jpg" alt="" /></a>
-                        <a class="slide_banner slide1_banner2 captionDelay6 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner2.jpg" alt="" /></a>
-                    </div>
-                </div><!-- //CONTAINER -->
-            </li>
         </ul>
     </div><!-- //TOP SLIDER -->
     <!-- TOVAR SECTION -->
@@ -71,7 +54,7 @@
 
         <!-- CONTAINER -->
         <div class="container containerFix">
-            <h2>Featured products</h2>
+            <h2>Productos Destacados</h2>
 
             <!-- ROW -->
             <div class="row">
@@ -95,7 +78,7 @@
                                     <img class="img_h" src="images/tovar/women/1_2.jpg" alt="" />
                                 </div>
                                 <div class="tovar_item_btns">
-                                    <div class="open-project-link"><a class="open-project tovar_view" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " >quick view</a></div>
+                                    <div class="open-project-link"><a class="open-project tovar_view" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " >Ver</a></div>
                                     <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i></a>
 
                                 </div>
@@ -143,7 +126,7 @@
                                     <img class="img_h" src="images/tovar/women/4_2.jpg" alt="" />
                                 </div>
                                 <div class="tovar_item_btns">
-                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/4.html" >quick view</a></div>
+                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/4.html" >Ver</a></div>
                                     <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i></a>
                                     <a class="add_lovelist" href="javascript:void(0);" ><i class="fa fa-heart"></i></a>
                                 </div>
@@ -164,7 +147,7 @@
                                     <img class="img_h" src="images/tovar/women/5_2.jpg" alt="" />
                                 </div>
                                 <div class="tovar_item_btns">
-                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/5.html" >quick view</a></div>
+                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/5.html" >Ver</a></div>
                                     <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i></a>
                                     <a class="add_lovelist" href="javascript:void(0);" ><i class="fa fa-heart"></i></a>
                                 </div>
@@ -185,7 +168,7 @@
                                     <img class="img_h" src="images/tovar/women/6_2.jpg" alt="" />
                                 </div>
                                 <div class="tovar_item_btns">
-                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/6.html" >quick view</a></div>
+                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/6.html" >Ver</a></div>
                                     <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i></a>
                                     <a class="add_lovelist" href="javascript:void(0);" ><i class="fa fa-heart"></i></a>
                                 </div>
@@ -239,7 +222,7 @@
 
         <!-- CONTAINER -->
         <div class="container containerFix">
-            <h2>Featured products</h2>
+            <h2>Productos Personalizados</h2>
 
             <!-- ROW -->
             <div class="row">
@@ -263,7 +246,7 @@
                                     <img class="img_h" src="images/tovar/women/1_2.jpg" alt="" />
                                 </div>
                                 <div class="tovar_item_btns">
-                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a></div>
+                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a></div>
                                     <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i></a>
                                     <a class="add_lovelist" href="Controller?opID=AddWishList&Referencia=<%=referencia%>" ><i class="fa fa-heart"></i></a>
                                 </div>
@@ -299,7 +282,7 @@
 
         <!-- CONTAINER -->
         <div class="container">
-            <h2>new arrivals</h2>
+            <h2>Novedades!</h2>
 
             <!-- JCAROUSEL -->
             <div class="jcarousel-wrapper">
@@ -317,7 +300,7 @@
                             <div class="tovar_item_new">
                                 <div class="tovar_img">
                                     <img src="images/tovar/women/new/1.jpg" alt="" />
-                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a></div>
+                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a></div>
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >Moonglow paisley silk tee</a>
@@ -331,7 +314,7 @@
                                 <div class="tovar_img">
                                     <img src="images/tovar/women/new/2.jpg" alt="" />
                                     <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a>
+                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
                                     </div>
                                 </div>
                                 <div class="tovar_description clearfix">
@@ -346,7 +329,7 @@
                                 <div class="tovar_img">
                                     <img src="images/tovar/women/new/3.jpg" alt="" />
                                     <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a>
+                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
                                     </div>
                                 </div>
                                 <div class="tovar_description clearfix">
@@ -361,7 +344,7 @@
                                 <div class="tovar_img">
                                     <img src="images/tovar/women/new/4.jpg" alt="" />
                                     <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a>
+                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
                                     </div>
                                 </div>
                                 <div class="tovar_description clearfix">
@@ -376,7 +359,7 @@
                                 <div class="tovar_img">
                                     <img src="images/tovar/women/new/5.jpg" alt="" />
                                     <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a>
+                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
                                     </div>
                                 </div>
                                 <div class="tovar_description clearfix">
@@ -391,7 +374,7 @@
                                 <div class="tovar_img">
                                     <img src="images/tovar/women/new/6.jpg" alt="" />
                                     <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a>
+                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
                                     </div>
                                 </div>
                                 <div class="tovar_description clearfix">
@@ -406,7 +389,7 @@
                                 <div class="tovar_img">
                                     <img src="images/tovar/women/new/1.jpg" alt="" />
                                     <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a>
+                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
                                     </div>
                                 </div>
                                 <div class="tovar_description clearfix">
@@ -421,7 +404,7 @@
                                 <div class="tovar_img">
                                     <img src="images/tovar/women/new/2.jpg" alt="" />
                                     <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a>
+                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
                                     </div>
                                 </div>
                                 <div class="tovar_description clearfix">
@@ -436,7 +419,7 @@
                                 <div class="tovar_img">
                                     <img src="images/tovar/women/new/3.jpg" alt="" />
                                     <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a>
+                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
                                     </div>
                                 </div>
                                 <div class="tovar_description clearfix">
@@ -451,7 +434,7 @@
                                 <div class="tovar_img">
                                     <img src="images/tovar/women/new/4.jpg" alt="" />
                                     <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >quick view</a>
+                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
                                     </div>
                                 </div>
                                 <div class="tovar_description clearfix">
@@ -519,8 +502,8 @@
                     <div class="recent_post_item clearfix">
                         <div class="recent_post_date">15<span>oct</span></div>
                         <a class="recent_post_img" href="blog-post.html" ><img src="images/blog/recent1.jpg" alt="" /></a>
-                        <a class="recent_post_title" href="blog-post.html" >LOREM IPSUM</a>
-                        <div class="recent_post_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+                        <a class="recent_post_title" href="blog-post.html" >Lorem Ipsum dolor sit amet.</a>
+                        <div class="recent_post_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</div>
                         <ul class="post_meta">
                             <li><i class="fa fa-comments"></i>Comentarios <span class="sep">|</span> 15</li>
                         </ul>
@@ -529,10 +512,10 @@
 
                 <div class="col-lg-6 col-md-6 padbot30">
                     <div class="recent_post_item clearfix">
-                        <div class="recent_post_date">15<span>oct</span></div>
-                        <a class="recent_post_img" href="blog-post.html" ><img src="images/blog/recent1.jpg" alt="" /></a>
-                        <a class="recent_post_title" href="blog-post.html" >LOREM IPSUM</a>
-                        <div class="recent_post_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>
+                        <div class="recent_post_date">07<span>dec</span></div>
+                        <a class="recent_post_img" href="blog-post.html" ><img src="images/blog/recent2.jpg" alt="" /></a>
+                        <a class="recent_post_title" href="blog-post.html" >Lorem Ipsum dolor sit amet.</a>
+                        <div class="recent_post_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</div</div>
                         <ul class="post_meta">
                             <li><i class="fa fa-comments"></i>Comentarios <span class="sep">|</span> 15</li>
                         </ul>
