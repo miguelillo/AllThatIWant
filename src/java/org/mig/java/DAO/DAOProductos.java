@@ -13,10 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Interfaces.IProductos;
 import static org.mig.java.DAO.DAOUtil.prepareStatement;
+import org.mig.java.Entities.Pedidos;
 import org.mig.java.Entities.Usuarios;
 import org.mig.java.Entities.WishList;
 import org.mig.java.Exceptions.DAOException;
@@ -63,6 +67,7 @@ public class DAOProductos implements IProductos {
     private static final String INSERT_WISH_LIST = "INSERT INTO `usuario_wishList`(`Usuario`, `Producto`) VALUES (?,?)";
     private static final String MOSTRAR_PRODUCTOS = "SELECT * FROM `productos` ORDER BY `Fecha_Catalogo` LIMIT 1,7";
     private static final String MOSTRAR_PRODUCTOS_TIENDA = "SELECT * FROM `productos_tiendas` WHERE TiendaCif = ?";
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllThatIWantPU");
     private static final String REALIZAR_PEDIDO = "INSERT INTO `pedidos`("
             + "`UsuarioMail`, "
             + "`ProductoReferencia`, "
@@ -76,14 +81,16 @@ public class DAOProductos implements IProductos {
             + "VALUES (?,?,?,?,?,?,?,?,?)";
 
     @Override
-    public void RealizarPedido(List<Productos> productos, Usuarios usuario, Tiendas tienda) {
+    public void RealizarPedido(List<Pedidos> pedidos) {
 
-        for (Productos producto : productos) {
+        for (Pedidos pedido : pedidos) {
+
+            Object[] pedidoValues = {
+            
+            };
 
         }
 
-        Object[] pedidoValues = {
-            usuario.getMail(),};
     }
 
     @Override
@@ -239,6 +246,23 @@ public class DAOProductos implements IProductos {
         }
     }
 
+    private Pedidos obtenerFilaPedidos(ResultSet rs) throws SQLException {
+        Pedidos pedido = new Pedidos();
+
+        pedido.setMail(rs.getString("USUARIOMAIL"));
+        pedido.setTiendaCif(rs.getString("TIENDACIF"));
+        pedido.setProductoReferencia(rs.getString("PRODUCTOREFERENCIA"));
+        pedido.setFechaPedido(rs.getDate("FECHA_PEDIDO"));
+        pedido.setFechaConfirmacion(rs.getDate("FECHA_CONFIRMACION"));
+        pedido.setFechaServicio(rs.getDate("FECHA_SERVICIO"));
+        pedido.setUnidades(rs.getInt("UNIDADES"));
+        pedido.setNumFactura(rs.getInt("NUM_FACTURA"));
+        pedido.setEstadoPedido(rs.getString("ESTADO_SERVICIO"));
+
+        return pedido;
+
+    }
+
     private Productos obtenerFilaProducto(ResultSet rs) throws SQLException {
 
         Productos filaProducto = new Productos();
@@ -307,6 +331,20 @@ public class DAOProductos implements IProductos {
         } catch (Exception ex) {
         }
 
+    }
+
+    public void persist(Object object) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(object);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
+            em.getTransaction().rollback();
+        } finally {
+            em.close();
+        }
     }
 
 }
