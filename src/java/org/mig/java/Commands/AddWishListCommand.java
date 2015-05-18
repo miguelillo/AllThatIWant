@@ -29,6 +29,10 @@ public class AddWishListCommand extends ICommand {
 
         productosBll.InsertarWishList(producto, usuario);
 
+        int cantidadWishItems = productosBll.cantidadWishItems(usuario);
+
+        request.getSession().setAttribute("cantidadWishItems", cantidadWishItems);
+
         return "Content.jsp";
     }
 

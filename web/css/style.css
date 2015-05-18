@@ -198,7 +198,7 @@ h6 {margin:0 0 15px; line-height:15px; font-size:10px;}
     top:-1px;
     width:19px;
     height:19px;
-    background-image:url(../images2/frame_angle.jpg);
+    background-image:url(../images/frame_angle.jpg);
     background-repeat:no-repeat;
     background-size:100% auto;
     -webkit-background-size:100% auto;
@@ -479,12 +479,12 @@ blockquote:before {
     top:-5px;
     width:76px;
     height:75px;
-    background-image:url(../images2/best_price.png);
+    background-image:url(../images/best_price.png);
     background-repeat:no-repeat;
     background-size:100% 100%;
     -webkit-background-size:100% 100%;
 }
-.price_item.free_price:before {background-image:url(../images2/free_price.png); left:-3px; top:-4px;}
+.price_item.free_price:before {background-image:url(../images/free_price.png); left:-3px; top:-4px;}
 .price_item_title {
     padding-bottom:25px;
     text-transform:uppercase;
@@ -2188,7 +2188,7 @@ ul.comments li ul li{
 /*-----------------------------------------------------------------------------------*/
 .top_sale {
     min-height:970px;
-    background-image:url(../images2/top_sale.jpg);
+    background-image:url(../images/top_sale.jpg);
     background-repeat:no-repeat;
     background-size:cover;
 }
@@ -2222,7 +2222,7 @@ ul.comments li ul li{
 /*-----------------------------------------------------------------------------------*/
 .fashion_week {
     min-height:950px;
-    background-image:url(../images2/fashion_week.jpg);
+    background-image:url(../images/fashion_week.jpg);
     background-repeat:no-repeat;
     background-size:cover;
 }
@@ -2298,7 +2298,7 @@ ul.comments li ul li{
 /*-----------------------------------------------------------------------------------*/
 .shoes_page {
     min-height:960px;
-    background-image:url(../images2/shoes_page.jpg);
+    background-image:url(../images/shoes_page.jpg);
     background-repeat:no-repeat;
     background-size:cover;
 }
@@ -2342,7 +2342,7 @@ ul.comments li ul li{
 /*-----------------------------------------------------------------------------------*/
 .school_sale {
     min-height:700px;
-    background-image:url(../images2/school_sale.jpg);
+    background-image:url(../images/school_sale.jpg);
     background-repeat:no-repeat;
     background-size:cover;
 }
@@ -2383,7 +2383,7 @@ ul.comments li ul li{
     background-color:inherit;
     background-repeat:no-repeat;
     background-size:cover;
-    background-image:url(../images2/breadcrumb_bg2.jpg);
+    background-image:url(../images/breadcrumb_bg2.jpg);
 }
 
 
@@ -2397,8 +2397,8 @@ ul.comments li ul li{
     background-repeat:no-repeat;
     background-size:cover;
 }
-.breadcrumb.women {background-image:url(../images2/breadcrumb_bg1.jpg);}
-.breadcrumb.men {background-image:url(../images2/breadcrumb_bg2.jpg);}
+.breadcrumb.women {background-image:url(../images/breadcrumb_bg1.jpg);}
+.breadcrumb.men {background-image:url(../images/breadcrumb_bg2.jpg);}
 
 .breadcrumb h2 {
     margin:0;
@@ -2571,7 +2571,7 @@ ul.comments li ul li{
     position: relative;
     margin:0 0 15px;
     height:5px;
-    background-image: url(../images2/slider-range.jpg);
+    background-image: url(../images/slider-range.jpg);
     background-repeat:repeat;
 }
 #price-range .ui-state-default {
@@ -2580,7 +2580,7 @@ ul.comments li ul li{
     width: 11px;
     height: 15px;
     margin:-3px 0 0 -7px;
-    background-image: url(../images2/slider-handle.jpg);
+    background-image: url(../images/slider-handle.jpg);
     background-repeat:no-repeat;
     cursor: w-resize;
     transition: none !important;
@@ -3338,7 +3338,7 @@ article.post.blog_post:hover .post_image:before, article.post.blog_post:hover .p
     top:26px;
     width:11px;
     height:20px;
-    background-image:url(../images2/comment_right_b.jpg);
+    background-image:url(../images/comment_right_b.jpg);
     background-repeat:no-repeat;
     background-size:100% auto;
     -webkit-background-size:100% auto;
@@ -3512,7 +3512,7 @@ table tr.cart_item td.product-subtotal {
 /*-----------------------------------------------------------------------------------*/
 /*	PAGE 404
 /*-----------------------------------------------------------------------------------*/
-.page404 {background-image:url(../images2/404_bg.jpg);}
+.page404 {background-image:url(../images/404_bg.jpg);}
 
 .wrapper404 {
     float:right;
@@ -3568,7 +3568,7 @@ table tr.cart_item td.product-subtotal {
 /*-----------------------------------------------------------------------------------*/
 .my_account {
     padding-top:250px;
-    background-image:url(../images2/my_account_bg.jpg);
+    background-image:url(../images/my_account_bg.jpg);
 }
 
 .my_account_block {background-color:#fff; margin-bottom:54px;}
@@ -3718,7 +3718,7 @@ table tr.cart_item td.product-subtotal {
 /*-----------------------------------------------------------------------------------*/
 /*	UPDATE PAGE
 /*-----------------------------------------------------------------------------------*/
-.update_page {background-image:url(../images2/update_bg.jpg);}
+.update_page {background-image:url(../images/update_bg.jpg);}
 
 .update_wrapper {
     width:680px;
@@ -3963,7 +3963,7 @@ table tr.cart_item td.product-subtotal {
     top:0;
     bottom:0;
     width:26px;
-    background-image:url(../images2/checkout_arrow.jpg);
+    background-image:url(../images/checkout_arrow.jpg);
     background-repeat:no-repeat;
     background-size:100% 100%;
     -webkit-background-size:100% 100%;
@@ -3974,7 +3974,7 @@ table tr.cart_item td.product-subtotal {
     border-right:0;
     background-color:#f4f4f4;
 }
-.checkout_nav li.active_step:before {background-image:url(../images2/active_step.jpg);}
+.checkout_nav li.active_step:before {background-image:url(../images/active_step.jpg);}
 .checkout_nav li.done_step,
 .checkout_nav li.done_step2 {
     font-weight:400;
@@ -3983,8 +3983,8 @@ table tr.cart_item td.product-subtotal {
     border-right:0;
     background-color:#e4ffd1;
 }
-.checkout_nav li.done_step:before {background-image:url(../images2/done_step.jpg);}
-.checkout_nav li.done_step2:before {background-image:url(../images2/done_step2.jpg);}
+.checkout_nav li.done_step:before {background-image:url(../images/done_step.jpg);}
+.checkout_nav li.done_step2:before {background-image:url(../images/done_step2.jpg);}
 .checkout_nav li.last {border-right:2px solid #ccc;}
 .checkout_nav li.last:before {display:none;}
 
@@ -4363,7 +4363,7 @@ footer .newsletter_btn {
 /* Newsletter From */
 .widget_newsletter {
     padding:2px;
-    background-image:url(../images2/widget_newsletter.jpg);
+    background-image:url(../images/widget_newsletter.jpg);
     border:0;
 }
 .newsletter_wrapper {
@@ -4532,7 +4532,7 @@ input[type="submit"]:hover {background-color:#242424;}
 #comment_form {margin-bottom:53px;}
 #comment_form .comment_form_wrapper {
     padding:2px;
-    background-image:url(../images2/comment_bord.jpg);
+    background-image:url(../images/comment_bord.jpg);
 }
 #comment_form form {
     position:relative;

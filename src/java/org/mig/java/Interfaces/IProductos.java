@@ -34,9 +34,11 @@ public interface IProductos {
     public List<Productos> mostrarWishList(Usuarios usuario);
 
     public void InsertarWishList(Productos producto, Usuarios usuario);
-    
+
     public void BorrarWishList(WishList wishListItem);
 
     public Productos mostrarProducto(Productos producto);
+
+    public void RealizarPedido(List<Productos> productos, Usuarios usuario, Tiendas tienda);
 
 }

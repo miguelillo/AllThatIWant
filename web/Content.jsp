@@ -24,9 +24,9 @@
                     </div>
                     <a class="flex_caption2" href="javascript:void(0);" ><div class="middle">Venta<span>Tienda</span>Ahora</div></a>
                     <div class="flex_caption3 slide_banner_wrapper">
-                        <a class="slide_banner slide1_banner1 captionDelay4 FromBottom" href="javascript:void(0);" ><img src="images1/slider/slide1_baner1.jpg" alt="" /></a>
-                        <a class="slide_banner slide1_banner2 captionDelay5 FromBottom" href="javascript:void(0);" ><img src="images1/slider/slide1_baner2.jpg" alt="" /></a>
-                        <a class="slide_banner slide1_banner3 captionDelay6 FromBottom" href="javascript:void(0);" ><img src="images1/slider/slide1_baner3.jpg" alt="" /></a>
+                        <a class="slide_banner slide1_banner1 captionDelay4 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner1.jpg" alt="" /></a>
+                        <a class="slide_banner slide1_banner2 captionDelay5 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner2.jpg" alt="" /></a>
+                        <a class="slide_banner slide1_banner3 captionDelay6 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner3.jpg" alt="" /></a>
                     </div>
                 </div><!-- //CONTAINER -->
             </li>
@@ -40,9 +40,9 @@
                     </div>
                     <a class="flex_caption2" href="javascript:void(0);" ><div class="middle">Venta<span>Tienda</span>Ahora</div></a>
                     <div class="flex_caption3 slide_banner_wrapper">
-                        <a class="slide_banner slide1_banner1 captionDelay4 FromBottom" href="javascript:void(0);" ><img src="images1/slider/slide1_baner1.jpg" alt="" /></a>
-                        <a class="slide_banner slide1_banner2 captionDelay5 FromBottom" href="javascript:void(0);" ><img src="images1/slider/slide1_baner2.jpg" alt="" /></a>
-                        <a class="slide_banner slide1_banner3 captionDelay6 FromBottom" href="javascript:void(0);" ><img src="images1/slider/slide1_baner3.jpg" alt="" /></a>
+                        <a class="slide_banner slide1_banner1 captionDelay4 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner1.jpg" alt="" /></a>
+                        <a class="slide_banner slide1_banner2 captionDelay5 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner2.jpg" alt="" /></a>
+                        <a class="slide_banner slide1_banner3 captionDelay6 FromBottom" href="javascript:void(0);" ><img src="images/slider/slide1_baner3.jpg" alt="" /></a>
                     </div>
                 </div><!-- //CONTAINER -->
             </li>

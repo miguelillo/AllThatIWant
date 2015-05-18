@@ -41,8 +41,8 @@ public class DAOProductos implements IProductos {
     }
 
     //SQL's
-    String MOSTRAR_PRODUCTO = "SELECT *  FROM productos WHERE referencia =  ?";
-    String INSERTAR_PRODUCTOS = "INSERT INTO proyectofinaldaw.productos ("
+    private static final String MOSTRAR_PRODUCTO = "SELECT *  FROM productos WHERE referencia =  ?";
+    private static final String INSERTAR_PRODUCTOS = "INSERT INTO proyectofinaldaw.productos ("
             + "`Referencia`, "
             + "`Precio`, "
             + "`Nombre`, "
@@ -53,8 +53,8 @@ public class DAOProductos implements IProductos {
             + "`Sexo`, "
             + "`Id_Categoria`"//HE AÑADIDO FECHA CATALOGO SI AL INSERTAR DA ERROR COMPROBAR QUE SEA POR ESTO!
             + "`Fecha_Catalogo`)"
-            + "	VALUES (?, ?, ?, ?, ?, ?, ?,?,?,?)";
-    String INSERTAR_PRODUCTOS_TIENDA = "INSERT INTO proyectofinaldaw.productos_tiendas (`Productoid`, "
+            + "	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERTAR_PRODUCTOS_TIENDA = "INSERT INTO proyectofinaldaw.productos_tiendas (`Productoid`, "
             + "`TiendaCIF`)"
             + "	VALUES (?, ?);";
     private static final String WISH_LIST_BORRAR_PRODUCTO = "DELETE FROM usuario_wishList WHERE Usuario = ? AND Producto = ?";
@@ -62,6 +62,29 @@ public class DAOProductos implements IProductos {
     private static final String WISH_LIST = "SELECT * FROM usuario_wishList INNER JOIN productos ON usuario_wishList.Producto = productos.Referencia WHERE usuario_wishList.Usuario =  ? LIMIT 0 , 30";
     private static final String INSERT_WISH_LIST = "INSERT INTO `usuario_wishList`(`Usuario`, `Producto`) VALUES (?,?)";
     private static final String MOSTRAR_PRODUCTOS = "SELECT * FROM `productos` ORDER BY `Fecha_Catalogo` LIMIT 1,7";
+    private static final String MOSTRAR_PRODUCTOS_TIENDA = "SELECT * FROM `productos_tiendas` WHERE TiendaCif = ?";
+    private static final String REALIZAR_PEDIDO = "INSERT INTO `pedidos`("
+            + "`UsuarioMail`, "
+            + "`ProductoReferencia`, "
+            + "`TiendaCIF`, "
+            + "`Fecha_Pedido`, "
+            + "`Fecha_Confirmacion`, "
+            + "`Fecha_Servicio`, "
+            + "`Unidades`, "
+            + "`Num_Factura`, "
+            + "`Estado_Servicio`) "
+            + "VALUES (?,?,?,?,?,?,?,?,?)";
+
+    @Override
+    public void RealizarPedido(List<Productos> productos, Usuarios usuario, Tiendas tienda) {
+
+        for (Productos producto : productos) {
+
+        }
+
+        Object[] pedidoValues = {
+            usuario.getMail(),};
+    }
 
     @Override
     public void insertarProducto(Productos producto, Tiendas tienda) {
