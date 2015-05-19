@@ -218,6 +218,7 @@ public class DAOProductos implements IProductos {
         }
     }
 
+
     private Pedidos obtenerFilaPedidos(ResultSet rs) throws SQLException {
         Pedidos pedido = new Pedidos();
 

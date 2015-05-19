@@ -7,6 +7,7 @@ package org.mig.java.BLL;
 
 import java.util.List;
 import org.mig.java.DAO.DAOFactory;
+import org.mig.java.Entities.Pedidos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
