@@ -5,9 +5,12 @@
  */
 package org.mig.java.Commands;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.mig.java.BLL.PedidosBLL;
 import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Pedidos;
 import org.mig.java.Entities.Usuarios;
 
 /**
@@ -18,9 +21,13 @@ public class LoginCommand extends ICommand {
     @Override
     public void initPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ProductosBLL productosBll = new ProductosBLL();
+        PedidosBLL pedidosBll = new PedidosBLL();
         Usuarios usuario = (Usuarios) request.getSession().getAttribute("usuarioValido");
         int cantidadWishItems = productosBll.cantidadWishItems(usuario);
 
+        List<Pedidos> pedidos = pedidosBll.MostrarPedidos(usuario);
+
+        request.setAttribute("itemsCarrito", pedidos);
         request.getSession().setAttribute("cantidadWishItems", cantidadWishItems);
     }
 

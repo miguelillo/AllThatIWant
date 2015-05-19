@@ -5,8 +5,11 @@
  */
 package org.mig.java.BLL;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.mig.java.DAO.DAOFactory;
 import org.mig.java.Entities.Pedidos;
+import org.mig.java.Entities.Usuarios;
 import org.mig.java.Interfaces.IPedidos;
 
 /**
@@ -19,9 +22,21 @@ public class PedidosBLL {
         DAOFactory daoFactory = DAOFactory.getInstance();
 
         IPedidos pedidosDao = daoFactory.getPedidosDAO();
-        
+
         pedidosDao.RealizarPedido(pedido);
 
+    }
+
+    public List<Pedidos> MostrarPedidos(Usuarios usuario) {
+        List<Pedidos> pedidos = new ArrayList<>();
+
+        DAOFactory daoFactory = DAOFactory.getInstance();
+
+        IPedidos pedidosDao = daoFactory.getPedidosDAO();
+
+        pedidos = pedidosDao.MostrarPedidos(usuario);
+
+        return pedidos;
     }
 
 }

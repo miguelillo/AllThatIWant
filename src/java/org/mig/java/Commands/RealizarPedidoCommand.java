@@ -14,6 +14,7 @@ import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -49,6 +50,10 @@ public class RealizarPedidoCommand extends ICommand {
         pedido.setEstadoPedido("PEDIDO");
 
         pedidosBll.RealizarPedido(pedido);
+
+        List<Pedidos> pedidos = pedidosBll.MostrarPedidos(usuario);
+
+        request.setAttribute("itemsCarrito", pedidos);
 
         return "Content.jsp";
     }

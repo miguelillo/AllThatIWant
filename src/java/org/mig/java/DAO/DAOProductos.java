@@ -64,18 +64,7 @@ public class DAOProductos implements IProductos {
     private static final String INSERT_WISH_LIST = "INSERT INTO `usuario_wishList`(`Usuario`, `Producto`) VALUES (?,?)";
     private static final String MOSTRAR_PRODUCTOS = "SELECT * FROM `productos` ORDER BY `Fecha_Catalogo` LIMIT 1,7";
     private static final String MOSTRAR_PRODUCTOS_TIENDA = "SELECT * FROM `productos_tiendas` WHERE TiendaCif = ?";
-    private static final String REALIZAR_PEDIDO = "INSERT INTO `pedidos`("
-            + "`UsuarioMail`, "
-            + "`ProductoReferencia`, "
-            + "`TiendaCIF`, "
-            + "`Fecha_Pedido`, "
-            + "`Fecha_Confirmacion`, "
-            + "`Fecha_Servicio`, "
-            + "`Unidades`, "
-            + "`Num_Factura`, "
-            + "`Estado_Servicio`) "
-            + "VALUES (?,?,?,?,?,?,?,?,?)";
-
+   
     @Override
     public void insertarProducto(Productos producto, Tiendas tienda) {
 

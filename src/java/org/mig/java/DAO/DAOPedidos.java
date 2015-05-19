@@ -7,9 +7,16 @@ package org.mig.java.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static org.mig.java.DAO.DAOUtil.prepareStatement;
 import static org.mig.java.DAO.DAOUtil.toSqlDate;
 import org.mig.java.Entities.Pedidos;
+import org.mig.java.Entities.Usuarios;
 import org.mig.java.Exceptions.DAOException;
 import org.mig.java.Interfaces.IPedidos;
 
@@ -44,6 +51,7 @@ public class DAOPedidos implements IPedidos {
             + "`Num_Factura`, "
             + "`Estado_Servicio`) "
             + "VALUES (?,?,?,?,?,?,?,?,?)";
+    private static final String MOSTRAR_PEDIDOS = "SELECT * FROM `pedidos` WHERE `UsuarioMail` = ? AND  `Estado_Servicio` = 'PEDIDO'";
 
     @Override
     public void RealizarPedido(Pedidos pedido) {
@@ -72,6 +80,49 @@ public class DAOPedidos implements IPedidos {
             throw new DAOException("Error al realizar el pdidos");
         }
 
+    }
+
+    @Override
+    public List<Pedidos> MostrarPedidos(Usuarios usuario) {
+        List<Pedidos> pedidos = new ArrayList<>();
+        Pedidos pedido = new Pedidos();
+        Object[] Values = {
+            usuario.getMail()
+        };
+        try {
+
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_PEDIDOS, Values);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+
+                pedido = obtenerFilaPedidos(rs);
+
+                pedidos.add(pedido);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOPedidos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return pedidos;
+    }
+
+    private Pedidos obtenerFilaPedidos(ResultSet rs) throws SQLException {
+        Pedidos pedido = new Pedidos();
+        pedido.setMail(rs.getString("USUARIOMAIL"));
+        pedido.setEstadoPedido(rs.getString("ESTADO_SERVICIO"));
+        pedido.setFechaConfirmacion(rs.getDate("FECHA_CONFIRMACION"));
+        pedido.setFechaPedido(rs.getDate("FECHA_PEDIDO"));
+        pedido.setFechaServicio(rs.getDate("FECHA_SERVICIO"));
+        pedido.setNumFactura(rs.getInt("NUM_FACTURA"));
+        pedido.setUnidades(rs.getInt("UNIDADES"));
+        pedido.setTiendaCif(rs.getString("TIENDACIF"));
+        pedido.setProductoReferencia(rs.getString("PRODUCTOREFERENCIA"));
+
+        return pedido;
     }
 
 }

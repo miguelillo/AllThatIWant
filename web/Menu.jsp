@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.mig.java.Entities.Pedidos"%>
+<%@page import="java.util.List"%>
 <%@page import="org.mig.java.Entities.Usuarios"%>
 <!-- TOP INFO -->
 <div class="top_info">   <!-- CONTAINER -->
@@ -42,10 +45,22 @@
             </form>
         </div><!-- SEARCH FORM -->
         <!-- SHOPPING BAG -->
+
+        <%
+            if (sesion != null) {
+
+                List<Pedidos> pedidos = (ArrayList<Pedidos>) request.getAttribute("itemsCarrito");
+                int numeroItemsCarrito = pedidos.size();
+
+        %>
         <div class="shopping_bag">
-            <a class="shopping_bag_btn" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i><p>Carrito</p><span>2</span></a>
+            <a class="shopping_bag_btn" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i><p>Carrito</p><span><%=numeroItemsCarrito%></span></a>
             <div class="cart">
                 <ul class="cart-items">
+                    <%
+
+
+                    %>
                     <li class="clearfix">
                         <img class="cart_item_product" src="images/tovar/women/1.jpg" alt="" />
                         <a href="product-page.html" class="cart_item_title">popover sweatshirt in floral jacquard</a>
@@ -59,12 +74,10 @@
             </div>
         </div><!-- //SHOPPING BAG -->
 
-
+        <%  }%>
         <!-- LOVE LIST -->
         <div class="love_list">
-            <%
-
-                Integer cantidadWishItems = (Integer) request.getSession().getAttribute("cantidadWishItems");
+            <%                Integer cantidadWishItems = (Integer) request.getSession().getAttribute("cantidadWishItems");
                 if (sesion != null) {
             %>
             <a class="love_list_btn" href="Controller?opID=WishList" ><i class="fa fa-heart-o"></i><p>Love list</p><span id="loveListCounter"><%=cantidadWishItems%></span></a>
