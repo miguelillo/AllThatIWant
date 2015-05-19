@@ -7,6 +7,7 @@ package org.mig.java.BLL;
 
 import java.util.List;
 import org.mig.java.DAO.DAOFactory;
+import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
 import org.mig.java.Interfaces.ITiendas;
@@ -15,6 +16,11 @@ import org.mig.java.Interfaces.ITiendas;
  * @author miguelangel
  */
 public class TiendasBLL {
+
+    public Tiendas MostrarTiendaProducto(Productos producto) {
+
+        return null;
+    }
 
     public void RegistrarTienda(Tiendas tienda, Usuarios usuario) {
         DAOFactory daoFactory = DAOFactory.getInstance();

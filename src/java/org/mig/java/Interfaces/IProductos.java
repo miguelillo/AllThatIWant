@@ -40,6 +40,7 @@ public interface IProductos {
 
     public Productos mostrarProducto(Productos producto);
 
-    public void RealizarPedido(List<Pedidos> pedido);
+    public void RealizarPedido(Pedidos pedido);
+
 
 }

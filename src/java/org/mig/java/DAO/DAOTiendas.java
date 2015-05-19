@@ -42,6 +42,24 @@ public class DAOTiendas implements ITiendas {
     String REGISTRAR_TIENDA = "INSERT INTO proyectofinaldaw.tiendas (`CIF`, `UsuarioMail`, `Nombre`) \n"
             + "	VALUES (?, ?, ?)";
     String PROPIETARIO_TIENDA = "SELECT * FROM TIENDAS WHERE USUARIOMAIL = ?";
+    private static final String MOSTRAR_TIENDA_PRODUCTO = "SELECT `TiendaCIF` FROM `productos_tiendas` WHERE `Productoid` = ?";
+
+    @Override
+    public Tiendas MostrarTiendaProducto(Productos producto) {
+        Tiendas tienda = new Tiendas();
+        Object[] tiendaProducto = {
+            producto.getReferencia()
+        };
+        try {
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_TIENDA_PRODUCTO, tiendaProducto);
+            ResultSet rs = preparedStatement.executeQuery();
+            tienda = obtenerFilaTiendas(rs);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return tienda;
+    }
 
     @Override
     public void RegistrarTienda(Tiendas tienda, Usuarios usuario) {
@@ -120,5 +138,17 @@ public class DAOTiendas implements ITiendas {
         filaTienda.setNombre(rs.getString("NOMBRE"));
 
         return filaTienda;
+    }
+
+    private Tiendas obtenerFilaTiendas(ResultSet rs) throws SQLException {
+        Tiendas tienda = new Tiendas();
+        Usuarios usuario = new Usuarios();
+        usuario.setMail(rs.getString("USUARIOMAIL"));
+
+        tienda.setCif(rs.getString("CIF"));
+        tienda.setUsuarioMail(usuario);
+        tienda.setNombre(rs.getString("NOMBRE"));
+
+        return tienda;
     }
 }

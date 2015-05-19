@@ -212,7 +212,7 @@
     %>
 
     <script>
-        ?("#loveListCounter").text(<%=cantidadWishItems%>);
+        $("#loveListCounter").text(<%=cantidadWishItems%>);
     </script>
 
     <!-- BREADCRUMBS -->
@@ -247,7 +247,7 @@
                                 </div>
                                 <div class="tovar_item_btns">
                                     <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a></div>
-                                    <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="add_bag" href="Controller?opID=RealizarPedido&referencia=<%=referencia%>;" ><i class="fa fa-shopping-cart"></i></a>
                                     <a class="add_lovelist" href="Controller?opID=AddWishList&Referencia=<%=referencia%>" ><i class="fa fa-heart"></i></a>
                                 </div>
                             </div>
