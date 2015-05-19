@@ -6,7 +6,6 @@
 package org.mig.java.Interfaces;
 
 import java.util.List;
-import org.mig.java.Entities.Pedidos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
@@ -40,6 +39,5 @@ public interface IProductos {
 
     public Productos mostrarProducto(Productos producto);
 
-    public void RealizarPedido(List<Pedidos> pedido);
 
 }

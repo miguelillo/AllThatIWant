@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 import org.mig.java.Exceptions.DAOException;
+import org.mig.java.Interfaces.IPedidos;
 import org.mig.java.Interfaces.IProductos;
 import org.mig.java.Interfaces.ITiendas;
 import org.mig.java.Interfaces.IUsuario;
@@ -70,6 +71,9 @@ public abstract class DAOFactory {
 
     public IProductos getProductosDAO() {
         return new DAOProductos(this);
+    }
+    public IPedidos getPedidosDAO(){
+        return new DAOPedidos(this);
     }
     
     

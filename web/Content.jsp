@@ -212,7 +212,7 @@
     %>
 
     <script>
-        ?("#loveListCounter").text(<%=cantidadWishItems%>);
+        $("#loveListCounter").text(<%=cantidadWishItems%>);
     </script>
 
     <!-- BREADCRUMBS -->
@@ -247,7 +247,7 @@
                                 </div>
                                 <div class="tovar_item_btns">
                                     <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a></div>
-                                    <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="add_bag" href="Controller?opID=RealizarPedido&referencia=<%=referencia%>" ><i class="fa fa-shopping-cart"></i></a>
                                     <a class="add_lovelist" href="Controller?opID=AddWishList&Referencia=<%=referencia%>" ><i class="fa fa-heart"></i></a>
                                 </div>
                             </div>
@@ -516,11 +516,11 @@
                         <a class="recent_post_img" href="blog-post.html" ><img src="images/blog/recent2.jpg" alt="" /></a>
                         <a class="recent_post_title" href="blog-post.html" >Lorem Ipsum dolor sit amet.</a>
                         <div class="recent_post_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</div</div>
-                        <ul class="post_meta">
-                            <li><i class="fa fa-comments"></i>Comentarios <span class="sep">|</span> 15</li>
-                        </ul>
-                    </div>
+                    <ul class="post_meta">
+                        <li><i class="fa fa-comments"></i>Comentarios <span class="sep">|</span> 15</li>
+                    </ul>
                 </div>
-            </div><!-- //ROW -->
+            </div>
+        </div><!-- //ROW -->
         </div><!-- //CONTAINER -->
     </section><!-- //RECENT POSTS -->

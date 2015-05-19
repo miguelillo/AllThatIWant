@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static org.mig.java.DAO.DAOUtil.prepareStatement;
 import org.mig.java.Entities.Productos;
+import org.mig.java.Entities.ProductosTiendas;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
 import org.mig.java.Exceptions.DAOException;
@@ -39,9 +40,31 @@ public class DAOTiendas implements ITiendas {
     public DAOTiendas(DAOFactory daoFactory) {
         this.daoFactory = daoFactory;
     }
-    String REGISTRAR_TIENDA = "INSERT INTO proyectofinaldaw.tiendas (`CIF`, `UsuarioMail`, `Nombre`) \n"
+    private static final String REGISTRAR_TIENDA = "INSERT INTO proyectofinaldaw.tiendas (`CIF`, `UsuarioMail`, `Nombre`) \n"
             + "	VALUES (?, ?, ?)";
-    String PROPIETARIO_TIENDA = "SELECT * FROM TIENDAS WHERE USUARIOMAIL = ?";
+    private static final String PROPIETARIO_TIENDA = "SELECT * FROM TIENDAS WHERE USUARIOMAIL = ?";
+    private static final String MOSTRAR_TIENDA_PRODUCTO = "SELECT * FROM `productos_tiendas` WHERE `Productoid` = ?";
+    private static final String BUSCAR_TIENDA = "SELECT * FROM `tiendas` WHERE `cif` = ?";
+
+    @Override
+    public ProductosTiendas MostrarTiendaProducto(Productos producto) {
+        ProductosTiendas productosTiendas = new ProductosTiendas();
+        Object[] tiendaProducto = {
+            producto.getReferencia()
+        };
+        try {
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_TIENDA_PRODUCTO, tiendaProducto);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                productosTiendas = obtenerFilaTiendasProductos(rs);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return productosTiendas;
+    }
 
     @Override
     public void RegistrarTienda(Tiendas tienda, Usuarios usuario) {
@@ -73,7 +96,25 @@ public class DAOTiendas implements ITiendas {
 
     @Override
     public Tiendas BuscarTienda(Tiendas tienda) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        Object[] values = {
+            tienda.getCif()
+        };
+
+        try {
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, BUSCAR_TIENDA, values);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                tienda = obtenerFilasTiendas(rs);
+            }
+
+        } catch (Exception ex) {
+            throw new DAOException("Error al encontrar la tienda");
+        }
+
+        return tienda;
     }
 
     @Override
@@ -120,5 +161,15 @@ public class DAOTiendas implements ITiendas {
         filaTienda.setNombre(rs.getString("NOMBRE"));
 
         return filaTienda;
+    }
+
+    private ProductosTiendas obtenerFilaTiendasProductos(ResultSet rs) throws SQLException {
+
+        ProductosTiendas productosTiendas = new ProductosTiendas();
+
+        productosTiendas.setTiendaCif(rs.getString("TIENDACIF"));
+        productosTiendas.setProductoReferencia(rs.getString("PRODUCTOID"));
+
+        return productosTiendas;
     }
 }

@@ -13,9 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Interfaces.IProductos;
@@ -67,7 +64,6 @@ public class DAOProductos implements IProductos {
     private static final String INSERT_WISH_LIST = "INSERT INTO `usuario_wishList`(`Usuario`, `Producto`) VALUES (?,?)";
     private static final String MOSTRAR_PRODUCTOS = "SELECT * FROM `productos` ORDER BY `Fecha_Catalogo` LIMIT 1,7";
     private static final String MOSTRAR_PRODUCTOS_TIENDA = "SELECT * FROM `productos_tiendas` WHERE TiendaCif = ?";
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllThatIWantPU");
     private static final String REALIZAR_PEDIDO = "INSERT INTO `pedidos`("
             + "`UsuarioMail`, "
             + "`ProductoReferencia`, "
@@ -79,19 +75,6 @@ public class DAOProductos implements IProductos {
             + "`Num_Factura`, "
             + "`Estado_Servicio`) "
             + "VALUES (?,?,?,?,?,?,?,?,?)";
-
-    @Override
-    public void RealizarPedido(List<Pedidos> pedidos) {
-
-        for (Pedidos pedido : pedidos) {
-
-            Object[] pedidoValues = {
-            
-            };
-
-        }
-
-    }
 
     @Override
     public void insertarProducto(Productos producto, Tiendas tienda) {
@@ -331,20 +314,6 @@ public class DAOProductos implements IProductos {
         } catch (Exception ex) {
         }
 
-    }
-
-    public void persist(Object object) {
-        EntityManager em = emf.createEntityManager();
-        try {
-            em.getTransaction().begin();
-            em.persist(object);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
-            em.getTransaction().rollback();
-        } finally {
-            em.close();
-        }
     }
 
 }
