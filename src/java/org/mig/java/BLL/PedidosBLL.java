@@ -38,5 +38,13 @@ public class PedidosBLL {
 
         return pedidos;
     }
+    
+    public void BorrarPedido(Pedidos pedido){
+        DAOFactory daoFactory = DAOFactory.getInstance();
+        
+        IPedidos pedidos = daoFactory.getPedidosDAO();
+        
+        pedidos.BorrarProductoPedido(pedido);
+    }
 
 }

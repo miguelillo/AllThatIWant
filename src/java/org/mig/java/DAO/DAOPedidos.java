@@ -52,7 +52,31 @@ public class DAOPedidos implements IPedidos {
             + "`Estado_Servicio`) "
             + "VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String MOSTRAR_PEDIDOS = "SELECT * FROM `pedidos` WHERE `UsuarioMail` = ? AND  `Estado_Servicio` = 'PEDIDO'";
- 
+    private static final String BORRAR_PRODUCTO_PEDIDO = "DELETE FROM `pedidos` WHERE `ProductoReferencia` = ? AND `UsuarioMail` = ?";
+
+    @Override
+    public void BorrarProductoPedido(Pedidos pedido) {
+        Object[] Values = {
+            pedido.getProductoReferencia(),
+            pedido.getMail()
+        };
+
+        try {
+
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, BORRAR_PRODUCTO_PEDIDO, Values);
+
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new DAOException("Error al borrar el pedido");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOPedidos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     @Override
     public void RealizarPedido(Pedidos pedido) {
 
