@@ -1,10 +1,12 @@
+<%@page contentType="text/html;charset=UTF-8"%>
 <%@page import="org.mig.java.Entities.Productos"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.mig.java.Entities.Pedidos"%>
 <%@page import="java.util.List"%>
 <%@page import="org.mig.java.Entities.Usuarios"%>
 <!-- TOP INFO -->
-<div class="top_info">   <!-- CONTAINER -->
+<div class="top_info">   
+    <!-- CONTAINER -->
     <div class="container clearfix">
         <ul class="secondary_menu">
             <%
@@ -50,8 +52,8 @@
         <%
             if (sesion != null) {
                 Productos producto = new Productos();
-                List<Pedidos> pedidos = (ArrayList<Pedidos>) request.getAttribute("itemsCarrito");
-                List<Productos> productosCarrito = (ArrayList< Productos>) request.getAttribute("productosCarrito");
+                List<Pedidos> pedidos = (ArrayList<Pedidos>) request.getSession().getAttribute("itemsCarrito");
+                List<Productos> productosCarrito = (ArrayList< Productos>) request.getSession().getAttribute("productosCarrito");
                 int numeroItemsCarrito = pedidos.size();
                 int sumaCarritoTotal = 0;
 
@@ -70,7 +72,7 @@
                     <li class="clearfix">
                         <img class="cart_item_product" src="images/tovar/women/1.jpg" alt="" />
                         <a href="product-page.html" class="cart_item_title"><%=productoNombre%></a>
-                        <span class="cart_item_price">1 � <%=precioProducto%></span>
+                        <span class="cart_item_price">1 × <%=precioProducto%></span>
                     </li> 
 
                     <%
@@ -79,7 +81,7 @@
                         }%>
                 </ul>
                 <div class="cart_total">
-                    <div class="clearfix"><span class="cart_subtotal">bag subtotal: <b>?<%=sumaCarritoTotal%></b></span></div>
+                    <div class="clearfix"><span class="cart_subtotal">bag subtotal: <b>€<%=sumaCarritoTotal%></b></span></div>
                     <a class="btn active" href="checkout.html">Checkout</a>
                 </div>
             </div>
@@ -107,10 +109,10 @@
                 <ul class="mega_menu megamenu_col3 clearfix">
                     <li class="col">
                         <ol>
+                            <li><a href="Controller?opID=RedirectShoppingBag" >Cesta de la compra</a></li>
                             <li><a href="about.html" >Pagina</a></li>
                             <li><a href="product-page.html" >Pagina</a></li>
                             <li><a href="love-list.html" >Pagina</a></li>
-                            <li><a href="shopping-bag.html" >Pagina</a></li>
                             <li><a href="my-account.html" >Pagina</a></li>
 
                         </ol>

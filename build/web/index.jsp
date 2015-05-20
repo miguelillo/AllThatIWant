@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="org.mig.java.Entities.Usuarios"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -70,7 +70,7 @@
                 <script src="js/jquery.jcarousel.js" type="text/javascript"></script>
                 <script src="js/fancySelect.js"></script>
                 <script src="js/animate.js" type="text/javascript"></script>
-                <script src="js/myscript.js" type="text/javascript"></script>4
+                <script src="js/myscript.js" type="text/javascript"></script>
                 <script>
                     if (top !== self)
                         top.location.replace(self.location.href);

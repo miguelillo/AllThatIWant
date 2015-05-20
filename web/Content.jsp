@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=UTF-8"%>
 <%@page import="org.mig.java.BLL.ProductosBLL"%>
 <%@page import="java.util.List"%>
 <%@page import="org.mig.java.Entities.Productos"%>
@@ -85,7 +86,7 @@
                             </div>
                             <div class="tovar_description clearfix">
                                 <a class="tovar_title" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " ><%=nombre%></a>
-                                <span class="tovar_price">?<%=precio%></span>
+                                <span class="tovar_price">€<%=precio%></span>
                             </div>
                         </div>
                     </div><!-- //TOVAR1 -->
@@ -253,7 +254,7 @@
                             </div>
                             <div class="tovar_description clearfix">
                                 <a class="tovar_title" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " ><%=nombre%></a>
-                                <span class="tovar_price">?<%=precio%></span>
+                                <span class="tovar_price">€<%=precio%></span>
                             </div>
                         </div>
                     </div><!-- //TOVAR1 -->
@@ -304,7 +305,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >Moonglow paisley silk tee</a>
-                                    <span class="tovar_price">?98.00</span>
+                                    <span class="tovar_price">€98.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -319,7 +320,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >PEASANT TOP IN SUCKERED STRIPE</a>
-                                    <span class="tovar_price">?78.00</span>
+                                    <span class="tovar_price">€78.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -334,7 +335,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >EMBROIDERED BIB PEASANT TOP</a>
-                                    <span class="tovar_price">?88.00</span>
+                                    <span class="tovar_price">€88.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -349,7 +350,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >SILK POCKET BLOUSE</a>
-                                    <span class="tovar_price">?98.00</span>
+                                    <span class="tovar_price">€98.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -364,7 +365,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >SWISS-DOT TUXEDO SHIRT</a>
-                                    <span class="tovar_price">?65.00</span>
+                                    <span class="tovar_price">€65.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -394,7 +395,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >Moonglow paisley silk tee</a>
-                                    <span class="tovar_price">?98.00</span>
+                                    <span class="tovar_price">€98.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -409,7 +410,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >PEASANT TOP IN SUCKERED STRIPE</a>
-                                    <span class="tovar_price">?78.00</span>
+                                    <span class="tovar_price">€78.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -424,7 +425,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >EMBROIDERED BIB PEASANT TOP</a>
-                                    <span class="tovar_price">?88.00</span>
+                                    <span class="tovar_price">€88.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
@@ -439,7 +440,7 @@
                                 </div>
                                 <div class="tovar_description clearfix">
                                     <a class="tovar_title" href="product-page.html" >SILK POCKET BLOUSE</a>
-                                    <span class="tovar_price">?98.00</span>
+                                    <span class="tovar_price">€98.00</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>

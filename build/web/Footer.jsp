@@ -1,4 +1,4 @@
-
+<%@page contentType="text/html;charset=UTF-8"%>
 <!-- FOOTER -->
 <footer>
 
@@ -31,8 +31,8 @@
 
             <div class="col-lg-4 col-md-4 col-sm-6 padbot30">
                 <h4>Sobre la Tienda</h4>
-                <p>Le pedimos su nombre, número de teléfono , domicilio, dirección de correo electrónico y la edad para las competiciones , sorteos o boletín firma sube . Cuando se realiza una compra en nuestro sitio , además de lo anterior , también pedimos la dirección de entrega y los detalles del método de pago.</p>
-                <p>Podemos obtener información sobre su uso de nuestro sitio web para ayudarnos a desarrollar y mejorar aún más a través de encuestas en línea y otras peticiones.</p>
+                <p>Le pedimos su nombre, nÃºmero de telÃ©fono , domicilio, direcciÃ³n de correo electrÃ³nico y la edad para las competiciones , sorteos o boletÃ­n firma sube . Cuando se realiza una compra en nuestro sitio , ademÃ¡s de lo anterior , tambiÃ©n pedimos la direcciÃ³n de entrega y los detalles del mÃ©todo de pago.</p>
+                <p>Podemos obtener informaciÃ³n sobre su uso de nuestro sitio web para ayudarnos a desarrollar y mejorar aÃºn mÃ¡s a travÃ©s de encuestas en lÃ­nea y otras peticiones.</p>
             </div>
 
             <div class="respond_clear_768"></div>
@@ -66,7 +66,7 @@
         <div class="container clearfix">
             <div class="foot_logo"><a href="index.html" ><img src="" alt="" />LOGO</a></div>
             <div class="copyright_inf">
-                <span>All That I Want© 2015</span> 
+                <span>All That I WantÂ© 2015</span> 
                 <a class="back_top" href="javascript:void(0);" >Volver Arriba<i class="fa fa-angle-up"></i></a>
             </div>
         </div><!-- //CONTAINER -->

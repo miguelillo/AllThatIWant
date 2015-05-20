@@ -1,6 +1,6 @@
 <%@page import="org.mig.java.Entities.Productos"%>
 <%@page import="java.util.List"%>
-
+<%@page contentType="text/html;charset=UTF-8"%>
 <!-- BREADCRUMBS -->
 <section class="breadcrumb parallax margbot30"></section>
 <!-- //BREADCRUMBS -->
@@ -63,7 +63,7 @@
 
                             <td class="product-price"><%=prodPrecio%></td>
 
-                            <td class="product-add-bag"><a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i><span>Añadir al carrito</span></a></td>
+                            <td class="product-add-bag"><a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i><span>AÃ±adir al carrito</span></a></td>
 
                             <td class="product-remove"><a href="Controller?opID=BorrarWishListItem&Referencia=<%=prodRef%>" ><span>Borrar</span> <i>X</i></a></td>
                         </tr>

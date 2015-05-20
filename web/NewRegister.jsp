@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=UTF-8"%>
 <!-- MY ACCOUNT PAGE -->
 <section class="my_account parallax">
     <!-- CONTAINER -->

@@ -29,8 +29,8 @@ public class LoginCommand extends ICommand {
         List<Pedidos> pedidos = pedidosBll.MostrarPedidos(usuario);
         List<Productos> listaProductosCarrito = productosBll.MostrarProductosCarrito(usuario);
 
-        request.setAttribute("itemsCarrito", pedidos);
-        request.setAttribute(("productosCarrito"), listaProductosCarrito);
+        request.getSession().setAttribute("itemsCarrito", pedidos);
+        request.getSession().setAttribute(("productosCarrito"), listaProductosCarrito);
         request.getSession().setAttribute("cantidadWishItems", cantidadWishItems);
 
     }

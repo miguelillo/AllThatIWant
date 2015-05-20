@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=UTF-8"%>
 <!-- PAGE 404 -->
 <section class="page404 parallax">
     <%

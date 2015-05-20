@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=UTF-8"%>
 <!-- MY ACCOUNT PAGE -->
 <section class="my_account parallax">
 
@@ -14,7 +15,7 @@
                     <input name="password" type="password"   placeholder="Password" required>
                     <div class="clearfix">
                         <div class="pull-left"><input type="checkbox" id="categorymanufacturer1" /><label for="categorymanufacturer1">Mantente Logeado</label></div>
-                        <div class="pull-right"><a class="forgot_pass" href="javascript:void(0);" >Olvide la contraseña</a></div>
+                        <div class="pull-right"><a class="forgot_pass" href="javascript:void(0);" >Olvide la contraseÃ±a</a></div>
                     </div>
                     <div class="center"> <button class="btn btn-lg btn-primary btn-block" id="formButton" type="submit">Iniciar</button></div>
                     <span class="help-block-Login"></span>  
