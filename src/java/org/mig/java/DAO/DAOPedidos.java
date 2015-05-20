@@ -52,7 +52,7 @@ public class DAOPedidos implements IPedidos {
             + "`Estado_Servicio`) "
             + "VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String MOSTRAR_PEDIDOS = "SELECT * FROM `pedidos` WHERE `UsuarioMail` = ? AND  `Estado_Servicio` = 'PEDIDO'";
-
+ 
     @Override
     public void RealizarPedido(Pedidos pedido) {
 

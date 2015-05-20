@@ -64,7 +64,13 @@ public class DAOProductos implements IProductos {
     private static final String INSERT_WISH_LIST = "INSERT INTO `usuario_wishList`(`Usuario`, `Producto`) VALUES (?,?)";
     private static final String MOSTRAR_PRODUCTOS = "SELECT * FROM `productos` ORDER BY `Fecha_Catalogo` LIMIT 1,7";
     private static final String MOSTRAR_PRODUCTOS_TIENDA = "SELECT * FROM `productos_tiendas` WHERE TiendaCif = ?";
-   
+    private static final String MOSTRAR_PRODUCTOS_PEDIDOS = "SELECT productos.*\n"
+            + "FROM productos \n"
+            + "INNER JOIN pedidos \n"
+            + "ON pedidos.ProductoReferencia = productos.Referencia \n"
+            + "WHERE pedidos.UsuarioMail = ? \n"
+            + "LIMIT 0 , 30";
+
     @Override
     public void insertarProducto(Productos producto, Tiendas tienda) {
 
@@ -218,7 +224,6 @@ public class DAOProductos implements IProductos {
         }
     }
 
-
     private Pedidos obtenerFilaPedidos(ResultSet rs) throws SQLException {
         Pedidos pedido = new Pedidos();
 
@@ -304,6 +309,33 @@ public class DAOProductos implements IProductos {
         } catch (Exception ex) {
         }
 
+    }
+
+    @Override
+    public List<Productos> mostrarProductoPedido(Usuarios usuario) {
+        List<Productos> listaProductosPedidos = new ArrayList<>();
+        Productos producto = new Productos();
+
+        Object[] Values = {
+            usuario.getMail()
+        };
+        try {
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_PRODUCTOS_PEDIDOS, Values);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+
+                producto = obtenerFilaProducto(rs);
+                listaProductosPedidos.add(producto);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listaProductosPedidos;
     }
 
 }

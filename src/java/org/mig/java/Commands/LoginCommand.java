@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.PedidosBLL;
 import org.mig.java.BLL.ProductosBLL;
 import org.mig.java.Entities.Pedidos;
+import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Usuarios;
 
 /**
@@ -26,9 +27,12 @@ public class LoginCommand extends ICommand {
         int cantidadWishItems = productosBll.cantidadWishItems(usuario);
 
         List<Pedidos> pedidos = pedidosBll.MostrarPedidos(usuario);
+        List<Productos> listaProductosCarrito = productosBll.MostrarProductosCarrito(usuario);
 
         request.setAttribute("itemsCarrito", pedidos);
+        request.setAttribute(("productosCarrito"), listaProductosCarrito);
         request.getSession().setAttribute("cantidadWishItems", cantidadWishItems);
+
     }
 
     @Override

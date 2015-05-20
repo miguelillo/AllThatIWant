@@ -38,6 +38,8 @@ public interface IProductos {
     public void BorrarWishList(WishList wishListItem);
 
     public Productos mostrarProducto(Productos producto);
+    
+    public List<Productos> mostrarProductoPedido(Usuarios usuario);
 
 
 }

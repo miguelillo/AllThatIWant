@@ -5,6 +5,7 @@
  */
 package org.mig.java.BLL;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.mig.java.DAO.DAOFactory;
 import org.mig.java.Entities.Pedidos;
@@ -79,6 +80,17 @@ public class ProductosBLL {
 
         daoProductos.BorrarWishList(wishListItem);
 
+    }
+
+    public List<Productos> MostrarProductosCarrito(Usuarios usuario) {
+        DAOFactory daoFactory = DAOFactory.getInstance();
+        List<Productos> listaProductosPedido = new ArrayList<>();
+
+        IProductos daoProductos = daoFactory.getProductosDAO();
+
+        listaProductosPedido = daoProductos.mostrarProductoPedido(usuario);
+
+        return listaProductosPedido;
     }
 
 }

@@ -1,3 +1,4 @@
+<%@page import="org.mig.java.Entities.Productos"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.mig.java.Entities.Pedidos"%>
 <%@page import="java.util.List"%>
@@ -48,9 +49,11 @@
 
         <%
             if (sesion != null) {
-
+                Productos producto = new Productos();
                 List<Pedidos> pedidos = (ArrayList<Pedidos>) request.getAttribute("itemsCarrito");
+                List<Productos> productosCarrito = (ArrayList< Productos>) request.getAttribute("productosCarrito");
                 int numeroItemsCarrito = pedidos.size();
+                int sumaCarritoTotal = 0;
 
         %>
         <div class="shopping_bag">
@@ -58,17 +61,25 @@
             <div class="cart">
                 <ul class="cart-items">
                     <%
-
+                        for (int i = 0; i < productosCarrito.size(); i++) {
+                            producto = productosCarrito.get(i);
+                            int precioProducto = producto.getPrecio();
+                            String productoNombre = producto.getNombre();
 
                     %>
                     <li class="clearfix">
                         <img class="cart_item_product" src="images/tovar/women/1.jpg" alt="" />
-                        <a href="product-page.html" class="cart_item_title">popover sweatshirt in floral jacquard</a>
-                        <span class="cart_item_price">1 × $98.00</span>
+                        <a href="product-page.html" class="cart_item_title"><%=productoNombre%></a>
+                        <span class="cart_item_price">1 × <%=precioProducto%></span>
                     </li> 
+
+                    <%
+
+                            sumaCarritoTotal = sumaCarritoTotal + precioProducto;
+                        }%>
                 </ul>
                 <div class="cart_total">
-                    <div class="clearfix"><span class="cart_subtotal">bag subtotal: <b>$414</b></span></div>
+                    <div class="clearfix"><span class="cart_subtotal">bag subtotal: <b>?<%=sumaCarritoTotal%></b></span></div>
                     <a class="btn active" href="checkout.html">Checkout</a>
                 </div>
             </div>
