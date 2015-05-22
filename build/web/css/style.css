@@ -21,7 +21,11 @@ iframe {
     max-width:100% !important;
     overflow-y: hidden !important;
 }
-
+input.formInvalid::-webkit-input-placeholder {
+    transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out;
+    color: red;
+    font-size: 15px;
+}
 .preloader_hide {opacity:0;}
 #preloader {background-color:#fff; position:fixed; left:0; top:0; width:100%; height:100%;}
 #preloader img {position:fixed; left:50%; top:50%; width:32px; height:32px; margin:-16px 0 0 -16px; display:block;}
@@ -2249,7 +2253,7 @@ ul.comments li ul li{
 /*FORM REGISTRO PAISES*/
 .selectPaises{
     width: 50%;
-    
+
     float: left;
 }
 
@@ -4458,7 +4462,7 @@ footer .newsletter_btn {
     margin-bottom: 20px;
 }
 #Registro>input[type="password"]{
-    
+
 }
 
 
