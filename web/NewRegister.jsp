@@ -114,13 +114,13 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="phone">Telefono</label>  
                                     <div class="col-md-6">
-                                        <input  onblur=""id="phone" name="phone" type="text" placeholder="Introduce un telefono de contacto" class="form-control input-md" required="">
+                                        <input  onblur="validarTelefonos1()"id="phone" name="phone" type="text" placeholder="Introduce un telefono de contacto" class="form-control input-md" required="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="codPostal">Codigo Postal</label>  
                                     <div class="col-md-6">
-                                        <input  onblur="" id="codPostal" name="codPostal" type="text" placeholder="Introduce un Codigo Postal" class="form-control input-md" required="">
+                                        <input  onblur="codigoPostal()" id="codPostal" name="codPostal" type="text" placeholder="Introduce un Codigo Postal" class="form-control input-md" required="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -132,16 +132,16 @@
 
 
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="Pais">Pais de Residencia</label> 
-                                    <div name="Pais" class="col-md-6 bfh-selectbox bfh-countries selectPaises "  data-country="ES" data-flags="true">
+                                    <label class="col-md-4 control-label" for="paisResidencia">Pais de Residencia</label> 
+                                    <div name="paisResidencia" class="col-md-6 bfh-selectbox bfh-countries selectPaises "  data-country="ES" data-flags="true">
 
-                                        <input type="hidden" name="Pais">
+                                        <input type="hidden" name="paisResidencia">
                                         <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
                                             <span class="bfh-selectbox-option input-medium" data-option=""></span>
                                             <b class="caret"></b>
                                         </a>
                                         <div class="bfh-selectbox-options">
-                                            <input type="text" class="bfh-selectbox-filter" name="Pais">
+                                            <input type="text" class="bfh-selectbox-filter" name="paisResidencia">
                                             <div role="listbox">
                                                 <ul role="option">
                                                 </ul>
@@ -156,9 +156,19 @@
 
                                 <!-- Text input-->
                                 <div class="form-group">
+                                    <label class="col-md-4 control-label" for="nick">Primer Apellido</label>  
+                                    <div class="col-md-6">
+                                        <input onblur="nombre('surname1')"id="surname1" name="nick" type="text" placeholder="Introduce tu Segundo Apellido" class="form-control input-md">
+
+                                    </div>
+                                </div>
+
+
+                                <!-- Text input-->
+                                <div class="form-group">
                                     <label class="col-md-4 control-label" for="password1">Contraseña</label>  
                                     <div class="col-md-6">
-                                        <input onblur="validarPassword()" id="password1" name="password1" type="password" placeholder="Introduce una contraseña" class="form-control input-md" required="">
+                                        <input onblur="validarPassword()" id="password1" name="password" type="password" placeholder="Introduce una contraseña" class="form-control input-md" required="">
                                     </div>
                                 </div>
                                 <div class="form-group">

@@ -3,7 +3,6 @@
  * Su uso esta prohibido para uso comercial.
  * Si tienes interes en usarlo, ponte en contacto conmigo, Gracias. :D
  */
-
 package org.mig.java.Entities;
 
 import java.io.Serializable;
@@ -12,17 +11,17 @@ import java.util.Date;
 /**
  * @author miguelangel
  */
-
 public class Usuarios implements Serializable {
-   
+
     private String dni;
- 
+
     private String userName;
     private String mail;
-    private String nombre;
+
     private String password;
-    private String apellido2;
+    private String nombre;
     private String apellido1;
+    private String apellido2;
     private Date fechaNacimiento;
     private String pais;
     private String imagenUrl;

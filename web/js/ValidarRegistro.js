@@ -86,3 +86,36 @@ function validarPassword() {
 
 
 }
+
+function validarTelefonos1() {
+    var inputMovil = document.getElementById("phone");
+
+
+    if (!inputMovil.value.match(telefono)) {
+        errores[contador] = "Debe haber un telefono";
+        contador++;
+        inputMovil.className += " formInvalid";
+        inputMovil.style.backgroundColor = 'WHITE';
+        fallo = false;
+    } else {
+        inputMovil.style.backgroundColor = '#7DFF7D';
+    }
+}
+
+
+function codigoPostal() {
+    var inputCodigoPostal = document.getElementById("codPostal");
+    if (inputCodigoPostal.value.match(codigoPostalExp)) {
+        inputCodigoPostal.style.backgroundColor = '#7DFF7D';
+
+    } else {
+        inputCodigoPostal.style.backgroundColor = "red";
+        errores[contador] = "El Codigo Postal esta mal escrito";
+        contador++;
+
+        inputCodigoPostal.className += " formInvalid";
+        inputCodigoPostal.style.backgroundColor = 'WHITE';
+        fallo = false;
+    }
+
+}

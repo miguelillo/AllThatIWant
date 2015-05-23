@@ -5,6 +5,8 @@
  */
 package org.mig.java.Interfaces;
 
+import org.mig.java.Entities.Direcciones;
+import org.mig.java.Entities.Telefonos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
 
@@ -14,7 +16,7 @@ import org.mig.java.Entities.Usuarios;
  */
 public interface IRegistro {
 
-    public void RegistroUsuario(Usuarios usuario);
+    public void RegistroUsuario(Usuarios usuario, Telefonos telefono, Direcciones direccion);
 
     public void RegistroTienda(Tiendas tienda);
 
