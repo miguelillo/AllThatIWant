@@ -16,7 +16,11 @@ import org.mig.java.Entities.Usuarios;
  */
 public interface IRegistro {
 
-    public void RegistroUsuario(Usuarios usuario, Telefonos telefono, Direcciones direccion);
+    public void RegistroUsuario(Usuarios usuario);
+
+    public void InsertarDireccionUsuario(Direcciones direccion);
+
+    public void InsertarTeleofonoUsuario(Telefonos telefono);
 
     public void RegistroTienda(Tiendas tienda);
 

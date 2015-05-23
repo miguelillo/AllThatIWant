@@ -5,9 +5,11 @@
  */
 package org.mig.java.BLL;
 
+import org.mig.java.DAO.DAOFactory;
 import org.mig.java.Entities.Direcciones;
 import org.mig.java.Entities.Telefonos;
 import org.mig.java.Entities.Usuarios;
+import org.mig.java.Interfaces.IRegistro;
 
 /**
  *
@@ -16,6 +18,13 @@ import org.mig.java.Entities.Usuarios;
 public class RegistroBLL {
 
     public void RegistroUsuario(Usuarios usuario, Telefonos telefono, Direcciones direccion) {
+        DAOFactory daoFactory = DAOFactory.getInstance();
+
+        IRegistro IRegistro = daoFactory.getRegistroDAO();
+
+        IRegistro.RegistroUsuario(usuario);
+        IRegistro.InsertarDireccionUsuario(direccion);
+        IRegistro.InsertarTeleofonoUsuario(telefono);
 
     }
 

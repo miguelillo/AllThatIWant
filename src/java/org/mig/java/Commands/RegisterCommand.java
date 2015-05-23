@@ -29,7 +29,7 @@ public class RegisterCommand extends ICommand {
         String apellido1 = request.getParameter("surname1");
         String apellido2 = request.getParameter("surname2");
         String sexo = request.getParameter("sexo");
-        String pais = request.getParameter("pais");
+        String pais = request.getParameter("Pais");
         String fechaNacimiento = request.getParameter("FechaNacimiento");
 
         String userName = request.getParameter("nick");
@@ -62,6 +62,8 @@ public class RegisterCommand extends ICommand {
 
         telefono.setNumero(Integer.valueOf(telefonoUsuario));
         telefono.setUsuarioMail(email);
+        
+        registroBll.RegistroUsuario(usuario, telefono, direccion);
 
         return "InfoRegistro.jsp";
     }
