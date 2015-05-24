@@ -6,13 +6,13 @@
 package org.mig.java.Servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Categoria;
 import org.mig.java.Entities.Productos;
 
 /**
@@ -34,7 +34,8 @@ public class IndexServlet extends HttpServlet {
             throws ServletException, IOException {
         ProductosBLL productosBll = new ProductosBLL();
         List<Productos> listaProductos = productosBll.MostrarProductos();
-
+        List<Categoria> categorias = productosBll.MostrarCategorias();
+        request.getSession().setAttribute("categoria", categorias);
         request.getSession().setAttribute("listaProductos", listaProductos);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }

@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>org.mig.java.Entities.Productos_1</class>
     <class>org.mig.java.Entities.Usuarios_1</class>
+    <class>org.mig.java.Entities.Categoria</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://46.105.17.142:3306/proyectofinaldaw?zeroDateTimeBehavior=convertToNull"/>

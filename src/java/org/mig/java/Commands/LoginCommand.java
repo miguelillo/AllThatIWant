@@ -32,6 +32,7 @@ public class LoginCommand extends ICommand {
         request.getSession().setAttribute("itemsCarrito", pedidos);
         request.getSession().setAttribute(("productosCarrito"), listaProductosCarrito);
         request.getSession().setAttribute("cantidadWishItems", cantidadWishItems);
+    
 
     }
 

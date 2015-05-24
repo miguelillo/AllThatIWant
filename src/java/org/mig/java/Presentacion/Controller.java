@@ -35,7 +35,13 @@ public class Controller extends HttpServlet {
         ICommand command = null;
         try {
             String opcion = request.getParameter("opID");
-//
+
+            if (opcion.equals("RedirectNewRegister") || opcion.equals("RedirectRegister")) {
+                if (request.getSession().getAttribute("clienteSesion") != null) {
+                    throw new Exception("Debes estar Logeado para ver el contenido");
+                }
+            }
+
 //            if (!opcion.equals("Login") && !opcion.equals("Registro")) {
 //                if (request.getSession().getAttribute("clienteSesion") == null) {
 //                    throw new Exception("Debes estar Logeado para ver el contenido");

@@ -17,7 +17,7 @@ import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Interfaces.IProductos;
 import static org.mig.java.DAO.DAOUtil.prepareStatement;
-import org.mig.java.Entities.Pedidos;
+import org.mig.java.Entities.Categoria;
 import org.mig.java.Entities.Usuarios;
 import org.mig.java.Entities.WishList;
 import org.mig.java.Exceptions.DAOException;
@@ -52,7 +52,7 @@ public class DAOProductos implements IProductos {
             + "`Talla`, "
             + "`Composicion`, "
             + "`Sexo`, "
-            + "`Id_Categoria`"//HE AÑADIDO FECHA CATALOGO SI AL INSERTAR DA ERROR COMPROBAR QUE SEA POR ESTO!
+            + "`Id_Categoria`" //HE AÑADIDO FECHA CATALOGO SI AL INSERTAR DA ERROR COMPROBAR QUE SEA POR ESTO!
             + "`Fecha_Catalogo`)"
             + "	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String INSERTAR_PRODUCTOS_TIENDA = "INSERT INTO proyectofinaldaw.productos_tiendas (`Productoid`, "
@@ -70,6 +70,12 @@ public class DAOProductos implements IProductos {
             + "ON pedidos.ProductoReferencia = productos.Referencia \n"
             + "WHERE pedidos.UsuarioMail = ? \n"
             + "LIMIT 0 , 30";
+    private static final String MOSTRAR_CATEGORIAS_PRODUCTOS = "SELECT * FROM `categoria`";
+    private static final String AGRUPAR_PRODUCTOS_CLASIFICACION = "SELECT `clasificacion` FROM `categoria` GROUP BY `clasificacion`";
+    private static final String MOSTRAR_PRODUCTOS_CLASIFICACION = "SELECT productos.*\n"
+            + "FROM productos \n"
+            + "INNER JOIN categoria ON productos.Id_Categoria = `idCategoria`\n"
+            + "WHERE categoria.Clasificacion = ?";
 
     @Override
     public void insertarProducto(Productos producto, Tiendas tienda) {
@@ -224,23 +230,6 @@ public class DAOProductos implements IProductos {
         }
     }
 
-    private Pedidos obtenerFilaPedidos(ResultSet rs) throws SQLException {
-        Pedidos pedido = new Pedidos();
-
-        pedido.setMail(rs.getString("USUARIOMAIL"));
-        pedido.setTiendaCif(rs.getString("TIENDACIF"));
-        pedido.setProductoReferencia(rs.getString("PRODUCTOREFERENCIA"));
-        pedido.setFechaPedido(rs.getDate("FECHA_PEDIDO"));
-        pedido.setFechaConfirmacion(rs.getDate("FECHA_CONFIRMACION"));
-        pedido.setFechaServicio(rs.getDate("FECHA_SERVICIO"));
-        pedido.setUnidades(rs.getInt("UNIDADES"));
-        pedido.setNumFactura(rs.getInt("NUM_FACTURA"));
-        pedido.setEstadoPedido(rs.getString("ESTADO_SERVICIO"));
-
-        return pedido;
-
-    }
-
     private Productos obtenerFilaProducto(ResultSet rs) throws SQLException {
 
         Productos filaProducto = new Productos();
@@ -336,6 +325,88 @@ public class DAOProductos implements IProductos {
         }
 
         return listaProductosPedidos;
+    }
+
+    @Override
+    public List<Categoria> mostrarCategoriasProducto() {
+        List<Categoria> categorias = new ArrayList<>();
+        Categoria categoria;
+
+        try {
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_CATEGORIAS_PRODUCTOS);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                categoria = new Categoria();
+                categoria.setIdCategoria(rs.getInt("IDCATEGORIA"));
+                categoria.setDescripcion(rs.getString("DESCRIPCION"));
+                categoria.setClasificacion(rs.getString("CLASIFICACION"));
+                categorias.add(categoria);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return categorias;
+    }
+
+    @Override
+    public List<Categoria> clasificacionProductos() {
+        List<Categoria> categorias = new ArrayList<>();
+        Categoria categoria;
+
+        try {
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, AGRUPAR_PRODUCTOS_CLASIFICACION);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                categoria = new Categoria();
+                categoria.setClasificacion(rs.getString("CLASIFICACION"));
+                categorias.add(categoria);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return categorias;
+    }
+
+    @Override
+    public List<Productos> mostrarProductosCategoria(String categoria) {
+        List<Productos> productos = new ArrayList<>();
+        Productos producto;
+        Object[] Values = {
+            categoria
+        };
+
+        try {
+
+            Connection connection = daoFactory.getConnection();
+
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_PRODUCTOS_CLASIFICACION, Values);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+
+                producto = obtenerFilaProducto(rs);
+
+                productos.add(producto);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return productos;
     }
 
 }

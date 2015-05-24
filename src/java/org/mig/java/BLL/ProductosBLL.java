@@ -5,10 +5,9 @@
  */
 package org.mig.java.BLL;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.mig.java.DAO.DAOFactory;
-import org.mig.java.Entities.Pedidos;
+import org.mig.java.Entities.Categoria;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
@@ -84,13 +83,36 @@ public class ProductosBLL {
 
     public List<Productos> MostrarProductosCarrito(Usuarios usuario) {
         DAOFactory daoFactory = DAOFactory.getInstance();
-        List<Productos> listaProductosPedido = new ArrayList<>();
+        List<Productos> listaProductosPedido;
 
         IProductos daoProductos = daoFactory.getProductosDAO();
 
         listaProductosPedido = daoProductos.mostrarProductoPedido(usuario);
 
         return listaProductosPedido;
+    }
+
+    public List<Categoria> MostrarCategorias() {
+        DAOFactory daoFactory = DAOFactory.getInstance();
+        List<Categoria> categorias;
+
+        IProductos daoProductos = daoFactory.getProductosDAO();
+
+        categorias = daoProductos.mostrarCategoriasProducto();
+
+        return categorias;
+    }
+
+    public List<Categoria> MostrarGrupoClasificacion() {
+        DAOFactory daoFactory = DAOFactory.getInstance();
+
+        List<Categoria> clasificacion;
+
+        IProductos daoProductos = daoFactory.getProductosDAO();
+
+        clasificacion = daoProductos.clasificacionProductos();
+
+        return clasificacion;
     }
 
 }

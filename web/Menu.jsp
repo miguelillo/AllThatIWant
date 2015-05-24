@@ -1,3 +1,4 @@
+<%@page import="org.mig.java.Entities.Categoria"%>
 <%@page contentType="text/html;charset=UTF-8"%>
 <%@page import="org.mig.java.Entities.Productos"%>
 <%@page import="java.util.ArrayList"%>
@@ -104,21 +105,8 @@
 
             </li>
 
-            <li class="sub-menu"><a href="javascript:void(0);" >Pages</a>
-                <!-- MEGA MENU -->
-                <ul class="mega_menu megamenu_col3 clearfix">
-                    <li class="col">
-                        <ol>
-                            <li><a href="Controller?opID=RedirectShoppingBag" >Cesta de la compra</a></li>
-                            <li><a href="about.html" >Pagina</a></li>
-                            <li><a href="product-page.html" >Pagina</a></li>
-                            <li><a href="love-list.html" >Pagina</a></li>
-                            <li><a href="my-account.html" >Pagina</a></li>
+            <li class="sub-menu"><a href="Controller?opID=Catalogo" >Catalogo</a>
 
-                        </ol>
-                    </li>
-
-                </ul><!-- //MEGA MENU -->
             </li>
             <li class="sub-menu"><a href="javascript:void(0);" >Blog</a>
             </li>
