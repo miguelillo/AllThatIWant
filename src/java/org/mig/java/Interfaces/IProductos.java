@@ -39,14 +39,15 @@ public interface IProductos {
     public void BorrarWishList(WishList wishListItem);
 
     public Productos mostrarProducto(Productos producto);
-    
-    public List<Productos> mostrarProductoPedido(Usuarios usuario);
-    
-    public List<Categoria> mostrarCategoriasProducto();
-    
-    public List<Categoria> clasificacionProductos();
-    
-    public List<Productos> mostrarProductosCategoria(String categoria);
 
+    public List<Productos> mostrarProductoPedido(Usuarios usuario);
+
+    public List<Categoria> mostrarCategoriasProducto();
+
+    public List<Categoria> clasificacionProductos();
+
+    public List<Productos> mostrarProductosCategoria(Integer categoria);
+   
+    public Categoria mostrarCategoriaProducto(Integer idCategoria);
 
 }

@@ -115,4 +115,22 @@ public class ProductosBLL {
         return clasificacion;
     }
 
+    public List<Productos> mostrarProductosCategoria(Integer categoria) {
+
+        DAOFactory daoFactory = DAOFactory.getInstance();
+
+        IProductos productosDao = daoFactory.getProductosDAO();
+
+        return productosDao.mostrarProductosCategoria(categoria);
+
+    }
+
+    public Categoria categoriaProducto(Integer categoria) {
+        DAOFactory daoFactory = DAOFactory.getInstance();
+
+        IProductos productosDao = daoFactory.getProductosDAO();
+
+        return productosDao.mostrarCategoriaProducto(categoria);
+    }
+
 }

@@ -64,7 +64,7 @@
 
 
 
-                    <li><a href="Controller?opID=MostrarProductosCategoria&Clasificacion=<%=nombreClasificacion%>" ><%=nombreCategoria%></a></li>
+                    <li><a href="Controller?opID=MostrarProductosCatalogo&Categoria=<%=IdCategoria%>&nombreCategoria=<%=nombreCategoria%>" ><%=nombreCategoria%></a></li>
 
 
 

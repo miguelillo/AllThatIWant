@@ -11,6 +11,8 @@
     <%
         Usuarios sesion = (Usuarios) request.getSession().getAttribute("clienteSesion");
         if (sesion == null) {
+            
+            
             //cargar un servelet automaticamente cuando llega a este paso
     %>    
     <div class="flexslider top_slider">

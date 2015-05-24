@@ -1,8 +1,7 @@
+<%@page import="org.mig.java.Entities.Categoria"%>
 <%@page contentType="text/html;charset=UTF-8"%>
 <%@page import="org.mig.java.Entities.Productos"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%    request.setCharacterEncoding("UTF8");   %>
+
 <!-- BREADCRUMBS -->
 <section class="breadcrumb parallax margbot30"></section>
 <!-- //BREADCRUMBS -->
@@ -45,20 +44,21 @@
                 </ul>
             </div><!-- //SIDEBAR TOVAR DETAILS -->
             <%
-
+                Categoria categoria = (Categoria) request.getAttribute("categoria");
                 Productos producto = (Productos) request.getAttribute("MostrarProducto");
                 String referencia = producto.getReferencia();
                 String nombre = producto.getNombre();
                 String precio = String.valueOf(producto.getPrecio());
                 String marca = producto.getColor();
                 String talla = producto.getTalla();
+                String nombreCategoria = categoria.getDescripcion();
 
 
             %>
             <!-- TOVAR DETAILS WRAPPER -->
             <div class="col-lg-9 col-md-9 tovar_details_wrapper clearfix">
                 <div class="tovar_details_header clearfix margbot35">
-                    <h3 class="pull-left"><b>Sweaters</b></h3>
+                    <h3 class="pull-left"><b><%=nombreCategoria%></b></h3>
 
                 </div>
 
@@ -88,7 +88,7 @@
                         <div class="tovar_article"><%=referencia%></div>
                         <div class="clearfix tovar_brend_price">
                             <div class="pull-left tovar_brend"><%=marca%></div>
-                            <div class="pull-right tovar_view_price">â¬<%=precio%></div>
+                            <div class="pull-right tovar_view_price">€<%=precio%></div>
                         </div>
                         <div class="tovar_color_select">
                             <p>Select color</p>
@@ -102,13 +102,7 @@
                                 <p class="pull-left">Select SIZE</p>
                                 <span>Size & Fit</span>
                             </div>
-                            <a class="sizeXS" href="javascript:void(0);" >XS</a>
-                            <a class="sizeS active" href="javascript:void(0);" >S</a>
-                            <a class="sizeM" href="javascript:void(0);" >M</a>
-                            <a class="sizeL" href="javascript:void(0);" >L</a>
-                            <a class="sizeXL" href="javascript:void(0);" >XL</a>
-                            <a class="sizeXXL" href="javascript:void(0);" >XXL</a>
-                            <a class="sizeXXXL" href="javascript:void(0);" >XXXL</a>
+                            <a class="sizeXS" href="javascript:void(0);" ><%=talla%></a>
                         </div>
                         <div class="tovar_view_btn">
                             <select class="basic">
