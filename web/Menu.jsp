@@ -68,11 +68,12 @@
                             producto = productosCarrito.get(i);
                             int precioProducto = producto.getPrecio();
                             String productoNombre = producto.getNombre();
+                            String referencia = producto.getReferencia();
 
                     %>
                     <li class="clearfix">
                         <img class="cart_item_product" src="images/tovar/women/1.jpg" alt="" />
-                        <a href="product-page.html" class="cart_item_title"><%=productoNombre%></a>
+                        <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>" class="cart_item_title"><%=productoNombre%></a>
                         <span class="cart_item_price">1 × <%=precioProducto%></span>
                     </li> 
 
@@ -82,8 +83,9 @@
                         }%>
                 </ul>
                 <div class="cart_total">
-                    <div class="clearfix"><span class="cart_subtotal">bag subtotal: <b>€<%=sumaCarritoTotal%></b></span></div>
-                    <a class="btn active" href="checkout.html">Checkout</a>
+                    <a href="Controller?opID=RedirectShoppingBag">Ver Carrito</a>
+                    <div class="clearfix"><span class="cart_subtotal">Sub Total: <b>€<%=sumaCarritoTotal%></b></span></div>
+                    <a class="btn active" href="checkout.html">Comprar</a>
                 </div>
             </div>
         </div><!-- //SHOPPING BAG -->
@@ -101,7 +103,7 @@
 
         <!-- MENU -->
         <ul class="navmenu center">
-            <li class="sub-menu first active"><a href="javascript:void(0);" >Inicio</a>
+            <li class="sub-menu first active"><a href="Controller?opID=RedirectContent" >Inicio</a>
 
             </li>
 

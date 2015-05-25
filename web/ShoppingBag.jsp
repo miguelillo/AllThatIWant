@@ -49,7 +49,6 @@
                             <th class="product-thumbnail"></th>
                             <th class="product-name">Objeto</th>
                             <th class="product-price">Precio</th>
-                            <th class="product-quantity">Cantidad</th>
                             <th class="product-subtotal">Total</th>
                             <th class="product-remove"></th>
                         </tr>
@@ -66,6 +65,7 @@
                                 String color = producto.getColor();
                                 String talla = producto.getTalla();
                                 int precio = producto.getPrecio();
+                                
                                 sumaTotal += precio;
 
                         %>

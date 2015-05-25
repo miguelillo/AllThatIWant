@@ -192,7 +192,7 @@
 
                                 if (numeroPagina == i + 1) {
                         %><b><li class="active"><a><%=i + 1%></a></li></b><%
-                                    } else {
+                        } else {
                                     %>
                         <li>  <li><a href='Controller?opID=MostrarProductosCatalogo&Categoria=<%=idCategoria%>&nombreCategoria=<%=categoria%>&Operacion=3&paginaDirecta=<%=i + 1%>'><%=i + 1%></a></li>
                             <%}

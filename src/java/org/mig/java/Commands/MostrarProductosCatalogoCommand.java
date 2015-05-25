@@ -26,7 +26,7 @@ public class MostrarProductosCatalogoCommand extends ICommand {
         String nombreCategoria = request.getParameter("nombreCategoria");
         productosPorCategoria = productosBll.mostrarProductosCategoria(categoria);
 
-        int numeroRegistros = 2;
+        int numeroRegistros = 6;
         int numeroPagina;
         int operacion;
         try {

@@ -6,7 +6,18 @@
 <section class="breadcrumb parallax margbot30"></section>
 <!-- //BREADCRUMBS -->
 
+<%
+    Categoria categoria = (Categoria) request.getAttribute("categoria");
+    Productos producto = (Productos) request.getAttribute("MostrarProducto");
+    String referencia = producto.getReferencia();
+    String nombre = producto.getNombre();
+    String precio = String.valueOf(producto.getPrecio());
+    String color = producto.getColor();
+    String talla = producto.getTalla();
+    String nombreCategoria = categoria.getDescripcion();
 
+
+%>
 <!-- TOVAR DETAILS -->
 <section class="tovar_details padbot70">
 
@@ -18,7 +29,7 @@
 
             <!-- SIDEBAR TOVAR DETAILS -->
             <div class="col-lg-3 col-md-3 sidebar_tovar_details">
-                <h3><b>other sweaters</b></h3>
+                <h3><b>Otros <%=nombreCategoria%></b></h3>
 
                 <ul class="tovar_items_small clearfix">
                     <li class="clearfix">
@@ -43,18 +54,7 @@
                     </li>
                 </ul>
             </div><!-- //SIDEBAR TOVAR DETAILS -->
-            <%
-                Categoria categoria = (Categoria) request.getAttribute("categoria");
-                Productos producto = (Productos) request.getAttribute("MostrarProducto");
-                String referencia = producto.getReferencia();
-                String nombre = producto.getNombre();
-                String precio = String.valueOf(producto.getPrecio());
-                String marca = producto.getColor();
-                String talla = producto.getTalla();
-                String nombreCategoria = categoria.getDescripcion();
 
-
-            %>
             <!-- TOVAR DETAILS WRAPPER -->
             <div class="col-lg-9 col-md-9 tovar_details_wrapper clearfix">
                 <div class="tovar_details_header clearfix margbot35">
@@ -87,37 +87,25 @@
                         <div class="tovar_view_title"><%=nombre%></div>
                         <div class="tovar_article"><%=referencia%></div>
                         <div class="clearfix tovar_brend_price">
-                            <div class="pull-left tovar_brend"><%=marca%></div>
+                            <div class="pull-left tovar_brend">Tienda</div>
                             <div class="pull-right tovar_view_price">€<%=precio%></div>
                         </div>
                         <div class="tovar_color_select">
-                            <p>Select color</p>
-                            <a class="color1" href="javascript:void(0);" ></a>
-                            <a class="color2 active" href="javascript:void(0);" ></a>
-                            <a class="color3" href="javascript:void(0);" ></a>
-                            <a class="color4" href="javascript:void(0);" ></a>
+                            <p>COLOR</p>
+                            <a class="color1" href="javascript:void(0);" ><%=color%></a>
                         </div>
                         <div class="tovar_size_select">
                             <div class="clearfix">
-                                <p class="pull-left">Select SIZE</p>
-                                <span>Size & Fit</span>
+                                <p class="pull-left">Talla</p>
                             </div>
                             <a class="sizeXS" href="javascript:void(0);" ><%=talla%></a>
                         </div>
                         <div class="tovar_view_btn">
-                            <select class="basic">
-                                <option value="">QTY</option>
-                                <option>Lo</option>
-                                <option>Ips</option>
-                                <option>Dol</option>
-                                <option>Sit</option>
-                                <option>Amet</option>
-                            </select>
-                            <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i>Add to bag</a>
-                            <a class="add_lovelist" href="javascript:void(0);" ><i class="fa fa-heart"></i></a>
+                                                      <a class="add_bag" href="Controller?opID=RealizarPedido&referencia=<%=referencia%>" ><i class="fa fa-shopping-cart"></i>Añadir a la bolsa</a>
+                            <a class="add_lovelist" href="Controller?opID=AddWishList&Referencia=<%=referencia%>" ><i class="fa fa-heart"></i></a>
                         </div>
                         <div class="tovar_shared clearfix">
-                            <p>Share item with friends</p>
+                            <p>Compartir!</p>
                             <ul>
                                 <li><a class="facebook" href="javascript:void(0);" ><i class="fa fa-facebook"></i></a></li>
                                 <li><a class="twitter" href="javascript:void(0);" ><i class="fa fa-twitter"></i></a></li>

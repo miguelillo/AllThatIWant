@@ -15,6 +15,7 @@ import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
 import java.util.Date;
 import java.util.List;
+import org.mig.java.BLL.ProductosBLL;
 
 /**
  *
@@ -25,6 +26,7 @@ public class RealizarPedidoCommand extends ICommand {
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         PedidosBLL pedidosBll = new PedidosBLL();
+        ProductosBLL productoBll = new ProductosBLL();
         TiendasBLL tiendasBll = new TiendasBLL();
         Pedidos pedido = new Pedidos();
         Productos producto = new Productos();
@@ -52,8 +54,10 @@ public class RealizarPedidoCommand extends ICommand {
         pedidosBll.RealizarPedido(pedido);
 
         List<Pedidos> pedidos = pedidosBll.MostrarPedidos(usuario);
+        List<Productos> listaProductosCarrito = productoBll.MostrarProductosCarrito(usuario);
 
-        request.setAttribute("itemsCarrito", pedidos);
+        request.getSession().setAttribute("itemsCarrito", pedidos);
+        request.getSession().setAttribute(("productosCarrito"), listaProductosCarrito);
 
         return "Content.jsp";
     }

@@ -11,8 +11,7 @@
     <%
         Usuarios sesion = (Usuarios) request.getSession().getAttribute("clienteSesion");
         if (sesion == null) {
-            
-            
+
             //cargar un servelet automaticamente cuando llega a este paso
     %>    
     <div class="flexslider top_slider">
@@ -82,8 +81,9 @@
                                 </div>
                                 <div class="tovar_item_btns">
                                     <div class="open-project-link"><a class="open-project tovar_view" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " >Ver</a></div>
+                                    <%if (sesion != null) {%>
                                     <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i></a>
-
+                                        <%}%>
                                 </div>
                             </div>
                             <div class="tovar_description clearfix">

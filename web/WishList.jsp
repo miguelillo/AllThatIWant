@@ -13,7 +13,7 @@
     <div class="container">
         <h3 class="pull-left"><b>Love list</b></h3>
         <div class="pull-right">
-            <a href="shopping-bag.html" >Back to shopping bag<i class="fa fa-angle-right"></i></a>
+            <a href="Controller?opID=RedirectContent" >Volver a la tienda<i class="fa fa-angle-right"></i></a>
         </div>
     </div><!-- //CONTAINER -->
 </section><!-- //PAGE HEADER -->
