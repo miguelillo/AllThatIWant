@@ -85,7 +85,7 @@
                 <div class="cart_total">
                     <a href="Controller?opID=RedirectShoppingBag">Ver Carrito</a>
                     <div class="clearfix"><span class="cart_subtotal">Sub Total: <b>€<%=sumaCarritoTotal%></b></span></div>
-                    <a class="btn active" href="checkout.html">Comprar</a>
+                    <a class="btn active" href="Controller?opID=ConfirmarPedido">Comprar</a>
                 </div>
             </div>
         </div><!-- //SHOPPING BAG -->

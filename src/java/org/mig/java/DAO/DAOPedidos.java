@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import static org.mig.java.DAO.DAOUtil.prepareStatement;
 import static org.mig.java.DAO.DAOUtil.toSqlDate;
 import org.mig.java.Entities.Pedidos;
+import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Usuarios;
 import org.mig.java.Exceptions.DAOException;
 import org.mig.java.Interfaces.IPedidos;
@@ -53,6 +54,7 @@ public class DAOPedidos implements IPedidos {
             + "VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String MOSTRAR_PEDIDOS = "SELECT * FROM `pedidos` WHERE `UsuarioMail` = ? AND  `Estado_Servicio` = 'PEDIDO'";
     private static final String BORRAR_PRODUCTO_PEDIDO = "DELETE FROM `pedidos` WHERE `ProductoReferencia` = ? AND `UsuarioMail` = ?";
+    private static final String ACTUALIZAR_PEDIDOS_COMPRADO = "UPDATE `pedidos` SET `Fecha_Confirmacion`=CURRENT_DATE(),`Num_Factura`=?,`Estado_Servicio`= 'COMPRADO' WHERE `ProductoReferencia`= ?";
 
     @Override
     public void BorrarProductoPedido(Pedidos pedido) {
@@ -147,6 +149,33 @@ public class DAOPedidos implements IPedidos {
         pedido.setProductoReferencia(rs.getString("PRODUCTOREFERENCIA"));
 
         return pedido;
+    }
+
+    @Override
+    public void RealizarCompraPedidos(List<Productos> productos) {
+        Pedidos pedido = new Pedidos();
+        for (Productos producto : productos) {
+
+            Object[] values = {
+                pedido.getNumFactura(),
+                producto.getReferencia()
+
+            };
+            try {
+                Connection connection = daoFactory.getConnection();
+                PreparedStatement preparedStatement = prepareStatement(connection, ACTUALIZAR_PEDIDOS_COMPRADO, values);
+
+                int affectedRows = preparedStatement.executeUpdate();
+
+                if (affectedRows == 0) {
+                    throw new DAOException("\"Error al actualizar el pedido\"");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(DAOPedidos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
     }
 
 }

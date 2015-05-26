@@ -7,6 +7,7 @@ package org.mig.java.Interfaces;
 
 import java.util.List;
 import org.mig.java.Entities.Pedidos;
+import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Usuarios;
 
 /**
@@ -20,5 +21,7 @@ public interface IPedidos {
     public List<Pedidos> MostrarPedidos(Usuarios usuario);
     
     public void BorrarProductoPedido(Pedidos pedido);
+    
+    public void RealizarCompraPedidos(List<Productos> productos);
 
 }

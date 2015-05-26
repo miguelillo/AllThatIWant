@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.mig.java.DAO.DAOFactory;
 import org.mig.java.Entities.Pedidos;
+import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Usuarios;
 import org.mig.java.Interfaces.IPedidos;
 
@@ -45,6 +46,14 @@ public class PedidosBLL {
         IPedidos pedidos = daoFactory.getPedidosDAO();
         
         pedidos.BorrarProductoPedido(pedido);
+    }
+    
+    public void ConfirmarProductosPedidos(List<Productos> productos){
+       DAOFactory daoFactory = DAOFactory.getInstance();
+       
+       IPedidos pedidos = daoFactory.getPedidosDAO();
+       
+       pedidos.RealizarCompraPedidos(productos);
     }
 
 }

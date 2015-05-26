@@ -68,8 +68,7 @@ public class DAOProductos implements IProductos {
             + "FROM productos \n"
             + "INNER JOIN pedidos \n"
             + "ON pedidos.ProductoReferencia = productos.Referencia \n"
-            + "WHERE pedidos.UsuarioMail = ? \n"
-            + "LIMIT 0 , 30";
+            + "WHERE pedidos.UsuarioMail = ? AND pedidos.Estado_Servicio = 'PEDIDO'";
     private static final String MOSTRAR_CATEGORIAS_PRODUCTOS = "SELECT * FROM `categoria`";
     private static final String AGRUPAR_PRODUCTOS_CLASIFICACION = "SELECT `clasificacion` FROM `categoria` GROUP BY `clasificacion`";
     private static final String MOSTRAR_PRODUCTOS_CLASIFICACION = "SELECT *\n"
@@ -77,10 +76,10 @@ public class DAOProductos implements IProductos {
             + "INNER JOIN categoria ON productos.Id_Categoria = `idCategoria`\n"
             + "WHERE categoria.idCategoria = ?";
     private static final String MOSTRAR_CATEGORIA_PRODUCTO = "SELECT * FROM `categoria` WHERE idCategoria = ?";
-    
+
     @Override
     public void insertarProducto(Productos producto, Tiendas tienda) {
-        
+
         Object[] productosValues = {
             producto.getReferencia(),
             producto.getPrecio(),
@@ -104,137 +103,137 @@ public class DAOProductos implements IProductos {
             //REVISAR LA REFERENCIA DE LOS PRODUCTOS, NO ESTA CLARO LA DB.
             int affectedRowsProductos = pstmtProductos.executeUpdate();
             int affectedRowsTiendasProductos = pstmtTiendasProductos.executeUpdate();
-            
+
             if (affectedRowsProductos == 0 || affectedRowsTiendasProductos == 0) {
                 throw new DAOException("Error al introducir el producto");
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     public void borrarProducto(Productos producto, Tiendas tienda) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
     public Productos buscarProducto(Productos producto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
     public void modificarProducto(Productos producto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
     public Productos mostrarProducto(Productos producto) {
-        
+
         try {
             Object[] values = {
                 producto.getReferencia()
             };
-            
+
             Connection connection = daoFactory.getConnection();
             PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_PRODUCTO, values);
-            
+
             ResultSet rs = preparedStatement.executeQuery();
-            
+
             if (rs.next()) {
                 producto = obtenerFilaProducto(rs);
             } else {
                 throw new Exception("El Producto no existe");
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return producto;
     }
-    
+
     @Override
     public Integer cantidadProductosWishList(Usuarios usuario) {
         int cantidadWishItems = 0;
-        
+
         Object[] values = {
             usuario.getMail()};
-        
+
         try {
             Connection connection = daoFactory.getConnection();
             PreparedStatement pstmtCantidadWishList = prepareStatement(connection, CANTIDAD_WISH_LIST, values);
-            
+
             ResultSet rs = pstmtCantidadWishList.executeQuery();
-            
+
             while (rs.next()) {
                 cantidadWishItems = rs.getInt(1);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cantidadWishItems;
     }
-    
+
     @Override
     public List<Productos> mostrarWishList(Usuarios usuario) {
         ArrayList<Productos> listaProductos = new ArrayList<>();
         Productos wishItem = null;
-        
+
         Object[] values = {
             usuario.getMail()
-        
+
         };
-        
+
         try {
             Connection connection = daoFactory.getConnection();
             PreparedStatement pstmtWishList = prepareStatement(connection, WISH_LIST, values);
-            
+
             ResultSet rs = pstmtWishList.executeQuery();
-            
+
             while (rs.next()) {
                 wishItem = obtenerFilaProducto(rs);
                 listaProductos.add(wishItem);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return listaProductos;
     }
-    
+
     @Override
     public void InsertarWishList(Productos producto, Usuarios usuario) {
         Object[] wishListValues = {
             usuario.getMail(),
             producto.getReferencia()
         };
-        
+
         try {
             Connection connection = daoFactory.getConnection();
-            
+
             PreparedStatement preparedStatement = prepareStatement(connection, INSERT_WISH_LIST, wishListValues);
-            
+
             int affectedRows = preparedStatement.executeUpdate();
-            
+
             if (affectedRows == 0) {
                 throw new Exception("Error al añadir el producto a la Wish List.");
             }
-            
+
         } catch (Exception ex) {
-            
+
         }
     }
-    
+
     private Productos obtenerFilaProducto(ResultSet rs) throws SQLException {
-        
+
         Productos filaProducto = new Productos();
-        
+
         filaProducto.setReferencia(rs.getString("REFERENCIA"));
         filaProducto.setPrecio(Integer.parseInt(rs.getString("PRECIO")));
         filaProducto.setNombre(rs.getString("NOMBRE"));
@@ -245,141 +244,141 @@ public class DAOProductos implements IProductos {
         filaProducto.setSexo(Integer.parseInt(rs.getString("SEXO")));
         filaProducto.setIdCategoria(Integer.parseInt(rs.getString("ID_CATEGORIA")));
         filaProducto.setFechaCatalogo(java.sql.Date.valueOf(rs.getString("FECHA_CATALOGO")));
-        
+
         return filaProducto;
-        
+
     }
-    
+
     @Override
     public List<Productos> mostrarProductos() {
         Productos producto;
         ArrayList<Productos> listaProductos = new ArrayList<>();
         try {
             Connection connection = daoFactory.getConnection();
-            
+
             PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_PRODUCTOS);
-            
+
             ResultSet rs = preparedStatement.executeQuery();
-            
+
             while (rs.next()) {
                 producto = obtenerFilaProducto(rs);
                 listaProductos.add(producto);
-                
+
             }
-            
+
         } catch (Exception ex) {
             Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return listaProductos;
     }
-    
+
     @Override
     public List<Productos> mostrarProductosUsuario(Usuarios usuario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
     public void BorrarWishList(WishList wishListItem) {
         Object[] wishListItemValue = {
             wishListItem.getUsuario(),
             wishListItem.getProducto()
         };
-        
+
         try {
-            
+
             Connection connection = daoFactory.getConnection();
             PreparedStatement preparedStatement = prepareStatement(connection, WISH_LIST_BORRAR_PRODUCTO, wishListItemValue);
-            
+
             int affectedRows = preparedStatement.executeUpdate();
-            
+
             if (affectedRows == 0) {
                 throw new Exception("Error al borrar el elemento de la wishList");
             }
         } catch (Exception ex) {
         }
-        
+
     }
-    
+
     @Override
     public List<Productos> mostrarProductoPedido(Usuarios usuario) {
         List<Productos> listaProductosPedidos = new ArrayList<>();
         Productos producto = new Productos();
-        
+
         Object[] Values = {
             usuario.getMail()
         };
         try {
             Connection connection = daoFactory.getConnection();
             PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_PRODUCTOS_PEDIDOS, Values);
-            
+
             ResultSet rs = preparedStatement.executeQuery();
-            
+
             while (rs.next()) {
-                
+
                 producto = obtenerFilaProducto(rs);
                 listaProductosPedidos.add(producto);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return listaProductosPedidos;
     }
-    
+
     @Override
     public List<Categoria> mostrarCategoriasProducto() {
         List<Categoria> categorias = new ArrayList<>();
         Categoria categoria;
-        
+
         try {
             Connection connection = daoFactory.getConnection();
             PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_CATEGORIAS_PRODUCTOS);
-            
+
             ResultSet rs = preparedStatement.executeQuery();
-            
+
             while (rs.next()) {
                 categoria = new Categoria();
                 categoria.setIdCategoria(rs.getInt("IDCATEGORIA"));
                 categoria.setDescripcion(rs.getString("DESCRIPCION"));
                 categoria.setClasificacion(rs.getString("CLASIFICACION"));
                 categorias.add(categoria);
-                
+
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return categorias;
     }
-    
+
     @Override
     public List<Categoria> clasificacionProductos() {
         List<Categoria> categorias = new ArrayList<>();
         Categoria categoria;
-        
+
         try {
             Connection connection = daoFactory.getConnection();
             PreparedStatement preparedStatement = prepareStatement(connection, AGRUPAR_PRODUCTOS_CLASIFICACION);
-            
+
             ResultSet rs = preparedStatement.executeQuery();
-            
+
             while (rs.next()) {
                 categoria = new Categoria();
                 categoria.setClasificacion(rs.getString("CLASIFICACION"));
                 categorias.add(categoria);
-                
+
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return categorias;
     }
-    
+
     @Override
     public List<Productos> mostrarProductosCategoria(Integer categoria) {
         List<Productos> productos = new ArrayList<>();
@@ -387,35 +386,35 @@ public class DAOProductos implements IProductos {
         Object[] Values = {
             categoria
         };
-        
+
         try {
-            
+
             Connection connection = daoFactory.getConnection();
-            
+
             PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_PRODUCTOS_CLASIFICACION, Values);
-            
+
             ResultSet rs = preparedStatement.executeQuery();
-            
+
             while (rs.next()) {
-                
+
                 producto = obtenerFilaProducto(rs);
-                
+
                 productos.add(producto);
-                
+
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return productos;
     }
-    
+
     @Override
     public Categoria mostrarCategoriaProducto(Integer idCategoria) {
         Categoria categoria = new Categoria();
         try {
             Connection connection = daoFactory.getConnection();
-            
+
             PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_CATEGORIA_PRODUCTO, idCategoria);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
@@ -426,8 +425,8 @@ public class DAOProductos implements IProductos {
         } catch (SQLException ex) {
             Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return categoria;
     }
-    
+
 }
