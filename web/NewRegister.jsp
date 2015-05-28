@@ -47,7 +47,7 @@
     <div class="container">
         <div class="my_account_block clearfix">
             <div id="Registro">  
-                <form class="form-horizontal" id="personalForm" method="POST" action="Controller?opID=Register">
+                <form class="form-horizontal" id="personalForm" action="Controller?opID=Register" method="post" enctype="multipart/form-data">
                     <fieldset id="registro-personal">
                         <!-- Form Name -->
 
@@ -107,7 +107,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="FechaNacimiento">Fecha Nacimiento</label> 
-                                <input type="date" class="col-md-6 bfh-datepicker" name="FechaNacimiento"style="
+                                <input type="date" class="col-md-6 bfh-datepicker" name="FechaNacimiento" style="
                                        /* width: 100%; */    
                                        height: 40px;    margin: 0 6px 10px 0;    padding: 10px;    text-transform: none;    font-family: 'Roboto', sans-serif;    font-weight: 400;    line-height: 20px;    font-size: 11px;    color: #666;    font-style: normal;    border-radius: 0;    background: #fff;    border: 2px solid #e9e9e9;    box-shadow: none;    transition: all 0.3s ease-in-out;    -webkit-transition: all 0.3s ease-in-out;
                                        ">
@@ -677,9 +677,9 @@
 
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="nick">Primer Apellido</label>  
+                                    <label class="col-md-4 control-label" for="nick">Nombre Usuario</label>  
                                     <div class="col-md-6">
-                                        <input onblur="nombre('surname1')"id="surname1" name="nick" type="text" placeholder="Introduce tu Segundo Apellido" class="form-control input-md">
+                                        <input onblur="nombre('surname1')"id="surname1" name="nick" type="text" placeholder="Introduce un nombre de usuario" class="form-control input-md">
 
                                     </div>
                                 </div>

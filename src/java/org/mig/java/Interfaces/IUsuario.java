@@ -18,4 +18,6 @@ public interface IUsuario {
 
     public void RegistrarUsuario(Usuarios usuario) throws DAOException;
 
+    public Usuarios MostrarUsuario(Usuarios usuario) throws DAOException;
+
 }

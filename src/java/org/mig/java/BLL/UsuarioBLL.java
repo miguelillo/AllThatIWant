@@ -24,4 +24,15 @@ public class UsuarioBLL {
 
         return daoUsuario.LoginUsuario(usuario);
     }
+    public Usuarios MostrarUsuario(Usuarios usuario) {
+        Usuarios usuarioUnico = new Usuarios();
+        DAOFactory daoFactory = DAOFactory.getInstance();
+
+        IUsuario iUsuario = daoFactory.getUsuarioDAO();
+
+        usuarioUnico = iUsuario.MostrarUsuario(usuario);
+
+        return usuarioUnico;
+
+    }
 }

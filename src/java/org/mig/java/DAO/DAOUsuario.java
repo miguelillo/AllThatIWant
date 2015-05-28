@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static org.mig.java.DAO.DAOUtil.prepareStatement;
 import static org.mig.java.DAO.DAOUtil.toSqlDate;
 import org.mig.java.Entities.Usuarios;
@@ -34,6 +36,7 @@ public class DAOUsuario implements IUsuario {
      * 'V','P','C','A' V = VENDEDOR P = PROPIETARIO C = CLIENTE A =
      * ADMINISTRADOR WEB
      */
+    private static final String MOSTRAR_USUARIO = "SELECT * FROM usuarios WHERE mail = ?";
     private static final String REGISTRO_USUARIO = "INSERT INTO usuarios "
             + "(`DNI`, "
             + "`User_Name`, "
@@ -44,7 +47,7 @@ public class DAOUsuario implements IUsuario {
             + "`Apellido1`, "
             + "`Fecha_Nacimiento`, "
             + "`Pais`, "
-            + "imagen_url, "
+            + "`imagen_url`, "
             + "`Perfil`,"
             + "`sexo`)"
             + "	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -54,8 +57,33 @@ public class DAOUsuario implements IUsuario {
     /**
      *
      * @param usuario DAO PARA REGISTRAR A UN USUARIO EN LA BASE DE DATOS.
+     * @return
      * @throws DAOException
      */
+    @Override
+    public Usuarios MostrarUsuario(Usuarios usuario) throws DAOException {
+
+        Object[] values = {
+            usuario.getMail()
+        };
+
+        try {
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_USUARIO, values);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                usuario = new Usuarios();
+
+                usuario = obtenerFilaUsuario(rs);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return usuario;
+
+    }
+
     @Override
     public void RegistrarUsuario(Usuarios usuario) throws DAOException {
 
@@ -133,4 +161,5 @@ public class DAOUsuario implements IUsuario {
         return filaUsuario;
 
     }
+
 }

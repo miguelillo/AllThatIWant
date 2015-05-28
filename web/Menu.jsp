@@ -21,7 +21,7 @@
                 <%} else {
                     String userName = sesion.getNombre();
                 %>
-            <li><a href="Controller?opID=RedirectRegister" ><%=userName%></a></li>
+            <li><a href="Controller?opID=UserPanel" ><%=userName%></a></li>
             <li><a href="Controller?opID=LogOut">Salir</li>
                 <%}%>
         </ul>

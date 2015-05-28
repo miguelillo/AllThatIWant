@@ -10,6 +10,7 @@ import org.mig.java.Entities.Direcciones;
 import org.mig.java.Entities.Telefonos;
 import org.mig.java.Entities.Usuarios;
 import org.mig.java.Interfaces.IRegistro;
+import org.mig.java.Interfaces.IUsuario;
 
 /**
  *
@@ -27,5 +28,7 @@ public class RegistroBLL {
         IRegistro.InsertarTeleofonoUsuario(telefono);
 
     }
+
+    
 
 }
