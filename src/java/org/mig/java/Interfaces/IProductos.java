@@ -47,7 +47,9 @@ public interface IProductos {
     public List<Categoria> clasificacionProductos();
 
     public List<Productos> mostrarProductosCategoria(Integer categoria);
-   
+
     public Categoria mostrarCategoriaProducto(Integer idCategoria);
+
+    public List<Productos> mostrarHistorialProductos(Usuarios usuario);
 
 }

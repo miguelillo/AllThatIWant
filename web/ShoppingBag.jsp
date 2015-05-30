@@ -83,15 +83,7 @@
 
                             <td class="product-price">€<%=precio%></td>
 
-                            <td class="product-quantity">
-                                <select class="basic">
-                                    <option value="1" selected>1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </td>
+                     
 
                             <td class="product-subtotal">€<%=sumaTotal * 2%></td>
 
@@ -113,7 +105,7 @@
                     <table class="bag_total">
                         <tr class="cart-subtotal clearfix">
                             <th>Sub total</th>
-                            <td>€258.00</td>
+                            <td><%=sumaTotal%>€</td>
                         </tr>
                         <tr class="shipping clearfix">
                             <th>Envio</th>
@@ -121,7 +113,7 @@
                         </tr>
                         <tr class="total clearfix">
                             <th>Total</th>
-                            <td>€<%=sumaTotal%></td>
+                            <td>€<%=sumaTotal + (sumaTotal * 21 / 100)%></td>
                         </tr>
                     </table>
                     <form class="coupon_form" action="javascript:void(0);" method="get">
@@ -130,7 +122,7 @@
                                                 this.value = '¿Tienes un cupon?';" />
                         <input type="submit" value="Apply">
                     </form>
-                    <a class="btn active" href="javascript:void(0);" >Comprar</a>
+                    <a class="btn active" href="Controller?opID=ConfirmarPedido" >Comprar</a>
                     <a class="btn inactive" href="Controller?opID=RedirectContent" >Continuar Comprando</a>
                 </div><!-- //REGISTRATION FORM -->
             </div><!-- //SIDEBAR -->

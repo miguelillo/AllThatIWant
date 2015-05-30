@@ -62,13 +62,18 @@ public class DAOProductos implements IProductos {
     private static final String CANTIDAD_WISH_LIST = "SELECT COUNT( * ) FROM usuario_wishList WHERE usuario =  ?";
     private static final String WISH_LIST = "SELECT * FROM usuario_wishList INNER JOIN productos ON usuario_wishList.Producto = productos.Referencia WHERE usuario_wishList.Usuario =  ? LIMIT 0 , 30";
     private static final String INSERT_WISH_LIST = "INSERT INTO `usuario_wishList`(`Usuario`, `Producto`) VALUES (?,?)";
-    private static final String MOSTRAR_PRODUCTOS = "SELECT * FROM `productos` ORDER BY `Fecha_Catalogo` LIMIT 1,7";
+    private static final String MOSTRAR_PRODUCTOS = "SELECT * FROM `productos` ORDER BY `Fecha_Catalogo` LIMIT 1,11";
     private static final String MOSTRAR_PRODUCTOS_TIENDA = "SELECT * FROM `productos_tiendas` WHERE TiendaCif = ?";
     private static final String MOSTRAR_PRODUCTOS_PEDIDOS = "SELECT productos.*\n"
             + "FROM productos \n"
             + "INNER JOIN pedidos \n"
             + "ON pedidos.ProductoReferencia = productos.Referencia \n"
             + "WHERE pedidos.UsuarioMail = ? AND pedidos.Estado_Servicio = 'PEDIDO'";
+    private static final String MOSTRAR_HISTORIAL_PEDIDO = "SELECT productos.*, pedidos.estado_servicio\n"
+            + "FROM productos \n"
+            + "INNER JOIN pedidos \n"
+            + "ON pedidos.ProductoReferencia = productos.Referencia \n"
+            + "WHERE pedidos.UsuarioMail = ?";
     private static final String MOSTRAR_CATEGORIAS_PRODUCTOS = "SELECT * FROM `categoria`";
     private static final String AGRUPAR_PRODUCTOS_CLASIFICACION = "SELECT `clasificacion` FROM `categoria` GROUP BY `clasificacion`";
     private static final String MOSTRAR_PRODUCTOS_CLASIFICACION = "SELECT *\n"
@@ -244,6 +249,11 @@ public class DAOProductos implements IProductos {
         filaProducto.setSexo(Integer.parseInt(rs.getString("SEXO")));
         filaProducto.setIdCategoria(Integer.parseInt(rs.getString("ID_CATEGORIA")));
         filaProducto.setFechaCatalogo(java.sql.Date.valueOf(rs.getString("FECHA_CATALOGO")));
+        try {
+            filaProducto.setEstado_pedido(rs.getString("ESTADO_SERVICIO"));
+        } catch (Exception ex) {
+
+        }
 
         return filaProducto;
 
@@ -298,6 +308,33 @@ public class DAOProductos implements IProductos {
         } catch (Exception ex) {
         }
 
+    }
+
+    @Override
+    public List<Productos> mostrarHistorialProductos(Usuarios usuario) {
+        List<Productos> listaProductosPedidos = new ArrayList<>();
+        Productos producto = new Productos();
+
+        Object[] Values = {
+            usuario.getMail()
+        };
+        try {
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_HISTORIAL_PEDIDO, Values);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+
+                producto = obtenerFilaProducto(rs);
+                listaProductosPedidos.add(producto);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listaProductosPedidos;
     }
 
     @Override

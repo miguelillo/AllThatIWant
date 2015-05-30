@@ -35,7 +35,7 @@
 
         <!-- LOGO -->
         <div class="logo">
-            <a href="Controller?opID=RedirectContent" ><h1 style="width: 220px;">All That I Want</h1></a>
+            <a href="Controller?opID=RedirectContent" ><img src="images/Logopic.png"/></a>
         </div><!-- //LOGO -->
 
 

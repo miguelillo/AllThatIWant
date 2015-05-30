@@ -53,6 +53,7 @@ public class DAOPedidos implements IPedidos {
             + "`Estado_Servicio`) "
             + "VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String MOSTRAR_PEDIDOS = "SELECT * FROM `pedidos` WHERE `UsuarioMail` = ? AND  `Estado_Servicio` = 'PEDIDO'";
+    private static final String MOSTRAR_HISTORIAL_PEDIDOS = "SELECT * FROM `pedidos` WHERE `UsuarioMail` = ?";
     private static final String BORRAR_PRODUCTO_PEDIDO = "DELETE FROM `pedidos` WHERE `ProductoReferencia` = ? AND `UsuarioMail` = ?";
     private static final String ACTUALIZAR_PEDIDOS_COMPRADO = "UPDATE `pedidos` SET `Fecha_Confirmacion`=CURRENT_DATE(),`Num_Factura`=?,`Estado_Servicio`= 'COMPRADO' WHERE `ProductoReferencia`= ?";
 
@@ -176,6 +177,34 @@ public class DAOPedidos implements IPedidos {
             }
         }
 
+    }
+
+    @Override
+    public List<Pedidos> HistorialPedidos(Usuarios usuario) {
+        List<Pedidos> historialPedidos = new ArrayList<>();
+        Pedidos pedido = new Pedidos();
+        Object[] Values = {
+            usuario.getMail()
+        };
+        try {
+
+            Connection connection = daoFactory.getConnection();
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_HISTORIAL_PEDIDOS, Values);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+
+                pedido = obtenerFilaPedidos(rs);
+
+                historialPedidos.add(pedido);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOPedidos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return historialPedidos;
     }
 
 }

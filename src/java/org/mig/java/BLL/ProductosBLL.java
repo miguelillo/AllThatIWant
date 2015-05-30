@@ -5,13 +5,16 @@
  */
 package org.mig.java.BLL;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.mig.java.DAO.DAOFactory;
 import org.mig.java.Entities.Categoria;
+import org.mig.java.Entities.Pedidos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
 import org.mig.java.Entities.WishList;
+import org.mig.java.Interfaces.IPedidos;
 import org.mig.java.Interfaces.IProductos;
 
 /**
@@ -133,4 +136,14 @@ public class ProductosBLL {
         return productosDao.mostrarCategoriaProducto(categoria);
     }
 
+    public List<Productos> MostrarHistorialProductosPedidos(Usuarios usuario) {
+        DAOFactory daoFactory = DAOFactory.getInstance();
+        List<Productos> listaProductosPedido;
+
+        IProductos daoProductos = daoFactory.getProductosDAO();
+
+        listaProductosPedido = daoProductos.mostrarHistorialProductos(usuario);
+
+        return listaProductosPedido;
+    }
 }

@@ -19,9 +19,11 @@ public interface IPedidos {
     public void RealizarPedido(Pedidos pedido);
 
     public List<Pedidos> MostrarPedidos(Usuarios usuario);
-    
+
     public void BorrarProductoPedido(Pedidos pedido);
-    
+
     public void RealizarCompraPedidos(List<Productos> productos);
+
+    public List<Pedidos> HistorialPedidos(Usuarios usuario);
 
 }

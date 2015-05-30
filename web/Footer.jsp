@@ -64,7 +64,7 @@
 
         <!-- CONTAINER -->
         <div class="container clearfix">
-            <div class="foot_logo"><a href="index.html" ><img src="" alt="" />LOGO</a></div>
+            <div class="foot_logo"><a href="index.html" ><img src="" alt="" /><img src="images/Logopic.png"/></a></div>
             <div class="copyright_inf">
                 <span>All That I Want© 2015</span> 
                 <a class="back_top" href="javascript:void(0);" >Volver Arriba<i class="fa fa-angle-up"></i></a>

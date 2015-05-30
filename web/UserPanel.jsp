@@ -72,11 +72,47 @@
                             <th class="product-remove"></th>
                         </tr>
                     </thead>
+                    <tbody>
+                        <%                            
+    
+                            List<Productos> historialProductos = (ArrayList< Productos>) request.getAttribute("historialPedidos");
 
+                            for (Productos producto : historialProductos) {
+
+                                String referencia = producto.getReferencia();
+                                String nombreProducto = producto.getNombre();
+                                String color = producto.getColor();
+                                String talla = producto.getTalla();
+                                int precio = producto.getPrecio();
+                                String estado = producto.getEstado_pedido();
+
+
+                        %>
+
+                        <tr class="cart_item">
+                            <td class="product-thumbnail"><a href="product-page.html" ><img src="images/tovar/women/1.jpg" width="100px" alt="" /></a></td>
+                            <td class="product-name">
+                                <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>"><%=nombreProducto%></a>
+                                <ul class="variation">
+                                    <li class="variation-Color">Color: <span><%=color%></span></li>
+                                    <li class="variation-Size">Size: <span><%=talla%></span></li>
+                                    <li class="variation-Size">Referencia:  <span><%=referencia%></span></li>
+                                </ul>
+                            </td>
+
+                            <td class="product-price">€<%=precio%></td>
+                            <td class="product-price"><%=estado%></td>
+
+
+
+
+
+                        </tr>
+                        <% }%>
+
+                    </tbody>
                 </table>
-            </div><!-- //CART TABLE -->
-
-
+            </div>
             <!-- SIDEBAR -->
             <div id="sidebar" class="col-lg-3 col-md-3 padbot50">
 

@@ -18,29 +18,29 @@ import org.mig.java.Interfaces.IPedidos;
  * @author miguelangel
  */
 public class PedidosBLL {
-
+    
     public void RealizarPedido(Pedidos pedido) {
         DAOFactory daoFactory = DAOFactory.getInstance();
-
+        
         IPedidos pedidosDao = daoFactory.getPedidosDAO();
-
+        
         pedidosDao.RealizarPedido(pedido);
-
+        
     }
-
+    
     public List<Pedidos> MostrarPedidos(Usuarios usuario) {
         List<Pedidos> pedidos = new ArrayList<>();
-
+        
         DAOFactory daoFactory = DAOFactory.getInstance();
-
+        
         IPedidos pedidosDao = daoFactory.getPedidosDAO();
-
+        
         pedidos = pedidosDao.MostrarPedidos(usuario);
-
+        
         return pedidos;
     }
     
-    public void BorrarPedido(Pedidos pedido){
+    public void BorrarPedido(Pedidos pedido) {
         DAOFactory daoFactory = DAOFactory.getInstance();
         
         IPedidos pedidos = daoFactory.getPedidosDAO();
@@ -48,12 +48,14 @@ public class PedidosBLL {
         pedidos.BorrarProductoPedido(pedido);
     }
     
-    public void ConfirmarProductosPedidos(List<Productos> productos){
-       DAOFactory daoFactory = DAOFactory.getInstance();
-       
-       IPedidos pedidos = daoFactory.getPedidosDAO();
-       
-       pedidos.RealizarCompraPedidos(productos);
+    public void ConfirmarProductosPedidos(List<Productos> productos) {
+        DAOFactory daoFactory = DAOFactory.getInstance();
+        
+        IPedidos pedidos = daoFactory.getPedidosDAO();
+        
+        pedidos.RealizarCompraPedidos(productos);
     }
-
+    
+ 
+    
 }
