@@ -131,7 +131,7 @@ public class AddProductCommand extends ICommand {
 
             telefono.setNumero(Integer.valueOf(telefonoUsuario));
             telefono.setUsuarioMail(email);
-
+123
             registroBll.RegistroUsuario(usuario, telefono, direccion);
         } catch (Exception ex) {
             System.out.println("Excepcion lanzada: " + ex);
