@@ -16,18 +16,22 @@ import org.mig.java.Entities.Categoria;
  *
  * @author miguelangel
  */
-public class RedirectCrearProductosCommand extends ICommand {
-
+public class CrearProductosCommand extends ICommand {
+    
     @Override
-    public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void initPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ProductosBLL productosBll = new ProductosBLL();
         TiendasBLL tiendasBll = new TiendasBLL();
         List<Categoria> categorias = productosBll.MostrarCategorias();
+        String tiendaCif = request.getParameter("tienda");
         
-
+        request.setAttribute("tiendaCif", tiendaCif);
         request.setAttribute("categorias", categorias);
-
+    }
+    
+    @Override
+    public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         return "FormularioProductoNuevo.jsp";
     }
-
+    
 }

@@ -34,7 +34,7 @@
                     String nombreTienda = tienda.getNombre();
             %>
 
-            <li><a href="Controller?VerTienda&tienda=<%=cif%>"><%=nombreTienda%></a></li>
+            <li><a href="Controller?opID=VerTienda&tienda=<%=cif%>"><%=nombreTienda%></a></li>
 
 
             <%}%>

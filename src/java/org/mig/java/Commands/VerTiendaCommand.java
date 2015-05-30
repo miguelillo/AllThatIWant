@@ -7,20 +7,27 @@ package org.mig.java.Commands;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.mig.java.BLL.TiendasBLL;
+import org.mig.java.Entities.Tiendas;
 
 /**
  *
  * @author miguelangel
  */
-public class VerTiendasCommand extends ICommand {
-
+public class VerTiendaCommand extends ICommand {
+    
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        TiendasBLL tiendasBll = new TiendasBLL();
+        Tiendas tienda = new Tiendas();
+        String cif = request.getParameter("tienda");
+        tienda.setCif(cif);
         
+        tienda = tiendasBll.MostrarTienda(tienda);
         
+        request.setAttribute("tiendaPropietario", tienda);
         
-        
-     return "Tienda.jsp";
+        return "Tienda.jsp";
     }
-
+    
 }

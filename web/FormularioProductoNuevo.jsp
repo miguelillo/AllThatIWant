@@ -52,8 +52,8 @@
             <div id="Registro">  
                 <%
                     List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
-                    
-                    
+                    String tiendaCif = (String) request.getAttribute("tiendaCif");
+
 
                 %>
                 <form class="form-horizontal" id="personalForm" action="Controller?opID=Register" method="post" enctype="multipart/form-data">
@@ -61,7 +61,7 @@
                         <!-- Form Name -->
 
                         <div id="datos_personales">
-                            <legend>Nuevo Producto</legend>
+                            <legend>Nuevo Producto - <%=tiendaCif%></legend>
 
                             <!-- Text input-->
                             <div class="form-group">
@@ -100,7 +100,33 @@
                                     <input id="name" name="precio" type="text" placeholder="precio" class="form-control input-md" required="">
                                 </div>
                             </div>
-
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="descripcion">Descripcion</label>  
+                                <div class="col-md-6">
+                                    <input id="name" name="descripcion" type="text" placeholder="Introduzca una descripcion" class="form-control input-md" required="">
+                                </div>
+                            </div>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="talla">Talla</label>  
+                                <div class="col-md-6">
+                                    <input id="name" name="talla" type="text" placeholder="Introduzca una talla" class="form-control input-md" required="">
+                                </div>
+                            </div>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="composicion">Composicion</label>  
+                                <div class="col-md-6">
+                                    <input id="name" name="composicion" type="text" placeholder="precio" class="form-control input-md" required="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="productFile">Foto Producto</label>
+                                <div class="col-md-4">
+                                    <input id="productFile" name="productFile" class="input-file" type="file">
+                                </div>
+                            </div>
                     </fieldset>
                     <a class="btn btn-lg btn-primary btn-block" id="Siguiente">Siguiente</a>
             </div>

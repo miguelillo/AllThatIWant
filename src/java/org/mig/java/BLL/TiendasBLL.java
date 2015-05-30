@@ -50,4 +50,13 @@ public class TiendasBLL {
         return daoTiendas.tiendasPropietario(usuario);
     }
 
+    public Tiendas MostrarTienda(Tiendas tienda) {
+        DAOFactory daoFactory = DAOFactory.getInstance();
+
+        ITiendas daoTiendas = daoFactory.getTiendasDAO();
+
+        return daoTiendas.BuscarTienda(tienda);
+
+    }
+
 }

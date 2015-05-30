@@ -62,7 +62,7 @@ public class Controller extends HttpServlet {
         } catch (Exception ex) {
             request.setAttribute("error", ex.getMessage());
             request.setAttribute("pagina", pagina);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("404.jsp").forward(request, response);
         }
     }
 
