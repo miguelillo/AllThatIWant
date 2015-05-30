@@ -42,7 +42,7 @@ public class DAOTiendas implements ITiendas {
     }
     private static final String REGISTRAR_TIENDA = "INSERT INTO proyectofinaldaw.tiendas (`CIF`, `UsuarioMail`, `Nombre`) \n"
             + "	VALUES (?, ?, ?)";
-    private static final String PROPIETARIO_TIENDA = "SELECT * FROM TIENDAS WHERE USUARIOMAIL = ?";
+    private static final String PROPIETARIO_TIENDA = "SELECT * FROM `tiendas` WHERE `usuariomail` = ?";
     private static final String MOSTRAR_TIENDA_PRODUCTO = "SELECT * FROM `productos_tiendas` WHERE `Productoid` = ?";
     private static final String BUSCAR_TIENDA = "SELECT * FROM `tiendas` WHERE `cif` = ?";
 

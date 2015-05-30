@@ -303,10 +303,7 @@
                         <a class="banner type2 margbot40" href="javascript:void(0);" ><img src="images/tovar/banner2.jpg" alt="" /></a>
                     </div><!-- //BANNER -->
                 </div><!-- //TOVAR WRAPPER -->
-                <div class="col-lg-3 col-md-3 col-xs-6 col-ss-12">
-                    <a class="banner type1 margbot30" href="javascript:void(0);" ><img src="images/tovar/banner1.jpg" alt="" /></a>
-                    <a class="banner type2 margbot40" href="javascript:void(0);" ><img src="images/tovar/banner2.jpg" alt="" /></a>
-                </div><!-- //BANNER -->
+                
             </div>
 
             <div class="respond_clear_768"></div>

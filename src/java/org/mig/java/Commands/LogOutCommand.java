@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Productos;
 
 /**
@@ -20,11 +21,12 @@ public class LogOutCommand extends ICommand {
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         request.getSession().setAttribute("clienteSesion", null);
         request.getSession().invalidate();
-        
+
         //Lleno los articulos genericos
         ProductosBLL productosBll = new ProductosBLL();
         List<Productos> listaProductos = productosBll.MostrarProductos();
-
+        List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.getSession().setAttribute("listaProductos", listaProductos);
         return "Content.jsp";
     }

@@ -57,8 +57,8 @@
                 List<Productos> productosCarrito = (ArrayList< Productos>) request.getSession().getAttribute("productosCarrito");
                 int numeroItemsCarrito = pedidos.size();
                 int sumaCarritoTotal = 0;
-
         %>
+
         <div class="shopping_bag">
             <a class="shopping_bag_btn" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i><p>Carrito</p><span><%=numeroItemsCarrito%></span></a>
             <div class="cart">
@@ -101,6 +101,7 @@
         </div><!-- //LOVE LIST -->
 
 
+
         <!-- MENU -->
         <ul class="navmenu center">
             <li class="sub-menu first active"><a href="Controller?opID=RedirectContent" >Inicio</a>
@@ -108,6 +109,21 @@
             </li>
 
             <li class="sub-menu"><a href="Controller?opID=Catalogo" >Catalogo</a>
+                <%
+
+                    if (sesion != null) {
+                        Usuarios usuario = sesion;
+                        String perfil = usuario.getPerfil();
+                        //P = propietario
+                        if (perfil.equals("P")) {%>
+            <li class="sub-menu"><a href="Controller?opID=RedirectShopAdmin">Administracion Tienda</a></li>
+
+            <%}
+                }%>
+
+
+
+
 
             </li>
             <li class="sub-menu"><a href="javascript:void(0);" >Blog</a>
