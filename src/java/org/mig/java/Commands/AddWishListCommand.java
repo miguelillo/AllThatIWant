@@ -5,9 +5,11 @@
  */
 package org.mig.java.Commands;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Usuarios;
 
@@ -30,7 +32,8 @@ public class AddWishListCommand extends ICommand {
         productosBll.InsertarWishList(producto, usuario);
 
         int cantidadWishItems = productosBll.cantidadWishItems(usuario);
-
+        List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.getSession().setAttribute("cantidadWishItems", cantidadWishItems);
 
         return "Content.jsp";

@@ -18,6 +18,7 @@
             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 col-ss-12 padbot30">
                 <h4>Informacion</h4>
                 <ul class="foot_menu">
+                    <li><a href="Controller?opID=LoginTienda">Login Tiendas</a></li>
                     <li><a href="about.html" >Nosotros</a></li>
                     <li><a href="javascript:void(0);" >Envios</a></li>
                     <li><a href="javascript:void(0);" >Politica de Privacidad</a></li>

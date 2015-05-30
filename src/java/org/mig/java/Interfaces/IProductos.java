@@ -7,6 +7,7 @@ package org.mig.java.Interfaces;
 
 import java.util.List;
 import org.mig.java.Entities.Categoria;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
@@ -51,5 +52,7 @@ public interface IProductos {
     public Categoria mostrarCategoriaProducto(Integer idCategoria);
 
     public List<Productos> mostrarHistorialProductos(Usuarios usuario);
+
+    public List<Imagenes_productos> mostrarImagenesProductos();
 
 }

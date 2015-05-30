@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.PedidosBLL;
 import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Pedidos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Usuarios;
@@ -25,13 +26,15 @@ public class ConfirmarPedidoCommand extends ICommand {
         PedidosBLL pedidosBll = new PedidosBLL();
         ProductosBLL productoBll = new ProductosBLL();
         Usuarios usuario = (Usuarios) request.getSession().getAttribute("usuarioValido");
+        ProductosBLL productosBll = new ProductosBLL();
         List<Productos> productosPedidos = (List<Productos>) request.getSession().getAttribute("productosCarrito");
 
         pedidosBll.ConfirmarProductosPedidos(productosPedidos);
 
         List<Pedidos> pedidos = pedidosBll.MostrarPedidos(usuario);
         List<Productos> listaProductosCarrito = productoBll.MostrarProductosCarrito(usuario);
-
+        List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.getSession().setAttribute("itemsCarrito", pedidos);
         request.getSession().setAttribute(("productosCarrito"), listaProductosCarrito);
 

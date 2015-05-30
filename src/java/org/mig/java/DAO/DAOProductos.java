@@ -18,6 +18,7 @@ import org.mig.java.Entities.Tiendas;
 import org.mig.java.Interfaces.IProductos;
 import static org.mig.java.DAO.DAOUtil.prepareStatement;
 import org.mig.java.Entities.Categoria;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Usuarios;
 import org.mig.java.Entities.WishList;
 import org.mig.java.Exceptions.DAOException;
@@ -81,6 +82,36 @@ public class DAOProductos implements IProductos {
             + "INNER JOIN categoria ON productos.Id_Categoria = `idCategoria`\n"
             + "WHERE categoria.idCategoria = ?";
     private static final String MOSTRAR_CATEGORIA_PRODUCTO = "SELECT * FROM `categoria` WHERE idCategoria = ?";
+    private static final String MOSTRAR_IMAGENES_PRODUCTOS = "SELECT imagen_productos.* \n"
+            + "FROM productos\n"
+            + "INNER JOIN imagen_productos ON imagen_productos.ProductosReferencia = productos.Referencia";
+
+    @Override
+    public List<Imagenes_productos> mostrarImagenesProductos() {
+        List<Imagenes_productos> listaImagenes = new ArrayList<>();
+        Imagenes_productos imagenes = null;
+        try {
+            Connection connection = daoFactory.getConnection();
+
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_IMAGENES_PRODUCTOS);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                imagenes = new Imagenes_productos();
+                imagenes.setUrl(rs.getString("URL"));
+                imagenes.setProdReferencia(rs.getString("PRODUCTOSREFERENCIA"));
+                imagenes.setPrincipal(rs.getInt("PRINCIPAL"));
+                listaImagenes.add(imagenes);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOProductos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listaImagenes;
+    }
 
     @Override
     public void insertarProducto(Productos producto, Tiendas tienda) {

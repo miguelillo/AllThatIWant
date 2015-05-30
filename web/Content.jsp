@@ -1,3 +1,4 @@
+<%@page import="org.mig.java.Entities.Imagenes_productos"%>
 <%@page contentType="text/html;charset=UTF-8"%>
 <%@page import="org.mig.java.BLL.ProductosBLL"%>
 <%@page import="java.util.List"%>
@@ -63,12 +64,15 @@
 
                 <!-- TOVAR WRAPPER -->
                 <div class="tovar_wrapper" data-appear-top-offset='-100' data-animated='fadeInUp'>
-                    <%        List<Productos> listaProductos = (List) request.getSession().getAttribute("listaProductos");
 
+                    <%                        List<Productos> listaProductos = (List) request.getSession().getAttribute("listaProductos");
+                        List<Imagenes_productos> listadoImagenesProductos = (List) request.getAttribute("listadoImagenesProductos");
                         for (int i = 0; i < listaProductos.size(); i++) {
                             String referencia = listaProductos.get(i).getReferencia();
                             String nombre = listaProductos.get(i).getNombre();
                             String precio = String.valueOf(listaProductos.get(i).getPrecio());
+                            String urlImagen = null;
+
 
                     %>
                     <!-- TOVAR1 -->
@@ -76,14 +80,25 @@
                         <div class="tovar_item">
                             <div class="tovar_img">
                                 <div class="tovar_img_wrapper">
-                                    <img class="img" src="images/tovar/women/1.jpg" alt="" />
-                                    <img class="img_h" src="images/tovar/women/1_2.jpg" alt="" />
+                                    <%                                        for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                            Imagenes_productos imagenes = listadoImagenesProductos.get(x);
+                                            String imagenProReferencia = imagenes.getProdReferencia();
+
+                                            if (imagenProReferencia.equals(referencia)) {
+                                                urlImagen = listadoImagenesProductos.get(x).getUrl();
+
+                                            }
+                                        }
+
+                                    %>
+                                    <img class="img" src=<%=urlImagen%> alt="" />
                                 </div>
                                 <div class="tovar_item_btns">
                                     <div class="open-project-link"><a class="open-project tovar_view" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " >Ver</a></div>
                                     <%if (sesion != null) {%>
                                     <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i></a>
-                                        <%}%>
+
+                                    <%}%>
                                 </div>
                             </div>
                             <div class="tovar_description clearfix">
@@ -232,26 +247,42 @@
 
                 <!-- TOVAR WRAPPER -->
                 <div class="tovar_wrapper" data-appear-top-offset='-100' data-animated='fadeInUp'>
-                    <%
-                        List<Productos> listaProductos = (List) request.getSession().getAttribute("listaProductos");
 
+                    <%                        
+                    List<Productos> listaProductos = (List) request.getSession().getAttribute("listaProductos");
+                        List<Imagenes_productos> listadoImagenesProductos = (List) request.getAttribute("listadoImagenesProductos");
                         for (int i = 0; i < listaProductos.size(); i++) {
                             String referencia = listaProductos.get(i).getReferencia();
                             String nombre = listaProductos.get(i).getNombre();
                             String precio = String.valueOf(listaProductos.get(i).getPrecio());
+                            String urlImagen = null;
+
+
                     %>
                     <!-- TOVAR1 -->
                     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 col-ss-12 padbot40">
                         <div class="tovar_item">
                             <div class="tovar_img">
                                 <div class="tovar_img_wrapper">
-                                    <img class="img" src="images/tovar/women/1.jpg" alt="" />
-                                    <img class="img_h" src="images/tovar/women/1_2.jpg" alt="" />
+                                    <%                                        for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                            Imagenes_productos imagenes = listadoImagenesProductos.get(x);
+                                            String imagenProReferencia = imagenes.getProdReferencia();
+
+                                            if (imagenProReferencia.equals(referencia)) {
+                                                urlImagen = listadoImagenesProductos.get(x).getUrl();
+
+                                            }
+                                        }
+
+                                    %>
+                                    <img class="img" src=<%=urlImagen%> alt="" />
                                 </div>
                                 <div class="tovar_item_btns">
-                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a></div>
+                                    <div class="open-project-link"><a class="open-project tovar_view" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " >Ver</a></div>
+                                    <%if (sesion != null) {%>
                                     <a class="add_bag" href="Controller?opID=RealizarPedido&referencia=<%=referencia%>" ><i class="fa fa-shopping-cart"></i></a>
                                     <a class="add_lovelist" href="Controller?opID=AddWishList&Referencia=<%=referencia%>" ><i class="fa fa-heart"></i></a>
+                                        <%}%>
                                 </div>
                             </div>
                             <div class="tovar_description clearfix">
@@ -264,7 +295,14 @@
 
                     <%}%>
 
-                </div>
+                    <div class="respond_clear_768"></div>
+
+                    <!-- BANNER -->
+                    <div class="col-lg-3 col-md-3 col-xs-6 col-ss-12">
+                        <a class="banner type1 margbot30" href="javascript:void(0);" ><img src="images/tovar/banner1.jpg" alt="" /></a>
+                        <a class="banner type2 margbot40" href="javascript:void(0);" ><img src="images/tovar/banner2.jpg" alt="" /></a>
+                    </div><!-- //BANNER -->
+                </div><!-- //TOVAR WRAPPER -->
                 <div class="col-lg-3 col-md-3 col-xs-6 col-ss-12">
                     <a class="banner type1 margbot30" href="javascript:void(0);" ><img src="images/tovar/banner1.jpg" alt="" /></a>
                     <a class="banner type2 margbot40" href="javascript:void(0);" ><img src="images/tovar/banner2.jpg" alt="" /></a>

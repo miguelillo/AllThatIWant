@@ -5,22 +5,31 @@
  */
 package org.mig.java.BLL;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.mig.java.DAO.DAOFactory;
 import org.mig.java.Entities.Categoria;
-import org.mig.java.Entities.Pedidos;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 import org.mig.java.Entities.Usuarios;
 import org.mig.java.Entities.WishList;
-import org.mig.java.Interfaces.IPedidos;
 import org.mig.java.Interfaces.IProductos;
 
 /**
  * @author miguelangel
  */
 public class ProductosBLL {
+
+    public List<Imagenes_productos> listaImagenesProductos() {
+        List<Imagenes_productos> listaImagenes;
+        DAOFactory dAOFactory = DAOFactory.getInstance();
+
+        IProductos daoProductos = dAOFactory.getProductosDAO();
+        
+        listaImagenes = daoProductos.mostrarImagenesProductos();
+
+        return listaImagenes;
+    }
 
     public Productos mostrarProducto(Productos producto) {
         DAOFactory dAOFactory = DAOFactory.getInstance();

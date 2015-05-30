@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
 import org.mig.java.Entities.Categoria;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Productos;
 
 /**
@@ -35,6 +36,8 @@ public class IndexServlet extends HttpServlet {
         ProductosBLL productosBll = new ProductosBLL();
         List<Productos> listaProductos = productosBll.MostrarProductos();
         List<Categoria> categorias = productosBll.MostrarCategorias();
+        List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.getSession().setAttribute("categoria", categorias);
         request.getSession().setAttribute("listaProductos", listaProductos);
         request.getRequestDispatcher("/index.jsp").forward(request, response);

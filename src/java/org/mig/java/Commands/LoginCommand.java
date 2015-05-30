@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.PedidosBLL;
 import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Pedidos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Usuarios;
@@ -32,15 +33,15 @@ public class LoginCommand extends ICommand {
         request.getSession().setAttribute("itemsCarrito", pedidos);
         request.getSession().setAttribute(("productosCarrito"), listaProductosCarrito);
         request.getSession().setAttribute("cantidadWishItems", cantidadWishItems);
-    
 
     }
 
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+        ProductosBLL productosBll = new ProductosBLL();
         Usuarios sesion = (Usuarios) request.getSession().getAttribute("usuarioValido");
-
+        List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.getSession().setAttribute("clienteSesion", sesion);
 
         return "Content.jsp";
