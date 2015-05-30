@@ -56,7 +56,7 @@
 
 
                 %>
-                <form class="form-horizontal" id="personalForm" action="Controller?opID=Register" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" id="personalForm" action="Controller?opID=AddProduct" method="post" enctype="multipart/form-data">
                     <fieldset id="registro-personal">
                         <!-- Form Name -->
 
