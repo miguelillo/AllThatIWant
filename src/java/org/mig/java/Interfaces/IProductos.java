@@ -23,7 +23,7 @@ public interface IProductos {
 
     public List<Productos> mostrarProductosUsuario(Usuarios usuario);
 
-    public void insertarProducto(Productos producto, Tiendas tienda);
+    public void insertarProducto(Productos producto, Tiendas tienda, Imagenes_productos imagen);
 
     public void borrarProducto(Productos producto, Tiendas tienda);
 

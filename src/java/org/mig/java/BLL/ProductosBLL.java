@@ -39,12 +39,12 @@ public class ProductosBLL {
         return daoProductos.mostrarProducto(producto);
     }
 
-    public void insertarProducto(Productos producto, Tiendas tienda) {
+    public void insertarProducto(Productos producto, Tiendas tienda, Imagenes_productos imagen) {
         DAOFactory daoFactory = DAOFactory.getInstance();
 
         IProductos daoProductos = daoFactory.getProductosDAO();
 
-        daoProductos.insertarProducto(producto, tienda);
+        daoProductos.insertarProducto(producto, tienda, imagen);
 
     }
 

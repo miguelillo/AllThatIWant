@@ -16,6 +16,7 @@ import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Tiendas;
 
@@ -24,7 +25,7 @@ import org.mig.java.Entities.Tiendas;
  * @author miguelangel
  */
 public class AddProductCommand extends ICommand {
-
+    
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ProductosBLL productosBll = new ProductosBLL();
@@ -32,10 +33,11 @@ public class AddProductCommand extends ICommand {
         Productos producto = new Productos();
         java.util.Date utilDate = new Date();
         tienda = (Tiendas) request.getSession().getAttribute("tiendaPropietario");
-
+        Imagenes_productos imagen = new Imagenes_productos();
+        
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
         try {
-
+            
             String nombre = "";
             String referencia = "";
             int precio = 0;
@@ -45,10 +47,10 @@ public class AddProductCommand extends ICommand {
             String talla = "";
             String composicion = "";
             String categoria = "";
-
+            
             String tipoArchivo = "";
             String nomArchivo = "";
-
+            
             String ruta = "/AllThatIWantImages/products/";
             FileItemFactory tmp = new DiskFileItemFactory();
             ServletFileUpload subida = new ServletFileUpload(tmp);
@@ -57,7 +59,8 @@ public class AddProductCommand extends ICommand {
             List listaItems = null;
             FileItem item = null;
             listaItems = subida.parseRequest(request);
-
+            String rutaCompleta = "";
+            
             int contador = 0;
             Iterator it = listaItems.iterator();
             while (it.hasNext()) {
@@ -74,36 +77,36 @@ public class AddProductCommand extends ICommand {
                         break;
                     case 3:
                         precio = Integer.valueOf(item.getString());
-
+                        
                         break;
                     case 4:
                         descripcion = item.getString();
                         break;
-
+                    
                     case 5:
                         talla = item.getString();
                         break;
                     case 6:
                         composicion = item.getString();
                         break;
-
+                    
                     case 7:
                         if (!item.isFormField()) {
                             tipoArchivo = item.getContentType();
-
+                            
                             nomArchivo = item.getName();
-                            String rutaCompleta = ruta + nombre + referencia;
+                            rutaCompleta = ruta + nombre + referencia;
                             archivo = new File(rutaCompleta, nomArchivo);
                             archivo.getParentFile().mkdirs();
                             item.write(archivo);
                             //}
                         }
                         break;
-
+                    
                 }
                 contador++;
             }
-
+            
             producto.setReferencia(referencia);
             producto.setNombre(productoNombre);
             producto.setPrecio(precio);
@@ -113,8 +116,12 @@ public class AddProductCommand extends ICommand {
             producto.setComposicion(composicion);
             producto.setIdCategoria(Integer.valueOf(categoria));
             producto.setFechaCatalogo(sqlDate);
-
-            productosBll.insertarProducto(producto, tienda);
+            
+            imagen.setUrl(archivo.getPath());
+            imagen.setProdReferencia(referencia);
+            imagen.setPrincipal(1);
+            
+            productosBll.insertarProducto(producto, tienda, imagen);
         } catch (Exception ex) {
             System.out.println("Excepcion lanzada: " + ex);
         } finally {
@@ -122,5 +129,5 @@ public class AddProductCommand extends ICommand {
         }
         return "Tienda.jsp";
     }
-
+    
 }
