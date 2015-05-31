@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
 import org.mig.java.BLL.UsuarioBLL;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Usuarios;
 
@@ -26,9 +27,10 @@ public class UserPanelCommand extends ICommand {
         UsuarioBLL usuarioBll = new UsuarioBLL();
         usuario = (Usuarios) request.getSession().getAttribute("usuarioValido");
         List<Productos> historialProductos = productosBll.MostrarHistorialProductosPedidos(usuario);
-
         usuario = usuarioBll.MostrarUsuario(usuario);
-
+        List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.setAttribute("showUser", usuario);
         request.setAttribute("historialPedidos", historialProductos);
 

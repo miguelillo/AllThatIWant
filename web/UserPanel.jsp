@@ -4,6 +4,7 @@
     Author     : miguelangel
 --%>
 
+<%@page import="org.mig.java.Entities.Imagenes_productos"%>
 <%@page import="java.sql.Date"%>
 <%@page import="org.mig.java.Entities.Usuarios"%>
 <%@page import="java.util.ArrayList"%>
@@ -73,9 +74,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <%                            
-    
-                            List<Productos> historialProductos = (ArrayList< Productos>) request.getAttribute("historialPedidos");
+                        <%                            List<Productos> historialProductos = (ArrayList< Productos>) request.getAttribute("historialPedidos");
 
                             for (Productos producto : historialProductos) {
 
@@ -90,7 +89,31 @@
                         %>
 
                         <tr class="cart_item">
-                            <td class="product-thumbnail"><a href="product-page.html" ><img src="images/tovar/women/1.jpg" width="100px" alt="" /></a></td>
+
+                            <td class="product-thumbnail">
+
+
+                                <%                                    String urlImagenProducto = "";
+                                    List<Imagenes_productos> listadoImagenesProductos = (List) request.getAttribute("listadoImagenesProductos");
+                                    for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                        Imagenes_productos imagenes = listadoImagenesProductos.get(x);
+                                        String imagenProReferencia = imagenes.getProdReferencia();
+
+                                        if (imagenProReferencia.equals(referencia)) {
+                                            urlImagenProducto = listadoImagenesProductos.get(x).getUrl();
+                                %>   <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>" ><img src=<%=urlImagenProducto%> width="100px" alt="" /></a>
+                                    <%
+                                            }
+                                        }
+
+                                    %>
+
+
+
+
+
+
+                            </td>
                             <td class="product-name">
                                 <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>"><%=nombreProducto%></a>
                                 <ul class="variation">
