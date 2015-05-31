@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Productos;
 
 /**
@@ -81,6 +82,8 @@ public class MostrarProductosCatalogoCommand extends ICommand {
         for (int i = mostrarRegistros; i < finMostrar && i < productosPorCategoria.size(); i++) {
             productosPorCategoriaParaPasar.add(productosPorCategoria.get(i));
         }
+         List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.getSession().setAttribute("categoriaID", categoria);
         request.getSession().setAttribute("ultimaPagina", calcularPaginas);
         request.getSession().setAttribute("pagina", numeroPagina);

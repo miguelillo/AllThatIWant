@@ -1,3 +1,6 @@
+<%@page import="org.mig.java.Entities.Usuarios"%>
+<%@page import="org.mig.java.Entities.Imagenes_productos"%>
+<%@page import="java.util.List"%>
 <%@page import="org.mig.java.Entities.Categoria"%>
 <%@page contentType="text/html;charset=UTF-8"%>
 <%@page import="org.mig.java.Entities.Productos"%>
@@ -7,6 +10,8 @@
 <!-- //BREADCRUMBS -->
 
 <%
+    String urlImagen = null;
+    List<Imagenes_productos> listadoImagenesProductos = (List) request.getAttribute("listadoImagenesProductos");
     Categoria categoria = (Categoria) request.getAttribute("categoria");
     Productos producto = (Productos) request.getAttribute("MostrarProducto");
     String referencia = producto.getReferencia();
@@ -15,6 +20,7 @@
     String color = producto.getColor();
     String talla = producto.getTalla();
     String nombreCategoria = categoria.getDescripcion();
+    String descripcion = producto.getDescripcion();
 
 
 %>
@@ -67,18 +73,34 @@
                     <div class="tovar_view_fotos clearfix">
                         <div id="slider2" class="flexslider">
                             <ul class="slides">
-                                <li><a href="javascript:void(0);" ><img src="images/tovar/women/1.jpg" alt="" /></a></li>
-                                <li><a href="javascript:void(0);" ><img src="images/tovar/women/1_2.jpg" alt="" /></a></li>
-                                <li><a href="javascript:void(0);" ><img src="images/tovar/women/1_3.jpg" alt="" /></a></li>
-                                <li><a href="javascript:void(0);" ><img src="images/tovar/women/1_4.jpg" alt="" /></a></li>
+                                <%
+                                    for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                        Imagenes_productos imagenes = listadoImagenesProductos.get(x);
+                                        String imagenProReferencia = imagenes.getProdReferencia();
+
+                                        if (imagenProReferencia.equals(referencia)) {
+                                            urlImagen = listadoImagenesProductos.get(x).getUrl();
+                                %> <li><a href="javascript:void(0);" > <img class="img" src=<%=urlImagen%> alt="" /></a></li><%
+                                        }
+                                    }
+
+                                        %>  
+
                             </ul>
                         </div>
                         <div id="carousel2" class="flexslider">
                             <ul class="slides">
-                                <li><a href="javascript:void(0);" ><img src="images/tovar/women/1.jpg" alt="" /></a></li>
-                                <li><a href="javascript:void(0);" ><img src="images/tovar/women/1_2.jpg" alt="" /></a></li>
-                                <li><a href="javascript:void(0);" ><img src="images/tovar/women/1_3.jpg" alt="" /></a></li>
-                                <li><a href="javascript:void(0);" ><img src="images/tovar/women/1_4.jpg" alt="" /></a></li>
+                                <%                                       for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                        Imagenes_productos imagenes = listadoImagenesProductos.get(x);
+                                        String imagenProReferencia = imagenes.getProdReferencia();
+
+                                        if (imagenProReferencia.equals(referencia)) {
+                                            urlImagen = listadoImagenesProductos.get(x).getUrl();
+                                %> <li><a href="javascript:void(0);" > <img class="img" src=<%=urlImagen%> alt="" /></a></li><%
+                                        }
+                                    }
+
+                                        %> 
                             </ul>
                         </div>
                     </div>
@@ -101,8 +123,17 @@
                             <a class="sizeXS" href="javascript:void(0);" ><%=talla%></a>
                         </div>
                         <div class="tovar_view_btn">
-                                                      <a class="add_bag" href="Controller?opID=RealizarPedido&referencia=<%=referencia%>" ><i class="fa fa-shopping-cart"></i>Añadir a la bolsa</a>
+                            <%Usuarios sesion = (Usuarios) request.getSession().getAttribute("usuarioValido");
+
+                                if (sesion != null) {
+
+
+                            %>
+                            <a class="add_bag" href="Controller?opID=RealizarPedido&referencia=<%=referencia%>" ><i class="fa fa-shopping-cart"></i>Añadir a la bolsa</a>
                             <a class="add_lovelist" href="Controller?opID=AddWishList&Referencia=<%=referencia%>" ><i class="fa fa-heart"></i></a>
+                                <%} else {%>
+                            <h1>Registrate para poder comprarlo!</h1>
+                            <%}%>
                         </div>
                         <div class="tovar_shared clearfix">
                             <p>Compartir!</p>
@@ -120,81 +151,14 @@
                 <!-- TOVAR INFORMATION -->
                 <div class="tovar_information">
                     <ul class="tabs clearfix">
-                        <li class="current">Details</li>
-                        <li>Information</li>
-                        <li>Reviews (2)</li>
+                        <li>Descripcion</li>
+
                     </ul>
                     <div class="box visible">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst. </p>
-                    </div>
-                    <div class="box">
-                        Original Levi 501 <br>
-                        Button fly<br>
-                        Regular fit<br>
-                        waist 28"-32 =16"hem<br>
-                        waist 33" = 17" hem<br>
-                        waist 34"-40"=18" hem<br>
-                        Levi's have started to introduce the red tab with just the (R) (registered trade mark) on the red tab<br><br>
 
-                        Size Details:<br>
-                        All sizes from 28-40 waist<br>
-                        Leg length 30", 32", 34", 36"
+                        <%=descripcion%>
                     </div>
-                    <div class="box">
-                        <ul class="comments">
-                            <li>
-                                <div class="clearfix">
-                                    <p class="pull-left"><strong><a href="javascript:void(0);" >John Doe</a></strong></p>
-                                    <span class="date">2013-10-09 09:23</span>
-                                    <div class="pull-right rating-box clearfix">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                </div>
-                                <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-                            </li>
-                            <li>
-                                <div class="clearfix">
-                                    <p class="pull-left"><strong><a href="javascript:void(0);" >John Doe</a></strong></p>
-                                    <span class="date">2013-10-09 09:23</span>
-                                    <div class="pull-right rating-box clearfix">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                                <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
 
-                                <ul>
-                                    <li>
-                                        <p><strong><a href="javascript:void(0);" >Jane Doe</a></strong></p>
-                                        <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                        <h3>WRITE A REVIEW</h3>
-                        <p>Now please write a (short) review....(min. 200, max. 2000 characters)</p>
-                        <div class="clearfix">
-                            <textarea id="review-textarea"></textarea>
-                            <label class="pull-left rating-box-label">Your Rate:</label>
-                            <div class="pull-left rating-box clearfix">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <input type="submit" class="dark-blue big" value="Submit a review">
-                        </div>
-                    </div>
                 </div><!-- //TOVAR INFORMATION -->
             </div><!-- //TOVAR DETAILS WRAPPER -->
         </div><!-- //ROW -->

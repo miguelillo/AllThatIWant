@@ -1,3 +1,4 @@
+<%@page import="org.mig.java.Entities.Imagenes_productos"%>
 <%@page import="org.mig.java.Entities.Categoria"%>
 <%@page contentType="text/html;charset=UTF-8"%>
 <%@page import="org.mig.java.Entities.Productos"%>
@@ -72,7 +73,21 @@
 
                     %>
                     <li class="clearfix">
-                        <img class="cart_item_product" src="images/tovar/women/1.jpg" alt="" />
+                        <%               String urlImagen;
+                            List<Imagenes_productos> listadoImagenesProductos = (List) request.getAttribute("listadoImagenesProductos");
+                            for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                Imagenes_productos imagenes = listadoImagenesProductos.get(x);
+                                String imagenProReferencia = imagenes.getProdReferencia();
+
+                                if (imagenProReferencia.equals(referencia)) {
+                                    urlImagen = listadoImagenesProductos.get(x).getUrl();
+                        %>  <img class="cart_item_product" src=<%=urlImagen%> alt="" />
+                        <%
+                                }
+                            }
+
+                        %>
+
                         <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>" class="cart_item_title"><%=productoNombre%></a>
                         <span class="cart_item_price">1 × <%=precioProducto%></span>
                     </li> 

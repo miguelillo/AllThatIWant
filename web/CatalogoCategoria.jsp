@@ -1,4 +1,5 @@
 
+<%@page import="org.mig.java.Entities.Imagenes_productos"%>
 <%@page import="org.mig.java.Entities.Usuarios"%>
 <%@page import="java.util.List"%>
 <%@page import="org.mig.java.Entities.Productos"%>
@@ -140,8 +141,24 @@
                         <div class="tovar_item">
                             <div class="tovar_img">
                                 <div class="tovar_img_wrapper">
-                                    <img class="img" src="images/tovar/women/1.jpg" alt="" />
-                                    <img class="img_h" src="images/tovar/women/1_2.jpg" alt="" />
+
+                                    <%               String urlImagen;
+                                        List<Imagenes_productos> listadoImagenesProductos = (List) request.getAttribute("listadoImagenesProductos");
+                                        for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                            Imagenes_productos imagenes = listadoImagenesProductos.get(x);
+                                            String imagenProReferencia = imagenes.getProdReferencia();
+
+                                            if (imagenProReferencia.equals(referencia)) {
+                                                urlImagen = listadoImagenesProductos.get(x).getUrl();
+                                    %>  <img class="img" src=<%=urlImagen%> alt="" />
+                                    <%
+                                            }
+                                        }
+
+                                    %>
+
+
+
                                 </div>
                                 <div class="tovar_item_btns">
                                     <div class="open-project-link"><a class="open-project tovar_view" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " >Ver</a></div>
