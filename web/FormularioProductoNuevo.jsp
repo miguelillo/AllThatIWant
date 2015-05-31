@@ -1,7 +1,7 @@
 <%@page import="org.mig.java.Entities.Usuarios"%>
 <%@page import="org.mig.java.Entities.Categoria"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html;charset=UTF-8"%>
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <script src="js/ValidarRegistro.js" type="text/javascript"></script>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
@@ -56,7 +56,7 @@
 
 
                 %>
-                <form class="form-horizontal" id="personalForm" action="Controller?opID=AddProduct" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" id="personalForm" action="Controller?opID=AddProduct" method="post" enctype="multipart/form-data" accept-charset=”UTF-8″>
                     <fieldset id="registro-personal">
                         <!-- Form Name -->
 

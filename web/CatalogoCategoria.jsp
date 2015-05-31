@@ -2,7 +2,7 @@
 <%@page import="org.mig.java.Entities.Usuarios"%>
 <%@page import="java.util.List"%>
 <%@page import="org.mig.java.Entities.Productos"%>
-<%@page contentType="text/html;charset=UTF-8"%>
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <!-- BREADCRUMBS -->
 <section class="breadcrumb women parallax margbot30">
 

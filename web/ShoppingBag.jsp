@@ -10,7 +10,7 @@
 <%@page import="org.mig.java.Entities.Productos"%>
 <%@page import="java.util.List"%>
 <%@page import="org.mig.java.Entities.Productos"%>
-<%@page contentType="text/html;charset=UTF-8"%>
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 
 <!-- BREADCRUMBS -->
 <section class="breadcrumb parallax margbot30"></section>
