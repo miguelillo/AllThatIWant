@@ -701,13 +701,11 @@
 
 
                                 </fieldset>
-                                <a class="btn btn-lg btn-primary btn-block" id="Siguiente">Siguiente</a>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Aceptar</button>
                             </div>
                         </div>
 
 
-
-                        <button id="myBtn" type="submit">Try it</button>
                 </form>
             </div>
         </div><!-- //CONTAINER -->
