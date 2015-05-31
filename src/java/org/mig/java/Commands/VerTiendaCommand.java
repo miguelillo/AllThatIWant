@@ -25,7 +25,7 @@ public class VerTiendaCommand extends ICommand {
         
         tienda = tiendasBll.MostrarTienda(tienda);
         
-        request.setAttribute("tiendaPropietario", tienda);
+        request.getSession().setAttribute("tiendaPropietario", tienda);
         
         return "Tienda.jsp";
     }

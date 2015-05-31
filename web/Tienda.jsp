@@ -29,7 +29,7 @@
         <!-- ROW -->
         <div class="row">
             <%
-                Tiendas tienda = (Tiendas) request.getAttribute("tiendaPropietario");
+                Tiendas tienda = (Tiendas) request.getSession().getAttribute("tiendaPropietario");
                 String cif = tienda.getCif();
                 String nombre = tienda.getNombre();
 

@@ -9,7 +9,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
-import org.mig.java.BLL.TiendasBLL;
 import org.mig.java.Entities.Categoria;
 
 /**
@@ -21,9 +20,8 @@ public class CrearProductosCommand extends ICommand {
     @Override
     public void initPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ProductosBLL productosBll = new ProductosBLL();
-        TiendasBLL tiendasBll = new TiendasBLL();
         List<Categoria> categorias = productosBll.MostrarCategorias();
-        String tiendaCif = request.getParameter("tienda");
+        String tiendaCif = request.getParameter("Tienda");
         
         request.setAttribute("tiendaCif", tiendaCif);
         request.setAttribute("categorias", categorias);

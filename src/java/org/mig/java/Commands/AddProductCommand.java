@@ -6,24 +6,18 @@
 package org.mig.java.Commands;
 
 import java.io.File;
-import java.io.PrintWriter;
-import static java.lang.System.out;
-import java.net.URL;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.jcmg.hibernate.entities.User;
-import org.mig.java.BLL.RegistroBLL;
-import org.mig.java.Entities.Direcciones;
-import org.mig.java.Entities.Telefonos;
-import org.mig.java.Entities.Usuarios;
+import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Productos;
+import org.mig.java.Entities.Tiendas;
 
 /**
  *
@@ -33,17 +27,18 @@ public class AddProductCommand extends ICommand {
 
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ServletContext servletContext = request.getServletContext();
-        RegistroBLL registroBll = new RegistroBLL();
-        Usuarios usuario = new Usuarios();
-        Direcciones direccion = new Direcciones();
-        Telefonos telefono = new Telefonos();
+        ProductosBLL productosBll = new ProductosBLL();
+        Tiendas tienda = new Tiendas();
+        Productos producto = new Productos();
+        java.util.Date utilDate = new Date();
+        tienda = (Tiendas) request.getSession().getAttribute("tiendaPropietario");
 
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
         try {
 
             String nombre = "";
             String referencia = "";
-            int precio;
+            int precio = 0;
             String productoNombre = "";
             String descripcion = "";
             String color = "";
@@ -54,8 +49,6 @@ public class AddProductCommand extends ICommand {
             String tipoArchivo = "";
             String nomArchivo = "";
 
-            String userName = "";
-            String password = "";
             String ruta = "/AllThatIWantImages/products/";
             FileItemFactory tmp = new DiskFileItemFactory();
             ServletFileUpload subida = new ServletFileUpload(tmp);
@@ -111,28 +104,17 @@ public class AddProductCommand extends ICommand {
                 contador++;
             }
 
-            usuario.setMail(email);
-            usuario.setUserName(userName);
-            usuario.setPassword(password);
-            usuario.setNombre(nombre);
-            usuario.setApellido1(apellido1);
-            usuario.setApellido2(apellido2);
-            usuario.setPerfil("C");
-            usuario.setSexo(sexo);
-            usuario.setFechaNacimiento(Date.valueOf(fechaNacimiento));
-            usuario.setPais(pais);
-            usuario.setImagenUrl(archivo.getPath());
+            producto.setReferencia(referencia);
+            producto.setNombre(productoNombre);
+            producto.setPrecio(precio);
+            producto.setDescripcion(descripcion);
+            producto.setColor(color);
+            producto.setTalla(talla);
+            producto.setComposicion(composicion);
+            producto.setIdCategoria(Integer.valueOf(categoria));
+            producto.setFechaCatalogo(sqlDate);
 
-            direccion.setCodPostal(Integer.valueOf(codPostal));
-            direccion.setPoblacion(poblacion);
-            direccion.setDireccion(calle);
-            direccion.setUsuarioMail(email);
-            direccion.setPais(paisResidencia);
-
-            telefono.setNumero(Integer.valueOf(telefonoUsuario));
-            telefono.setUsuarioMail(email);
-123
-            registroBll.RegistroUsuario(usuario, telefono, direccion);
+            productosBll.insertarProducto(producto, tienda);
         } catch (Exception ex) {
             System.out.println("Excepcion lanzada: " + ex);
         } finally {
