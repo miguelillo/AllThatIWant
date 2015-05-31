@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Usuarios;
 
@@ -17,18 +18,19 @@ import org.mig.java.Entities.Usuarios;
  * @author miguelangel
  */
 public class WishListCommand extends ICommand {
-    
+
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ProductosBLL productoBll = new ProductosBLL();
         Usuarios usuario = (Usuarios) request.getSession().getAttribute("clienteSesion");
         List<Productos> listaWishItems = new ArrayList<>();
-        
+
         listaWishItems = productoBll.WishList(usuario);
-        
+        List<Imagenes_productos> listadoImagenesProductos = productoBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.getSession().setAttribute("listaWish", listaWishItems);
-        
+
         return "WishList.jsp";
     }
-    
+
 }
