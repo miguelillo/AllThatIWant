@@ -38,26 +38,42 @@
                 <h3><b>Otros <%=nombreCategoria%></b></h3>
 
                 <ul class="tovar_items_small clearfix">
+                    <%        List<Productos> listaProductos = (List) request.getAttribute("productosPorCategoria");
+
+                        for (int i = 0; i < listaProductos.size(); i++) {
+                            String referenciaPrpductoRelacionado = listaProductos.get(i).getReferencia();
+                            String nombrePrpductoRelacionado = listaProductos.get(i).getNombre();
+                            String precioPrpductoRelacionado = String.valueOf(listaProductos.get(i).getPrecio());
+                    %>
+
                     <li class="clearfix">
-                        <img class="tovar_item_small_img" src="images/tovar/women/1.jpg" alt="" />
-                        <a href="product-page.html" class="tovar_item_small_title">Embroidered bib peasant top</a>
-                        <span class="tovar_item_small_price">$88.00</span>
+
+                        <%
+                            String urlImagenProductoRelacionado = "";
+                            for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                Imagenes_productos imagenes = listadoImagenesProductos.get(x);
+                                String imagenProReferencia = imagenes.getProdReferencia();
+
+                                if (imagenProReferencia.equals(referencia)) {
+                                    urlImagenProductoRelacionado = listadoImagenesProductos.get(x).getUrl();
+                        %>  <img class="tovar_item_small_img" src=<%=urlImagenProductoRelacionado%> alt="" /><%
+                                      }
+                                  }
+
+                        %>  
+
+
+
+                        <a href="product-page.html" class="tovar_item_small_title"><%=nombrePrpductoRelacionado%></a>
+                        <span class="tovar_item_small_price"><%=precioPrpductoRelacionado%></span>
                     </li>
-                    <li class="clearfix">
-                        <img class="tovar_item_small_img" src="images/tovar/women/2.jpg" alt="" />
-                        <a href="product-page.html" class="tovar_item_small_title">Merino tippi sweater in geometric</a>
-                        <span class="tovar_item_small_price">$67.00</span>
-                    </li>
-                    <li class="clearfix">
-                        <img class="tovar_item_small_img" src="images/tovar/women/3.jpg" alt="" />
-                        <a href="product-page.html" class="tovar_item_small_title">Merino triple-stripe elbow-patch sweater</a>
-                        <span class="tovar_item_small_price">$94.00</span>
-                    </li>
-                    <li class="clearfix">
-                        <img class="tovar_item_small_img" src="images/tovar/women/4.jpg" alt="" />
-                        <a href="product-page.html" class="tovar_item_small_title">Collection cashmere getaway hoodie</a>
-                        <span class="tovar_item_small_price">$228.00</span>
-                    </li>
+
+
+
+                    <%
+                        }
+                    %>
+
                 </ul>
             </div><!-- //SIDEBAR TOVAR DETAILS -->
 

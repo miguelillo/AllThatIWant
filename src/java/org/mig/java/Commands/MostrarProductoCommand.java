@@ -5,6 +5,7 @@
  */
 package org.mig.java.Commands;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,6 +31,10 @@ public class MostrarProductoCommand extends ICommand {
 
         Productos producto = productosBll.mostrarProducto(productoRecibido);
         Categoria categoriaProducto = productosBll.categoriaProducto(producto.getIdCategoria());
+
+        List<Productos> productosPorCategoria = productosBll.mostrarProductosCategoria(categoriaProducto.getIdCategoria());
+
+        request.setAttribute("productosPorCategoria", productosPorCategoria);
         request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.setAttribute("categoria", categoriaProducto);
         request.setAttribute("MostrarProducto", producto);
