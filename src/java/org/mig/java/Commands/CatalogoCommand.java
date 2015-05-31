@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
 import org.mig.java.Entities.Categoria;
+import org.mig.java.Entities.Imagenes_productos;
 
 /**
  *
@@ -22,7 +23,8 @@ public class CatalogoCommand extends ICommand {
         ProductosBLL productosBll = new ProductosBLL();
         List<Categoria> clasificaciones = productosBll.MostrarGrupoClasificacion();
         List<Categoria> categorias = productosBll.MostrarCategorias();
-
+        List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.setAttribute("clasificacion", clasificaciones);
         request.setAttribute("categorias", categorias);
         return "Catalogo.jsp";
