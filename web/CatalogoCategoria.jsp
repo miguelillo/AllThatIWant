@@ -85,7 +85,7 @@
 
                                 </div>
                                 <div class="tovar_item_btns">
-                                    <div class="open-project-link"><a class="open-project tovar_view" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " >Ver</a></div>
+                                   
 
                                     <%
 

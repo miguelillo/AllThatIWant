@@ -57,14 +57,14 @@
                                 if (imagenProReferencia.equals(referencia)) {
                                     urlImagenProductoRelacionado = listadoImagenesProductos.get(x).getUrl();
                         %>  <img class="tovar_item_small_img" src=<%=urlImagenProductoRelacionado%> alt="" /><%
-                                      }
-                                  }
+                                }
+                            }
 
                         %>  
 
 
 
-                        <a href="product-page.html" class="tovar_item_small_title"><%=nombrePrpductoRelacionado%></a>
+                        <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>" class="tovar_item_small_title"><%=nombrePrpductoRelacionado%></a>
                         <span class="tovar_item_small_price"><%=precioPrpductoRelacionado%></span>
                     </li>
 

@@ -91,10 +91,9 @@
                                         }
 
                                     %>
-                                    <img class="img" src=<%=urlImagen%> alt="" />
+                                    <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> "><img class="img" src=<%=urlImagen%> alt="" /></a>
                                 </div>
                                 <div class="tovar_item_btns">
-                                    <div class="open-project-link"><a class="open-project tovar_view" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " >Ver</a></div>
                                     <%if (sesion != null) {%>
                                     <a class="add_bag" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i></a>
 
@@ -168,8 +167,8 @@
                 <!-- TOVAR WRAPPER -->
                 <div class="tovar_wrapper" data-appear-top-offset='-100' data-animated='fadeInUp'>
 
-                    <%                        
-                    List<Productos> listaProductos = (List) request.getSession().getAttribute("listaProductos");
+                    <%
+                        List<Productos> listaProductos = (List) request.getSession().getAttribute("listaProductos");
                         List<Imagenes_productos> listadoImagenesProductos = (List) request.getAttribute("listadoImagenesProductos");
                         for (int i = 0; i < listaProductos.size(); i++) {
                             String referencia = listaProductos.get(i).getReferencia();
@@ -195,10 +194,9 @@
                                         }
 
                                     %>
-                                    <img class="img" src=<%=urlImagen%> alt="" />
+                                    <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> "><img class="img" src=<%=urlImagen%> alt="" /></a>
                                 </div>
                                 <div class="tovar_item_btns">
-                                    <div class="open-project-link"><a class="open-project tovar_view" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%> " >Ver</a></div>
                                     <%if (sesion != null) {%>
                                     <a class="add_bag" href="Controller?opID=RealizarPedido&referencia=<%=referencia%>" ><i class="fa fa-shopping-cart"></i></a>
                                     <a class="add_lovelist" href="Controller?opID=AddWishList&Referencia=<%=referencia%>" ><i class="fa fa-heart"></i></a>
@@ -223,7 +221,7 @@
                         <a class="banner type2 margbot40" href="javascript:void(0);" ><img src="images/tovar/banner2.jpg" alt="" /></a>
                     </div><!-- //BANNER -->
                 </div><!-- //TOVAR WRAPPER -->
-                
+
             </div>
 
             <div class="respond_clear_768"></div>
