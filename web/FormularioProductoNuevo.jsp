@@ -118,7 +118,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="composicion">Composicion</label>  
                                 <div class="col-md-6">
-                                    <input id="name" name="composicion" type="text" placeholder="precio" class="form-control input-md" required="">
+                                    <input id="name" name="composicion" type="text" placeholder="composicion" class="form-control input-md" required="">
                                 </div>
                             </div>
                             <div class="form-group">

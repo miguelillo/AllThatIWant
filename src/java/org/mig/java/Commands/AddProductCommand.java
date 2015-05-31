@@ -116,7 +116,7 @@ public class AddProductCommand extends ICommand {
             producto.setIdCategoria(Integer.valueOf(categoria));
             producto.setFechaCatalogo(sqlDate);
 
-            imagen.setUrl(archivo.getPath());
+            imagen.setUrl(archivo.getPath().replaceAll(" ", "%20"));
             imagen.setProdReferencia(referencia);
             imagen.setPrincipal(1);
 
