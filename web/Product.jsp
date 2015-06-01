@@ -67,12 +67,7 @@
                         <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>" class="tovar_item_small_title"><%=nombrePrpductoRelacionado%></a>
                         <span class="tovar_item_small_price"><%=precioPrpductoRelacionado%>€</span>
                     </li>
-
-
-
-                    <%
-                        }
-                    %>
+                    <%}%>
 
                 </ul>
             </div><!-- //SIDEBAR TOVAR DETAILS -->
@@ -106,8 +101,7 @@
                         </div>
                         <div id="carousel2" class="flexslider">
                             <ul class="slides">
-                                <%                                       
-                                    for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                <%                                    for (int x = 0; x < listadoImagenesProductos.size(); x++) {
                                         Imagenes_productos imagenes = listadoImagenesProductos.get(x);
                                         String imagenProReferencia = imagenes.getProdReferencia();
 
