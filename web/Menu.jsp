@@ -36,7 +36,7 @@
 
         <!-- LOGO -->
         <div class="logo">
-            <a href="Controller?opID=RedirectContent" ><img src="images/Logopic.png"/></a>
+            <a href="Controller?opID=RedirectContent" ><img src="images/logo negro nombre completo transp.jpg"/></a>
         </div><!-- //LOGO -->
 
 
@@ -141,9 +141,9 @@
 
 
             </li>
-            <li class="sub-menu"><a href="javascript:void(0);" >Blog</a>
+            <li class="sub-menu"><a href="Controller?opID=Blog" >Blog</a>
             </li>
-            <li class="last sale_menu"><a href="sale.html" >Personal Shopper</a></li>
+            <li class="last sale_menu"><a href="Controller?opID=PersonalShopper" >Personal Shopper</a></li>
         </ul><!-- //MENU -->
     </div><!-- //MENU BLOCK -->
 </div><!-- //CONTAINER -->

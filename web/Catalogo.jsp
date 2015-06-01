@@ -17,7 +17,7 @@
         <h3 class="pull-left"><b>Catalogo</b></h3>
 
         <div class="pull-right">
-            <a href="women.html" >Volver a la tienda<i class="fa fa-angle-right"></i></a>
+            <a href="Controller?opID=RedirectContent" >Volver a la tienda<i class="fa fa-angle-right"></i></a>
         </div>
     </div><!-- //CONTAINER -->
 </section><!-- //PAGE HEADER -->

@@ -64,6 +64,7 @@ img {
     border:0;
     max-width:100.1%;
     height:auto;
+    margin-top: 4px;
 }
 
 a {color:#333; transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out;}

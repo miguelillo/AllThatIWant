@@ -65,7 +65,7 @@
 
 
                         <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>" class="tovar_item_small_title"><%=nombrePrpductoRelacionado%></a>
-                        <span class="tovar_item_small_price"><%=precioPrpductoRelacionado%></span>
+                        <span class="tovar_item_small_price"><%=precioPrpductoRelacionado%>€</span>
                     </li>
 
 
