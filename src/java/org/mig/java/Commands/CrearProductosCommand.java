@@ -10,26 +10,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
 import org.mig.java.Entities.Categoria;
+import org.mig.java.Entities.Imagenes_productos;
 
 /**
  *
  * @author miguelangel
  */
 public class CrearProductosCommand extends ICommand {
-    
+
     @Override
     public void initPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ProductosBLL productosBll = new ProductosBLL();
         List<Categoria> categorias = productosBll.MostrarCategorias();
         String tiendaCif = request.getParameter("Tienda");
-        
+        List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.setAttribute("tiendaCif", tiendaCif);
         request.setAttribute("categorias", categorias);
     }
-    
+
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         return "FormularioProductoNuevo.jsp";
     }
-    
+
 }

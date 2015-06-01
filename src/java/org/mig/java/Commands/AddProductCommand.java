@@ -126,6 +126,8 @@ public class AddProductCommand extends ICommand {
         } finally {
             //out.close();
         }
+        List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         return "Tienda.jsp";
     }
 

@@ -16,6 +16,7 @@ import org.mig.java.Entities.Usuarios;
 import java.util.Date;
 import java.util.List;
 import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Imagenes_productos;
 
 /**
  *
@@ -56,6 +57,8 @@ public class RealizarPedidoCommand extends ICommand {
         List<Pedidos> pedidos = pedidosBll.MostrarPedidos(usuario);
         List<Productos> listaProductosCarrito = productoBll.MostrarProductosCarrito(usuario);
 
+        List<Imagenes_productos> listadoImagenesProductos = productoBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.getSession().setAttribute("itemsCarrito", pedidos);
         request.getSession().setAttribute(("productosCarrito"), listaProductosCarrito);
 

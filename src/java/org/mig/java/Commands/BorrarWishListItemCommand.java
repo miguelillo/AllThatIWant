@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Usuarios;
 import org.mig.java.Entities.WishList;
@@ -45,6 +46,8 @@ public class BorrarWishListItemCommand extends ICommand {
 
         listaWishItems = productoBll.WishList(sesion);
 
+        List<Imagenes_productos> listadoImagenesProductos = productoBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.getSession().setAttribute("listaWish", listaWishItems);
 
         return "WishList.jsp";

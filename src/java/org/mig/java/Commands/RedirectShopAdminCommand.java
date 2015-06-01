@@ -29,7 +29,6 @@ public class RedirectShopAdminCommand extends ICommand {
         List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
         request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.setAttribute("propietarioTiendas", tiendasUsuario);
-
         return "ShopPanel.jsp";
     }
 

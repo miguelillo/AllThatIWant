@@ -5,8 +5,11 @@
  */
 package org.mig.java.Commands;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Imagenes_productos;
 
 /**
  *
@@ -16,6 +19,9 @@ public class RedirectShoppingBagCommand extends ICommand {
 
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        ProductosBLL productoBll = new ProductosBLL();
+        List<Imagenes_productos> listadoImagenesProductos = productoBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         return "ShoppingBag.jsp";
     }
 

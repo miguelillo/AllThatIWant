@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mig.java.BLL.PedidosBLL;
 import org.mig.java.BLL.ProductosBLL;
+import org.mig.java.Entities.Imagenes_productos;
 import org.mig.java.Entities.Pedidos;
 import org.mig.java.Entities.Productos;
 import org.mig.java.Entities.Usuarios;
@@ -36,6 +37,8 @@ public class BorrarPedidoCommand extends ICommand {
         List<Pedidos> pedidos = pedidosBll.MostrarPedidos(usuario);
         List<Productos> listaProductosCarrito = productosBll.MostrarProductosCarrito(usuario);
 
+        List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.getSession().setAttribute("itemsCarrito", pedidos);
         request.getSession().setAttribute(("productosCarrito"), listaProductosCarrito);
         return "ShoppingBag.jsp";

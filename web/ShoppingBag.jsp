@@ -4,6 +4,7 @@
     Author     : miguelangel
 --%>
 
+<%@page import="org.mig.java.Entities.Imagenes_productos"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="org.mig.java.Entities.Pedidos"%>
@@ -65,13 +66,38 @@
                                 String color = producto.getColor();
                                 String talla = producto.getTalla();
                                 int precio = producto.getPrecio();
-                                
+
                                 sumaTotal += precio;
 
                         %>
 
                         <tr class="cart_item">
-                            <td class="product-thumbnail"><a href="product-page.html" ><img src="images/tovar/women/1.jpg" width="100px" alt="" /></a></td>
+                            <td class="product-thumbnail">
+
+
+                                <%               String urlImagen;
+                                    List<Imagenes_productos> listadoImagenesProductos = (List) request.getAttribute("listadoImagenesProductos");
+                                    for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                        Imagenes_productos imagenes = listadoImagenesProductos.get(x);
+                                        String imagenProReferencia = imagenes.getProdReferencia();
+
+                                        if (imagenProReferencia.equals(referencia)) {
+                                            urlImagen = listadoImagenesProductos.get(x).getUrl();
+                                %>   <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>" ><img src=<%=urlImagen%> width="100px" alt="" /></a>
+                                    <%
+                                            }
+                                        }
+
+                                    %>
+
+
+
+
+
+
+
+
+                            </td>
                             <td class="product-name">
                                 <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>"><%=nombre%></a>
                                 <ul class="variation">
@@ -83,7 +109,7 @@
 
                             <td class="product-price">€<%=precio%></td>
 
-                     
+
 
                             <td class="product-subtotal">€<%=sumaTotal * 2%></td>
 

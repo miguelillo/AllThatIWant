@@ -106,13 +106,14 @@
                         </div>
                         <div id="carousel2" class="flexslider">
                             <ul class="slides">
-                                <%                                       for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                <%                                       
+                                    for (int x = 0; x < listadoImagenesProductos.size(); x++) {
                                         Imagenes_productos imagenes = listadoImagenesProductos.get(x);
                                         String imagenProReferencia = imagenes.getProdReferencia();
 
                                         if (imagenProReferencia.equals(referencia)) {
                                             urlImagen = listadoImagenesProductos.get(x).getUrl();
-                                %> <li><a href="javascript:void(0);" > <img class="img" src=<%=urlImagen%> alt="" /></a></li><%
+                                %> <li><a href="javascript:void(0);" > <img class="img" src=<%=imagenProReferencia%> alt="" /></a></li><%
                                         }
                                     }
 
