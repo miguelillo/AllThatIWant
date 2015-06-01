@@ -50,12 +50,12 @@
                             <th class="product-thumbnail"></th>
                             <th class="product-name">Objeto</th>
                             <th class="product-price">Precio</th>
-                            <th class="product-subtotal">Total</th>
+                            <th class="product-subtotal">Total + IVA</th>
                             <th class="product-remove"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <%
+                        <%   int precio = 0;
                             int sumaTotal = 0;
                             List<Productos> productosCarrito = (ArrayList< Productos>) request.getSession().getAttribute("productosCarrito");
 
@@ -65,7 +65,7 @@
                                 String nombre = producto.getNombre();
                                 String color = producto.getColor();
                                 String talla = producto.getTalla();
-                                int precio = producto.getPrecio();
+                                precio = producto.getPrecio();
 
                                 sumaTotal += precio;
 
@@ -89,14 +89,6 @@
                                         }
 
                                     %>
-
-
-
-
-
-
-
-
                             </td>
                             <td class="product-name">
                                 <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>"><%=nombre%></a>
@@ -111,7 +103,7 @@
 
 
 
-                            <td class="product-subtotal">€<%=sumaTotal * 2%></td>
+                            <td class="product-subtotal">€<%=(precio * 21 / 100) + precio%></td>
 
                             <td class="product-remove"><a href="Controller?opID=BorrarPedido&Referencia=<%=referencia%>" ><span>Borrar</span> <i>X</i></a></td>
                         </tr>
@@ -131,11 +123,25 @@
                     <table class="bag_total">
                         <tr class="cart-subtotal clearfix">
                             <th>Sub total</th>
-                            <td><%=sumaTotal%>€</td>
+                            <td><%=(precio * 21 / 100) + precio%>€</td>
                         </tr>
                         <tr class="shipping clearfix">
                             <th>Envio</th>
-                            <td>Gratis</td>
+                            <td>
+
+                                <%
+                                    if (sumaTotal > 35) {
+                                %><td>GRATIS</td><%
+                                } else {
+
+                                    sumaTotal += 3;
+                            %><td>3€</td><%
+                                }
+
+                            %>
+
+
+                            </td>
                         </tr>
                         <tr class="total clearfix">
                             <th>Total</th>

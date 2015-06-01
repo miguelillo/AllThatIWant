@@ -5,9 +5,8 @@
 <%@page contentType="text/html;charset=UTF-8"%>
 <%@page import="org.mig.java.Entities.Productos"%>
 
-<!-- BREADCRUMBS -->
 <section class="breadcrumb parallax margbot30"></section>
-<!-- //BREADCRUMBS -->
+
 
 <%
     String urlImagen = null;
@@ -21,19 +20,10 @@
     String talla = producto.getTalla();
     String nombreCategoria = categoria.getDescripcion();
     String descripcion = producto.getDescripcion();
-
-
 %>
-<!-- TOVAR DETAILS -->
 <section class="tovar_details padbot70">
-
-    <!-- CONTAINER -->
     <div class="container">
-
-        <!-- ROW -->
         <div class="row">
-
-            <!-- SIDEBAR TOVAR DETAILS -->
             <div class="col-lg-3 col-md-3 sidebar_tovar_details">
                 <h3><b>Otros <%=nombreCategoria%></b></h3>
 
@@ -58,28 +48,17 @@
                                     urlImagenProductoRelacionado = listadoImagenesProductos.get(x).getUrl();
                         %>  <img class="tovar_item_small_img" src=<%=urlImagenProductoRelacionado%> alt="" /><%
                                 }
-                            }
-
-                        %>  
-
-
-
+                            }%>               
                         <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>" class="tovar_item_small_title"><%=nombrePrpductoRelacionado%></a>
                         <span class="tovar_item_small_price"><%=precioPrpductoRelacionado%>€</span>
                     </li>
                     <%}%>
-
                 </ul>
-            </div><!-- //SIDEBAR TOVAR DETAILS -->
-
-            <!-- TOVAR DETAILS WRAPPER -->
+            </div>
             <div class="col-lg-9 col-md-9 tovar_details_wrapper clearfix">
                 <div class="tovar_details_header clearfix margbot35">
                     <h3 class="pull-left"><b><%=nombreCategoria%></b></h3>
-
                 </div>
-
-                <!-- CLEARFIX -->
                 <div class="clearfix padbot40">
                     <div class="tovar_view_fotos clearfix">
                         <div id="slider2" class="flexslider">
@@ -93,10 +72,7 @@
                                             urlImagen = listadoImagenesProductos.get(x).getUrl();
                                 %> <li><a href="javascript:void(0);" > <img class="img" src=<%=urlImagen%> alt="" /></a></li><%
                                         }
-                                    }
-
-                                        %>  
-
+                                    }%>  
                             </ul>
                         </div>
                         <div id="carousel2" class="flexslider">
@@ -109,13 +85,10 @@
                                             urlImagen = listadoImagenesProductos.get(x).getUrl();
                                 %> <li><a href="javascript:void(0);" > <img class="img" src=<%=imagenProReferencia%> alt="" /></a></li><%
                                         }
-                                    }
-
-                                        %> 
+                                    }%> 
                             </ul>
                         </div>
                     </div>
-
                     <div class="tovar_view_description">
                         <div class="tovar_view_title"><%=nombre%></div>
                         <div class="tovar_article"><%=referencia%></div>
@@ -135,10 +108,7 @@
                         </div>
                         <div class="tovar_view_btn">
                             <%Usuarios sesion = (Usuarios) request.getSession().getAttribute("usuarioValido");
-
                                 if (sesion != null) {
-
-
                             %>
                             <a class="add_bag" href="Controller?opID=RealizarPedido&referencia=<%=referencia%>" ><i class="fa fa-shopping-cart"></i>Añadir a la bolsa</a>
                             <a class="add_lovelist" href="Controller?opID=AddWishList&Referencia=<%=referencia%>" ><i class="fa fa-heart"></i></a>
@@ -157,21 +127,16 @@
                             </ul>
                         </div>
                     </div>
-                </div><!-- //CLEARFIX -->
-
-                <!-- TOVAR INFORMATION -->
+                </div>
                 <div class="tovar_information">
                     <ul class="tabs clearfix">
                         <li>Descripcion</li>
-
                     </ul>
                     <div class="box visible">
-
                         <%=descripcion%>
                     </div>
-
-                </div><!-- //TOVAR INFORMATION -->
-            </div><!-- //TOVAR DETAILS WRAPPER -->
-        </div><!-- //ROW -->
-    </div><!-- //CONTAINER -->
-</section><!-- //TOVAR DETAILS -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
