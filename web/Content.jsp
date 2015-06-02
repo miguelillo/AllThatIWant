@@ -457,8 +457,8 @@
                 <div class="col-lg-6 col-md-6 padbot30">
                     <div class="recent_post_item clearfix">
                         <div class="recent_post_date">15<span>oct</span></div>
-                        <a class="recent_post_img" href="blog-post.html" ><img src="images/blog/recent1.jpg" alt="" /></a>
-                        <a class="recent_post_title" href="blog-post.html" >Lorem Ipsum dolor sit amet.</a>
+                        <a class="recent_post_img" href="Controller?opID=Blog" ><img src="images/blog/recent1.jpg" alt="" /></a>
+                        <a class="recent_post_title" href="Controller?opID=Blog" >Lorem Ipsum dolor sit amet.</a>
                         <div class="recent_post_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</div>
                         <ul class="post_meta">
                             <li><i class="fa fa-comments"></i>Comentarios <span class="sep">|</span> 15</li>
@@ -469,8 +469,8 @@
                 <div class="col-lg-6 col-md-6 padbot30">
                     <div class="recent_post_item clearfix">
                         <div class="recent_post_date">07<span>dec</span></div>
-                        <a class="recent_post_img" href="blog-post.html" ><img src="images/blog/recent2.jpg" alt="" /></a>
-                        <a class="recent_post_title" href="blog-post.html" >Lorem Ipsum dolor sit amet.</a>
+                        <a class="recent_post_img" href="Controller?opID=Blog" ><img src="images/blog/recent2.jpg" alt="" /></a>
+                        <a class="recent_post_title" href="Controller?opID=Blog" >Lorem Ipsum dolor sit amet.</a>
                         <div class="recent_post_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</div</div>
                     <ul class="post_meta">
                         <li><i class="fa fa-comments"></i>Comentarios <span class="sep">|</span> 15</li>

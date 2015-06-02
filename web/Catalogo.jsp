@@ -44,11 +44,6 @@
 
 
 
-
-
-
-
-                <img class="product_catalog_img product_women" src="images/tovar/product_women.jpg" alt="" />
                 <p class="product_catalog_title"><%=nombreClasificacion%></p>
                 <ul class="product_catalog_list">
                     <%for (Categoria categoria : categorias) {

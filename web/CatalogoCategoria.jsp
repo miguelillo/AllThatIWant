@@ -30,7 +30,10 @@
         <!-- ROW -->
         <div class="row">
 
-
+    <div class="col-lg-3 col-md-3 col-xs-6 col-ss-12">
+                        <a class="banner type1 margbot30" href="javascript:void(0);" ><img src="images/tovar/banner1.jpg" alt="" /></a>
+                        <a class="banner type2 margbot40" href="javascript:void(0);" ><img src="images/tovar/banner2.jpg" alt="" /></a>
+                    </div><!-- //BANNER -->
 
             <!-- SHOP PRODUCTS -->
             <div class="col-lg-9 col-sm-9 col-sm-9 padbot20">
@@ -153,24 +156,6 @@
 
 
 
-
-
-
-
-
-
-                <hr>
-
-                <div class="padbot60 services_section_description">
-                    <p>LOREM IPSUM</p>
-                    <span>Gluten-free quinoa selfies carles, kogi gentrify retro marfa viral. Odd future photo booth flannel ethnic pug, occupy keffiyeh synth blue bottle tofu tonx iphone. Blue bottle 90′s vice trust fund gastropub gentrify retro marfa viral. Gluten-free quinoa selfies carles, kogi gentrify retro marfa viral. Odd future photo booth flannel ethnic pug, occupy keffiyeh synth blue bottle tofu tonx iphone. Blue bottle 90′s vice trust fund gastropub gentrify retro marfa viral.</span>
-                </div>
-
-                <!-- SHOP BANNER -->
-                <div class="row top_sale_banners center">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-ss-12"><a class="banner nobord margbot30" href="javascript:void(0);" ><img src="images/tovar/banner22.jpg" alt="" /></a></div>
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-ss-12"><a class="banner nobord margbot30" href="javascript:void(0);" ><img src="images/tovar/banner23.jpg" alt="" /></a></div>
-                </div><!-- //SHOP BANNER -->
             </div><!-- //SHOP PRODUCTS -->
         </div><!-- //ROW -->
     </div><!-- //CONTAINER -->

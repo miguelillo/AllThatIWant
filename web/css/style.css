@@ -3669,16 +3669,18 @@ table tr.cart_item td.product-subtotal {
     text-transform:uppercase;
     font-weight:300;
     line-height:47px;
-    font-size:40px;
+    font-size: 20px;
     color:#333;
+    font-style: italic;
+    font-weight: normal;
 }
-.product_catalog_list {padding-left:90px;}
+.product_catalog_list {/* padding-left:90px; */}
 .product_catalog_list li {
     position:relative;
     padding:10px 5px 0 12px;
 }
 .product_catalog_list li:before {
-    content:'?';
+    /* content:'?'; */
     position:absolute;
     left:0;
     top:14px;
@@ -3695,7 +3697,7 @@ table tr.cart_item td.product-subtotal {
 }
 .product_catalog_list li a:hover {color:#333;}
 
-.product_catalog_item .product_catalog_list {padding-left:300px;}
+.product_catalog_item .product_catalog_list {/* padding-left:300px; */}
 
 
 
