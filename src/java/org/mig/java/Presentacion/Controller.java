@@ -47,7 +47,6 @@ public class Controller extends HttpServlet {
 //                    throw new Exception("Debes estar Logeado para ver el contenido");
 //                }
 //            }
-
             command = (ICommand) Class.forName("org.mig.java.Commands." + opcion + "Command").newInstance();
 
             command.initPage(request, response);
@@ -58,11 +57,15 @@ public class Controller extends HttpServlet {
             request.getRequestDispatcher("index.jsp").forward(request, response);
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
+            pagina = "404.jsp";
             request.setAttribute("error", ex.getMessage());
             request.setAttribute("pagina", pagina);
-            request.getRequestDispatcher("404.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        } catch (Exception ex) {
+            pagina = "404.jsp";
+            request.setAttribute("error", ex.getMessage());
+            request.setAttribute("pagina", pagina);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 

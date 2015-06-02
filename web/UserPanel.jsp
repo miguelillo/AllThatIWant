@@ -160,10 +160,6 @@
                             <td><%=pais%></td>
                         </tr>
                         <tr class="shipping clearfix">
-                            <th>Fecha Nacimiento</th>
-                            <td>Gratis</td>
-                        </tr>
-                        <tr class="shipping clearfix">
                             <th>Perfil</th>
                             <td><%=perfil%></td>
                         </tr>

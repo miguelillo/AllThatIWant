@@ -56,7 +56,7 @@ public class RegisterCommand extends ICommand {
 //
 //        
         fileUpload(request);
-        return "InfoRegistro.jsp";
+        return "LoginUser.jsp";
     }
 
     private void fileUpload(HttpServletRequest request) throws FileUploadException {

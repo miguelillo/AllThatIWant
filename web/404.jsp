@@ -11,7 +11,7 @@
             <h1>404</h1>
             <h2>ERROR</h2>
             <p>Algo Ocurrio intentelo de nuevo mas tarde.</p>
-            <a class="btn btn-white" href="Controller?opID=RedirectContent" >Return to home page</a>
+            <a class="btn btn-white" href="Controller?opID=RedirectContent" >Volver a la Pagina Principal</a>
         </div>
     </div><!-- //CONTAINER -->
 </section><!-- //PAGE 404 -->

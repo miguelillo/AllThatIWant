@@ -38,7 +38,7 @@ public class ConfirmarPedidoCommand extends ICommand {
         request.getSession().setAttribute("itemsCarrito", pedidos);
         request.getSession().setAttribute(("productosCarrito"), listaProductosCarrito);
 
-        return "Content.jsp";
+        return "PayPal.jsp";
     }
 
 }

@@ -16,6 +16,9 @@ public class RedirectNewRegisterCommand extends ICommand {
 
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        
+        
+        
         return "NewRegister.jsp";
     }
 

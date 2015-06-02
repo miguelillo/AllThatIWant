@@ -55,7 +55,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <%   int precio = 0;
+                        <%
+                            int envio = 0;
+                            int precio = 0;
                             int sumaTotal = 0;
                             List<Productos> productosCarrito = (ArrayList< Productos>) request.getSession().getAttribute("productosCarrito");
 
@@ -123,18 +125,19 @@
                     <table class="bag_total">
                         <tr class="cart-subtotal clearfix">
                             <th>Sub total</th>
-                            <td><%=(precio * 21 / 100) + precio%>€</td>
+                            <td><%=sumaTotal%>€</td>
                         </tr>
                         <tr class="shipping clearfix">
                             <th>Envio</th>
                             <td>
 
                                 <%
-                                    if (sumaTotal > 35) {
+                                    if (sumaTotal > 35 || sumaTotal == 0) {
+                                        envio = 0;
                                 %><td>GRATIS</td><%
                                 } else {
 
-                                    sumaTotal += 3;
+                                    envio = 3;
                             %><td>3€</td><%
                                 }
 
@@ -145,7 +148,7 @@
                         </tr>
                         <tr class="total clearfix">
                             <th>Total</th>
-                            <td>€<%=sumaTotal + (sumaTotal * 21 / 100)%></td>
+                            <td>€<%=envio + sumaTotal + (sumaTotal * 21 / 100)%></td>
                         </tr>
                     </table>
                     <form class="coupon_form" action="javascript:void(0);" method="get">

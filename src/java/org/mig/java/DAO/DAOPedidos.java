@@ -54,7 +54,7 @@ public class DAOPedidos implements IPedidos {
             + "VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String MOSTRAR_PEDIDOS = "SELECT * FROM `pedidos` WHERE `UsuarioMail` = ? AND  `Estado_Servicio` = 'PEDIDO'";
     private static final String MOSTRAR_HISTORIAL_PEDIDOS = "SELECT * FROM `pedidos` WHERE `UsuarioMail` = ?";
-    private static final String BORRAR_PRODUCTO_PEDIDO = "DELETE FROM `pedidos` WHERE `ProductoReferencia` = ? AND `UsuarioMail` = ?";
+    private static final String BORRAR_PRODUCTO_PEDIDO = "DELETE FROM `pedidos` WHERE `ProductoReferencia` = ? AND `UsuarioMail` = ? LIMIT 1";
     private static final String ACTUALIZAR_PEDIDOS_COMPRADO = "UPDATE `pedidos` SET `Fecha_Confirmacion`=CURRENT_DATE(),`Num_Factura`=?,`Estado_Servicio`= 'COMPRADO' WHERE `ProductoReferencia`= ?";
 
     @Override
