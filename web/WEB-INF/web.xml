@@ -32,5 +32,4 @@
     <welcome-file-list>
         <welcome-file>IndexServlet</welcome-file>
     </welcome-file-list>
-
 </web-app>

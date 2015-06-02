@@ -23,6 +23,7 @@ import org.mig.java.BLL.RegistroBLL;
 import org.mig.java.Entities.Direcciones;
 import org.mig.java.Entities.Telefonos;
 import org.mig.java.Entities.Usuarios;
+import org.mig.java.Exceptions.DAOException;
 
 /**
  * @author miguelangel
@@ -59,7 +60,7 @@ public class RegisterCommand extends ICommand {
         return "LoginUser.jsp";
     }
 
-    private void fileUpload(HttpServletRequest request) throws FileUploadException {
+    private void fileUpload(HttpServletRequest request) throws FileUploadException, Exception {
         ServletContext servletContext = request.getServletContext();
         RegistroBLL registroBll = new RegistroBLL();
         Usuarios usuario = new Usuarios();
@@ -188,11 +189,13 @@ public class RegisterCommand extends ICommand {
             telefono.setUsuarioMail(email);
 
             registroBll.RegistroUsuario(usuario, telefono, direccion);
-        } catch (Exception ex) {
-            System.out.println("Excepcion lanzada: " + ex);
-        } finally {
-            //out.close();
-        }
-    }
 
+        } catch (DAOException ex) {
+            throw new Exception(ex.getMessage());
+        } catch (Exception ex) {
+            throw new Exception("Ocurro un error durante el registro, revise los datos e intentelo de nuevo");
+
+        }
+
+    }
 }

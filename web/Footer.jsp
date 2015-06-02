@@ -19,12 +19,12 @@
                 <h4>Informacion</h4>
                 <ul class="foot_menu">
                     <li><a href="Controller?opID=RedirectLoginTiendas">Login Tiendas</a></li>
-                    <li><a href="about.html" >Nosotros</a></li>
+                    <li><a href="javascript:void(0);" >Nosotros</a></li>
                     <li><a href="javascript:void(0);" >Envios</a></li>
                     <li><a href="javascript:void(0);" >Politica de Privacidad</a></li>
-                    <li><a href="blog.html" >Blog</a></li>
-                    <li><a href="faq.html" >Faqs</a></li>
-                    <li><a href="contacts.html" >Contacto</a></li>
+                    <li><a href="javascript:void(0);" >Blog</a></li>
+                    <li><a href="javascript:void(0);" >Faqs</a></li>
+                    <li><a href="javascript:void(0);" >Contacto</a></li>
                 </ul>
             </div>
 
@@ -65,7 +65,7 @@
 
         <!-- CONTAINER -->
         <div class="container clearfix">
-            <div class="foot_logo"><a href="index.html" ><img src="" alt="" /><img src="images/Logopic.png"/></a></div>
+            <div class="foot_logo"><a href="Controller?opID=RedirectContent" ><img src="" alt="" /><img src="images/Logopic.png"/></a></div>
             <div class="copyright_inf">
                 <span>All That I Want© 2015</span> 
                 <a class="back_top" href="javascript:void(0);" >Volver Arriba<i class="fa fa-angle-up"></i></a>

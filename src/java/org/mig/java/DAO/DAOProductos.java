@@ -64,7 +64,7 @@ public class DAOProductos implements IProductos {
     private static final String WISH_LIST = "SELECT * FROM usuario_wishList INNER JOIN productos ON usuario_wishList.Producto = productos.Referencia WHERE usuario_wishList.Usuario =  ? LIMIT 0 , 30";
     private static final String INSERT_WISH_LIST = "INSERT INTO `usuario_wishList`(`Usuario`, `Producto`) VALUES (?,?)";
     private static final String MOSTRAR_PRODUCTOS = "SELECT * FROM `productos` ORDER BY `Fecha_Catalogo` DESC  LIMIT 0,11";
-    private static final String MOSTRAR_PRODUCTOS_TIENDA = "SELECT * FROM `productos_tiendas` WHERE TiendaCif = ?";
+    private static final String MOSTRAR_PRODUCTOS_TIENDA = "SELECT * FROM productos order by nombre ASC";
     private static final String MOSTRAR_PRODUCTOS_PEDIDOS = "SELECT productos.*\n"
             + "FROM productos \n"
             + "INNER JOIN pedidos \n"
@@ -339,7 +339,27 @@ public class DAOProductos implements IProductos {
 
     @Override
     public List<Productos> mostrarProductosUsuario(Usuarios usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Productos producto;
+        ArrayList<Productos> listaProductos = new ArrayList<>();
+        try {
+            Connection connection = daoFactory.getConnection();
+
+            PreparedStatement preparedStatement = prepareStatement(connection, MOSTRAR_PRODUCTOS_TIENDA);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                producto = obtenerFilaProducto(rs);
+                listaProductos.add(producto);
+
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(DAOProductos.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listaProductos;
     }
 
     @Override

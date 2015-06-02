@@ -6,8 +6,6 @@
 package org.mig.java.Presentacion;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -58,7 +56,7 @@ public class Controller extends HttpServlet {
 
         } catch (ClassNotFoundException ex) {
             pagina = "404.jsp";
-            request.setAttribute("error", ex.getMessage());
+            request.setAttribute("error", "Orden Desconocida vuelva a la pagina Principal, sentimos las molestias");
             request.setAttribute("pagina", pagina);
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } catch (Exception ex) {

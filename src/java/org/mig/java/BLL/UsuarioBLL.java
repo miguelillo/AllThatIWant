@@ -13,7 +13,6 @@ public class UsuarioBLL {
     public void RegistrarUsuario(Usuarios usuario) {
         DAOFactory factory = DAOFactory.getInstance();
         IUsuario daoUsuario = factory.getUsuarioDAO();
-
         //Cargo el objeo instanciado que se ha pasado desde el 
         daoUsuario.RegistrarUsuario(usuario);
     }
@@ -21,17 +20,14 @@ public class UsuarioBLL {
     public Usuarios loginUsuario(Usuarios usuario) {
         DAOFactory factory = DAOFactory.getInstance();
         IUsuario daoUsuario = factory.getUsuarioDAO();
-
         return daoUsuario.LoginUsuario(usuario);
     }
+
     public Usuarios MostrarUsuario(Usuarios usuario) {
         Usuarios usuarioUnico = new Usuarios();
         DAOFactory daoFactory = DAOFactory.getInstance();
-
         IUsuario iUsuario = daoFactory.getUsuarioDAO();
-
         usuarioUnico = iUsuario.MostrarUsuario(usuario);
-
         return usuarioUnico;
 
     }

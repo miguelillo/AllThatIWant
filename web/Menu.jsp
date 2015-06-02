@@ -63,6 +63,7 @@
         <div class="shopping_bag">
             <a class="shopping_bag_btn" href="javascript:void(0);" ><i class="fa fa-shopping-cart"></i><p>Carrito</p><span><%=numeroItemsCarrito%></span></a>
             <div class="cart">
+                <a href="Controller?opID=RedirectShoppingBag">Ver Carrito</a>
                 <ul class="cart-items">
                     <%
                         for (int i = 0; i < productosCarrito.size(); i++) {
@@ -98,7 +99,7 @@
                         }%>
                 </ul>
                 <div class="cart_total">
-                    <a href="Controller?opID=RedirectShoppingBag">Ver Carrito</a>
+                    
                     <div class="clearfix"><span class="cart_subtotal">Sub Total: <b>€<%=sumaCarritoTotal%></b></span></div>
                     <a class="btn active" href="Controller?opID=ConfirmarPedido">Comprar</a>
                 </div>

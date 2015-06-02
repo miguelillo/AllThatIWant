@@ -1228,14 +1228,6 @@ header {
 /*-----------------------------------------------------------------------------------*/
 .tovar_section {padding-top:26px;}
 
-
-
-
-
-
-
-
-
 /*-----------------------------------------------------------------------------------*/
 /*	TOVAR ITEM
 /*-----------------------------------------------------------------------------------*/
@@ -1254,7 +1246,7 @@ header {
 
 .tovar_item .tovar_img_wrapper .img_h,
 .tovar_item:hover .tovar_img_wrapper .img {
-    opacity:0;
+    opacity:0.25;
 }
 .tovar_item:hover .tovar_img_wrapper .img_h {opacity:0.25;}
 

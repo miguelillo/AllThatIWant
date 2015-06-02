@@ -95,7 +95,11 @@ public class DAORegistro implements IRegistro {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(DAORegistro.class.getName()).log(Level.SEVERE, null, ex);
+            if (ex.getErrorCode() == 1062) {
+                throw new DAOException("El usuario ya Existe");
+            } else {
+                throw new DAOException("Error al crear el usuario");
+            }
         }
     }
 

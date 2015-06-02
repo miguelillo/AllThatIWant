@@ -132,7 +132,8 @@
 
                     <!-- BANNER -->
                     <div class="col-lg-3 col-md-3">
-                        <a class="banner nobord margbot40" href="javascript:void(0);" ><img src="images/tovar/banner5.jpg" alt="" /></a>
+                        <a class="banner nobord margbot40" href="javascript:void(0);" >
+                            <img src="images/tovar/banner5.jpg" alt="" /></a>
                     </div><!-- //BANNER -->
                 </div><!-- //BANNER WRAPPER -->
             </div><!-- //ROW -->
@@ -251,154 +252,40 @@
 
                 <div class="jcarousel" data-appear-top-offset='-100' data-animated='fadeInUp'>
                     <ul>
+
+                        <%
+                            List<Productos> listaProductos = (List) request.getSession().getAttribute("listaProductosUsuario");
+                            List<Imagenes_productos> listadoImagenesProductos = (List) request.getAttribute("listadoImagenesProductos");
+                            for (int i = 0; i < listaProductos.size(); i++) {
+                                String referencia = listaProductos.get(i).getReferencia();
+                                String nombre = listaProductos.get(i).getNombre();
+                                String precio = String.valueOf(listaProductos.get(i).getPrecio());
+                                String urlImagen = null;
+                        %>
                         <li>
                             <!-- TOVAR -->
                             <div class="tovar_item_new">
                                 <div class="tovar_img">
-                                    <img src="images/tovar/women/new/1.jpg" alt="" />
-                                    <div class="open-project-link"><a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a></div>
+
+                                    <%
+                                        for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                            Imagenes_productos imagenes = listadoImagenesProductos.get(x);
+                                            String imagenProReferencia = imagenes.getProdReferencia();
+
+                                            if (imagenProReferencia.equals(referencia)) {
+                                                urlImagen = listadoImagenesProductos.get(x).getUrl();
+                                            }
+                                        }
+                                    %>
+                                    <img src="<%=urlImagen%>" alt="" />
                                 </div>
                                 <div class="tovar_description clearfix">
-                                    <a class="tovar_title" href="product-page.html" >Moonglow paisley silk tee</a>
-                                    <span class="tovar_price">€98.00</span>
+                                    <a class="tovar_title" href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>" ><%=nombre%></a>
+                                    <span class="tovar_price"><%=precio%>€</span>
                                 </div>
                             </div><!-- //TOVAR -->
                         </li>
-                        <li>
-                            <!-- TOVAR -->
-                            <div class="tovar_item_new">
-                                <div class="tovar_img">
-                                    <img src="images/tovar/women/new/2.jpg" alt="" />
-                                    <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
-                                    </div>
-                                </div>
-                                <div class="tovar_description clearfix">
-                                    <a class="tovar_title" href="product-page.html" >PEASANT TOP IN SUCKERED STRIPE</a>
-                                    <span class="tovar_price">€78.00</span>
-                                </div>
-                            </div><!-- //TOVAR -->
-                        </li>
-                        <li>
-                            <!-- TOVAR -->
-                            <div class="tovar_item_new">
-                                <div class="tovar_img">
-                                    <img src="images/tovar/women/new/3.jpg" alt="" />
-                                    <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
-                                    </div>
-                                </div>
-                                <div class="tovar_description clearfix">
-                                    <a class="tovar_title" href="product-page.html" >EMBROIDERED BIB PEASANT TOP</a>
-                                    <span class="tovar_price">€88.00</span>
-                                </div>
-                            </div><!-- //TOVAR -->
-                        </li>
-                        <li>
-                            <!-- TOVAR -->
-                            <div class="tovar_item_new">
-                                <div class="tovar_img">
-                                    <img src="images/tovar/women/new/4.jpg" alt="" />
-                                    <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
-                                    </div>
-                                </div>
-                                <div class="tovar_description clearfix">
-                                    <a class="tovar_title" href="product-page.html" >SILK POCKET BLOUSE</a>
-                                    <span class="tovar_price">€98.00</span>
-                                </div>
-                            </div><!-- //TOVAR -->
-                        </li>
-                        <li>
-                            <!-- TOVAR -->
-                            <div class="tovar_item_new">
-                                <div class="tovar_img">
-                                    <img src="images/tovar/women/new/5.jpg" alt="" />
-                                    <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
-                                    </div>
-                                </div>
-                                <div class="tovar_description clearfix">
-                                    <a class="tovar_title" href="product-page.html" >SWISS-DOT TUXEDO SHIRT</a>
-                                    <span class="tovar_price">€65.00</span>
-                                </div>
-                            </div><!-- //TOVAR -->
-                        </li>
-                        <li>
-                            <!-- TOVAR -->
-                            <div class="tovar_item_new">
-                                <div class="tovar_img">
-                                    <img src="images/tovar/women/new/6.jpg" alt="" />
-                                    <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
-                                    </div>
-                                </div>
-                                <div class="tovar_description clearfix">
-                                    <a class="tovar_title" href="product-page.html" >STRETCH PERFECT SHIRT</a>
-                                    <span class="tovar_price">?72.00</span>
-                                </div>
-                            </div><!-- //TOVAR -->
-                        </li>
-                        <li>
-                            <!-- TOVAR -->
-                            <div class="tovar_item_new">
-                                <div class="tovar_img">
-                                    <img src="images/tovar/women/new/1.jpg" alt="" />
-                                    <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
-                                    </div>
-                                </div>
-                                <div class="tovar_description clearfix">
-                                    <a class="tovar_title" href="product-page.html" >Moonglow paisley silk tee</a>
-                                    <span class="tovar_price">€98.00</span>
-                                </div>
-                            </div><!-- //TOVAR -->
-                        </li>
-                        <li>
-                            <!-- TOVAR -->
-                            <div class="tovar_item_new">
-                                <div class="tovar_img">
-                                    <img src="images/tovar/women/new/2.jpg" alt="" />
-                                    <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
-                                    </div>
-                                </div>
-                                <div class="tovar_description clearfix">
-                                    <a class="tovar_title" href="product-page.html" >PEASANT TOP IN SUCKERED STRIPE</a>
-                                    <span class="tovar_price">€78.00</span>
-                                </div>
-                            </div><!-- //TOVAR -->
-                        </li>
-                        <li>
-                            <!-- TOVAR -->
-                            <div class="tovar_item_new">
-                                <div class="tovar_img">
-                                    <img src="images/tovar/women/new/3.jpg" alt="" />
-                                    <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
-                                    </div>
-                                </div>
-                                <div class="tovar_description clearfix">
-                                    <a class="tovar_title" href="product-page.html" >EMBROIDERED BIB PEASANT TOP</a>
-                                    <span class="tovar_price">€88.00</span>
-                                </div>
-                            </div><!-- //TOVAR -->
-                        </li>
-                        <li>
-                            <!-- TOVAR -->
-                            <div class="tovar_item_new">
-                                <div class="tovar_img">
-                                    <img src="images/tovar/women/new/4.jpg" alt="" />
-                                    <div class="open-project-link">
-                                        <a class="open-project tovar_view" href="%21projects/women/1.html" >Ver</a>
-                                    </div>
-                                </div>
-                                <div class="tovar_description clearfix">
-                                    <a class="tovar_title" href="product-page.html" >SILK POCKET BLOUSE</a>
-                                    <span class="tovar_price">€98.00</span>
-                                </div>
-                            </div><!-- //TOVAR -->
-                        </li>
+                        <%}%>
                     </ul>
                 </div>
             </div><!-- //JCAROUSEL -->

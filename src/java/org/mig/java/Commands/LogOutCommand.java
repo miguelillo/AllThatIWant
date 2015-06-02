@@ -19,11 +19,12 @@ public class LogOutCommand extends ICommand {
 
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        ProductosBLL productosBll = new ProductosBLL();
         request.getSession().setAttribute("clienteSesion", null);
         request.getSession().invalidate();
-
+        List<Productos> listaProductosUsuario = productosBll.mostrarProductosUsuario();
+        request.getSession().setAttribute("listaProductosUsuario", listaProductosUsuario);
         //Lleno los articulos genericos
-        ProductosBLL productosBll = new ProductosBLL();
         List<Productos> listaProductos = productosBll.MostrarProductos();
         List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
         request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);

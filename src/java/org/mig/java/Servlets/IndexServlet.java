@@ -34,9 +34,13 @@ public class IndexServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ProductosBLL productosBll = new ProductosBLL();
+        
         List<Productos> listaProductos = productosBll.MostrarProductos();
+        List<Productos> listaProductosUsuario = productosBll.mostrarProductosUsuario();
         List<Categoria> categorias = productosBll.MostrarCategorias();
         List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        
+        request.getSession().setAttribute("listaProductosUsuario", listaProductosUsuario);
         request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         request.getSession().setAttribute("categoria", categorias);
         request.getSession().setAttribute("listaProductos", listaProductos);

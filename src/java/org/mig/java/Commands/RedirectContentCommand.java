@@ -20,7 +20,9 @@ public class RedirectContentCommand extends ICommand {
     @Override
     public String executePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ProductosBLL productosBll = new ProductosBLL();
+        
         List<Imagenes_productos> listadoImagenesProductos = productosBll.listaImagenesProductos();
+        
         request.setAttribute("listadoImagenesProductos", listadoImagenesProductos);
         return "Content.jsp";
     }

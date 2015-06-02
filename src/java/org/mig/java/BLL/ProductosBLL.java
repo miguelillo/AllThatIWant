@@ -25,7 +25,7 @@ public class ProductosBLL {
         DAOFactory dAOFactory = DAOFactory.getInstance();
 
         IProductos daoProductos = dAOFactory.getProductosDAO();
-        
+
         listaImagenes = daoProductos.mostrarImagenesProductos();
 
         return listaImagenes;
@@ -45,6 +45,15 @@ public class ProductosBLL {
         IProductos daoProductos = daoFactory.getProductosDAO();
 
         daoProductos.insertarProducto(producto, tienda, imagen);
+
+    }
+
+    public List<Productos> mostrarProductosUsuario() {
+        DAOFactory daoFactory = DAOFactory.getInstance();
+
+        IProductos daoProductos = daoFactory.getProductosDAO();
+
+        return daoProductos.mostrarProductosUsuario(null);
 
     }
 
