@@ -66,7 +66,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="surname1">Primer Apellido</label>  
                                 <div class="col-md-6">
-                                    <input onblur="nombre('surname1')"id="surname1" name="surname1" type="text" placeholder="Introduce tu Segundo Apellido" class="form-control input-md">
+                                    <input onblur="nombre('surname1')"id="surname1" name="surname1" type="text" placeholder="Introduce tu Segundo Apellido" class="form-control input-md" required="">
 
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                                 <input type="date" class="col-md-6 bfh-datepicker" name="FechaNacimiento" style="
                                        /* width: 100%; */    
                                        height: 40px;    margin: 0 6px 10px 0;    padding: 10px;    text-transform: none;    font-family: 'Roboto', sans-serif;    font-weight: 400;    line-height: 20px;    font-size: 11px;    color: #666;    font-style: normal;    border-radius: 0;    background: #fff;    border: 2px solid #e9e9e9;    box-shadow: none;    transition: all 0.3s ease-in-out;    -webkit-transition: all 0.3s ease-in-out;
-                                       ">
+                                       " required="">
                                 </input>
                             </div>
 
@@ -388,7 +388,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="address">Dirección</label>  
                                     <div class="col-md-6">
-                                        <input onblur="direccion1()"id="address" name="address" type="text" placeholder="Introduce una dirección" class="form-control input-md">
+                                        <input onblur="direccion1()"id="address" name="address" type="text" placeholder="Introduce una dirección" class="form-control input-md" required="">
 
                                     </div>
                                 </div>
@@ -416,7 +416,7 @@
 
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="paisResidencia">Pais de Residencia</label> 
-                                    <select name="paisResidencia" id="country-selector" autofocus="autofocus" autocorrect="off" autocomplete="off" class="col-md-6">
+                                    <select name="paisResidencia" id="country-selector" autofocus="autofocus" autocorrect="off" autocomplete="off" class="col-md-6" required="">
                                         <option value="" selected="selected">Select Country</option>
                                         <option value="Afghanistan" data-alternative-spellings="AF افغانستان">Afghanistan</option>
                                         <option value="Åland Islands" data-alternative-spellings="AX Aaland Aland" data-relevancy-booster="0.5">Åland Islands</option>
@@ -679,7 +679,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="nick">Nombre Usuario</label>  
                                     <div class="col-md-6">
-                                        <input onblur="nombre('surname1')"id="surname1" name="nick" type="text" placeholder="Introduce un nombre de usuario" class="form-control input-md">
+                                        <input onblur="nombre('surname1')"id="surname1" name="nick" type="text" placeholder="Introduce un nombre de usuario" class="form-control input-md" required="">
 
                                     </div>
                                 </div>
@@ -701,7 +701,7 @@
 
 
                                 </fieldset>
-                                <button class="btn btn-lg btn-primary btn-block" type="submit">Aceptar</button>
+                                <button class="btn btn-lg btn-primary btn-block" id="registrarButton" type="submit">Aceptar</button>
                             </div>
                         </div>
 

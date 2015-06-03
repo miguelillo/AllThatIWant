@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 
-
+$(document).ready(function () {
+    $("#registrarButton").prop("disabled", true);
+});
 var userExp = /^([a-zA-Z0-9]{1,10})$/;
 var passExp = /^(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,20})$/;
 var regexFechaExp = /^(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])$/;
@@ -82,6 +84,7 @@ function validarPassword() {
     } else {
         inputPassword.style.backgroundColor = '#7DFF7D';
         inputPassword2.style.backgroundColor = '#7DFF7D';
+        $("#registrarButton").prop("disabled", false);
     }
 
 

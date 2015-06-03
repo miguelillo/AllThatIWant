@@ -37,19 +37,7 @@
         <!-- LOGO -->
         <div class="logo">
             <a href="Controller?opID=RedirectContent" ><img src="images/logo negro nombre completo transp.jpg"/></a>
-        </div><!-- //LOGO -->
-
-
-        <!-- SEARCH FORM -->
-        <div class="top_search_form">
-            <a class="top_search_btn" href="javascript:void(0);" ><i class="fa fa-search"></i></a>
-            <form method="get" action="#">
-                <input type="text" name="search" value="Search" onFocus="if (this.value === 'Search')
-                            this.value = '';" onBlur="if (this.value === '')
-                                        this.value = 'Search';" />
-            </form>
-        </div><!-- SEARCH FORM -->
-        <!-- SHOPPING BAG -->
+        </div>
 
         <%
             if (sesion != null) {
