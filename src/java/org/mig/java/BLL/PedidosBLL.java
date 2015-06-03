@@ -20,6 +20,7 @@ import org.mig.java.Interfaces.IPedidos;
 public class PedidosBLL {
     
     public void RealizarPedido(Pedidos pedido) {
+          
         DAOFactory daoFactory = DAOFactory.getInstance();
         
         IPedidos pedidosDao = daoFactory.getPedidosDAO();

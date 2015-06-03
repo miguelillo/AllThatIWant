@@ -34,12 +34,10 @@
                             String referenciaPrpductoRelacionado = listaProductos.get(i).getReferencia();
                             String nombrePrpductoRelacionado = listaProductos.get(i).getNombre();
                             String precioPrpductoRelacionado = String.valueOf(listaProductos.get(i).getPrecio());
-                            
-                            if(!referenciaPrpductoRelacionado.equals(referencia)){
+
+                            if (!referenciaPrpductoRelacionado.equals(referencia)) {
                     %>
-
                     <li class="clearfix">
-
                         <%
                             String urlImagenProductoRelacionado = "";
                             for (int x = 0; x < listadoImagenesProductos.size(); x++) {
@@ -48,13 +46,13 @@
 
                                 if (imagenProReferencia.equals(referenciaPrpductoRelacionado)) {
                                     urlImagenProductoRelacionado = listadoImagenesProductos.get(x).getUrl();
-                        %>  <img class="tovar_item_small_img" src=<%=urlImagenProductoRelacionado%> alt="" /><%
-                                }
-                            }%>               
-                        <a href="Controller?opID=MostrarProducto&Referencia=<%=referencia%>" class="tovar_item_small_title"><%=nombrePrpductoRelacionado%></a>
+                        %>  <img class="tovar_item_small_img" src=<%=urlImagenProductoRelacionado%> alt="" />
+                        <%}}%>               
+                        <a href="Controller?opID=MostrarProducto&Referencia=<%=referenciaPrpductoRelacionado%>" class="tovar_item_small_title"><%=nombrePrpductoRelacionado%></a>
                         <span class="tovar_item_small_price"><%=precioPrpductoRelacionado%>€</span>
                     </li>
-                    <%}}%>
+                    <%}
+                        }%>
                 </ul>
             </div>
             <div class="col-lg-9 col-md-9 tovar_details_wrapper clearfix">
@@ -79,7 +77,8 @@
                         </div>
                         <div id="carousel2" class="flexslider">
                             <ul class="slides">
-                                <%                                    for (int x = 0; x < listadoImagenesProductos.size(); x++) {
+                                <%
+                                    for (int x = 0; x < listadoImagenesProductos.size(); x++) {
                                         Imagenes_productos imagenes = listadoImagenesProductos.get(x);
                                         String imagenProReferencia = imagenes.getProdReferencia();
 

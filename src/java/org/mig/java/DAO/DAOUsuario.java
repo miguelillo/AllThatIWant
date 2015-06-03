@@ -103,6 +103,7 @@ public class DAOUsuario implements IUsuario {
             usuario.getSexo()};
 
         try {
+                        
             Connection connection = daoFactory.getConnection();
             PreparedStatement statement = prepareStatement(connection, REGISTRO_USUARIO, values);
 
