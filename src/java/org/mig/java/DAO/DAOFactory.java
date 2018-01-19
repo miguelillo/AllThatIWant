@@ -16,11 +16,11 @@ public abstract class DAOFactory {
 
     // Constants ----------------------------------------------------------------------------------
     //PARA EL DEPLOY CAMBIAR EL LOCALHOST POR 46.105.17.142
-    //PASSWORD DEPLOY : hildegard / P@ssw0rd3343 
+    //PASSWORD DEPLOY : hildegard / P@1234 
     private static final String URL = "jdbc:mysql://46.105.17.142:3306/proyectofinaldaw";
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String USERNAME = "hildegard";
-    private static final String PASSWORD = "P@ssw0rd3343";
+    private static final String PASSWORD = "12342";
 
     // Actions ------------------------------------------------------------------------------------
     /**
